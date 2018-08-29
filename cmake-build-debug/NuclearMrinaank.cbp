@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp">
 			<Option target="NuclearMrinaank"/>
 		</Unit>

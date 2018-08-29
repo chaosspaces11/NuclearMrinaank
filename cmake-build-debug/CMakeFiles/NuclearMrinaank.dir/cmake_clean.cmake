@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/NuclearMrinaank.dir/main.cpp.o"
+  "CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
   "NuclearMrinaank.pdb"
   "NuclearMrinaank"
 )

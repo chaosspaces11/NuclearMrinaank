@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Cell.cpp"
 
 //Classes:
 //Cell
@@ -11,6 +12,6 @@
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    Cell test;
     return 0;
 }

@@ -8,8 +8,6 @@ class Cell
 {
 public:
     Cell();
-
-private:
 };
 
 #endif //NUCLEARMRINAANK_CELL_H

@@ -3,5 +3,5 @@
 
 Cell::Cell()
 {
-    std::cout << "Linking success" << std::endl;
-}
+    std::cout << "Qwerty" << std::endl;
+};

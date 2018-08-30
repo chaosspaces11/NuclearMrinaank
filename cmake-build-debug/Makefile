@@ -150,6 +150,33 @@ Cell.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Cell.cpp.s
 .PHONY : Cell.cpp.s
 
+Grid.o: Grid.cpp.o
+
+.PHONY : Grid.o
+
+# target to build an object file
+Grid.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o
+.PHONY : Grid.cpp.o
+
+Grid.i: Grid.cpp.i
+
+.PHONY : Grid.i
+
+# target to preprocess a source file
+Grid.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.i
+.PHONY : Grid.cpp.i
+
+Grid.s: Grid.cpp.s
+
+.PHONY : Grid.s
+
+# target to generate assembly for a file
+Grid.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
+.PHONY : Grid.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... Cell.o"
 	@echo "... Cell.i"
 	@echo "... Cell.s"
+	@echo "... Grid.o"
+	@echo "... Grid.i"
+	@echo "... Grid.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

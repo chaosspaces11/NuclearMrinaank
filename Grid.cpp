@@ -4,13 +4,9 @@
 #include <iostream>
 #include "Grid.h"
 
-// Grid:
-//      - Height
-//      - Width
-//      - draw()
-//      - currentPlayer?
-
-Grid::Grid()
+Grid::Grid(int xSize, int ySize): width(xSize), height(ySize), cells(xSize * ySize)
 {
     std::cout << "Grid file linked successfully" << std::endl;
+    std::cout <<
 }
+

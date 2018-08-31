@@ -9,8 +9,16 @@
 class Grid
 {
 public:
-    Grid();
+    // Grid function that creates the width, height and amount of cells contained.
+    Grid(int width, int height);
+
+    // Returns the private variable cells
+    int numCells();
+
 private:
+    int width;
+    int height;
+    int cells;
 };
 
 

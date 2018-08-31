@@ -86,6 +86,9 @@
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Debug.h">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp">
 			<Option target="NuclearMrinaank"/>
 		</Unit>

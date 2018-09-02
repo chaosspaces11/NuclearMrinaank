@@ -15,7 +15,10 @@ public:
 
 private:
     // Amount of objects within the cell
-    int states;
+    int state;
+
+    //State where it explodes
+    int unstableState;
 
     // X coordinate
     int x;
@@ -24,7 +27,7 @@ private:
     int y;
 
     // Array of the adjacent cells
-    int adjacentLocations[4];
+    int adjacentLocations[4][2];
 
     // Distributes objects within current cell to adjacent cells
     void explode();

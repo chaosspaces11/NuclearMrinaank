@@ -6,6 +6,9 @@
 #define NUCLEARMRINAANK_GRID_H
 
 
+#include "Cell.h"
+#include <vector>
+
 class Grid
 {
 public:
@@ -15,10 +18,13 @@ public:
     // Returns the private variable cells
     int numCells();
 
+    //Returns cell at location x,y
+    static Cell getCellAt(int x, int y);
+
 private:
-    int width;
-    int height;
-    int cells;
+    const int width;
+    const int height;
+    static std::vector<std::vector<Cell>> cells;
 };
 
 

@@ -24,6 +24,7 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
     std::cout << "Grid file linked successfully" << std::endl;
 }
 
+
 Cell Grid::getCellAt(int x, int y)
 {
     return Grid::cells[x][y];

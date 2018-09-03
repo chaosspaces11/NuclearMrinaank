@@ -1,10 +1,8 @@
 //
 // Created by Michael Chen on 30/08/2018.
 //
-
 #ifndef NUCLEARMRINAANK_GRID_H
 #define NUCLEARMRINAANK_GRID_H
-
 
 #include "Cell.h"
 #include <vector>
@@ -24,7 +22,7 @@ public:
 private:
     const int width;
     const int height;
-    static std::vector<std::vector<Cell>> cells;
+    static std::vector<std::vector<Cell> > cells;
 };
 
 

@@ -13,6 +13,8 @@ public:
     // Increments private variable 'states' by 1, calls explode function if maximum amount of states is reached.
     void buildUp();
 
+    void print();
+
 private:
     // Amount of objects within the cell
     int state;

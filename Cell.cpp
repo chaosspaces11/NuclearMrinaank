@@ -5,8 +5,8 @@
 Cell::Cell(int x, int y)
 {
     // Test output statements
-    std::cout << "Cell file linked successfully" << std::endl;
-    std::cout << "X: " << x << " Y: " << y << std::endl;
+//    std::cout << "Cell file linked successfully" << std::endl;
+//    std::cout << "X: " << x << " Y: " << y << std::endl;
 
     // Variable initialisation for the default cell
     Cell::x = x;
@@ -31,10 +31,17 @@ Cell::Cell(int x, int y)
 void Cell::buildUp()
 {
     Cell::state += 1;
+
+    //cell has exceeded maximum state
     if (Cell::state >= Cell::unstableState)
     {
         Cell::explode();
     }
+}
+
+void Cell::explode()
+{
+    Cell::state = 0;
 
     for (int i = 0; i < sizeof(Cell::adjacentLocations) / sizeof(Cell::adjacentLocations[0]);i++)
     {
@@ -43,8 +50,8 @@ void Cell::buildUp()
     }
 }
 
-void Cell::explode()
+void Cell::print()
 {
-
+    std::cout << "Cell: X: " << x << " Y: " << y << std::endl;
 }
 

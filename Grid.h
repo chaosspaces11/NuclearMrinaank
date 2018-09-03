@@ -17,7 +17,7 @@ public:
     int numCells();
 
     //Returns cell at location x,y
-    static Cell getCellAt(int x, int y);
+    static Cell* getCellAt(int x, int y);
 
 private:
     //declares height and width of grid

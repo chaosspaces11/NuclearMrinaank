@@ -17,13 +17,13 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
         {
             array.push_back( Cell(row,col) );
         }
-        Grid::cells.push_back(array);
+        cells.push_back(array);
     }
 //    std::cout << "Grid file linked successfully" << std::endl;
 }
 
-Cell Grid::getCellAt(int x, int y)
+Cell* Grid::getCellAt(int x, int y)
 {
-    return cells[x][y];
+    return &cells[x][y];
 }
 

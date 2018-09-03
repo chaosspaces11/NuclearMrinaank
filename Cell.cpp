@@ -11,7 +11,7 @@ Cell::Cell(int x, int y)
     // Variable initialisation for the default cell
     Cell::x = x;
     Cell::y = y;
-    Cell:state = 0;
+    Cell::state = 0;
     Cell::unstableState = 4;
 
     // Initialises the location of the cells around the initialised cell
@@ -45,13 +45,14 @@ void Cell::explode()
 
     for (int i = 0; i < sizeof(Cell::adjacentLocations) / sizeof(Cell::adjacentLocations[0]);i++)
     {
-        Cell adjacentCell = Grid::getCellAt(Cell::adjacentLocations[i][0],Cell::adjacentLocations[i][1]);
-        adjacentCell.buildUp();
+        Cell* adjacentCell = Grid::getCellAt(Cell::adjacentLocations[i][0],Cell::adjacentLocations[i][1]);
+        adjacentCell->buildUp();
     }
 }
 
 void Cell::print()
 {
-    std::cout << "Cell: X: " << x << " Y: " << y << std::endl;
+    std::cout << " " << Cell::state << " ";
+//    std::cout << "Cell: X: " << x << " Y: " << y << " State: " << Cell::state << std::endl;
 }
 

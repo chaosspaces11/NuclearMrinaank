@@ -27,3 +27,14 @@ Cell* Grid::getCellAt(int x, int y)
     return &cells[x][y];
 }
 
+int Grid::getHeight()
+{
+    return Grid::height;
+}
+
+int Grid::getWidth()
+{
+    return Grid::width;
+}
+
+

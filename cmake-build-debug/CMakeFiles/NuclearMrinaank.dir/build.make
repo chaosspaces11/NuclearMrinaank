@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/pk/7h4y3m3j6r75xthnllhmrtjr0000gr/T/AppTranslocation/EC520004-ACE0-44F7-B15D-D0AE1164C7C2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/pk/7h4y3m3j6r75xthnllhmrtjr0000gr/T/AppTranslocation/EC520004-ACE0-44F7-B15D-D0AE1164C7C2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yr12/CLionProjects/NuclearMrinaank
+CMAKE_SOURCE_DIR = /Users/MichaelChen/CLionProjects/NuclearMrinaank
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/NuclearMrinaank.dir/depend.make
@@ -59,62 +59,76 @@ include CMakeFiles/NuclearMrinaank.dir/flags.make
 
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NuclearMrinaank.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/main.cpp.o -c /Users/yr12/CLionProjects/NuclearMrinaank/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NuclearMrinaank.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/main.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp
 
 CMakeFiles/NuclearMrinaank.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yr12/CLionProjects/NuclearMrinaank/main.cpp > CMakeFiles/NuclearMrinaank.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp > CMakeFiles/NuclearMrinaank.dir/main.cpp.i
 
 CMakeFiles/NuclearMrinaank.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yr12/CLionProjects/NuclearMrinaank/main.cpp -o CMakeFiles/NuclearMrinaank.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp -o CMakeFiles/NuclearMrinaank.dir/main.cpp.s
 
 CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
 CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o: ../Cell.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o -c /Users/yr12/CLionProjects/NuclearMrinaank/Cell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp
 
 CMakeFiles/NuclearMrinaank.dir/Cell.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/Cell.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yr12/CLionProjects/NuclearMrinaank/Cell.cpp > CMakeFiles/NuclearMrinaank.dir/Cell.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp > CMakeFiles/NuclearMrinaank.dir/Cell.cpp.i
 
 CMakeFiles/NuclearMrinaank.dir/Cell.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/Cell.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yr12/CLionProjects/NuclearMrinaank/Cell.cpp -o CMakeFiles/NuclearMrinaank.dir/Cell.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp -o CMakeFiles/NuclearMrinaank.dir/Cell.cpp.s
 
 CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
 CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o: ../Grid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o -c /Users/yr12/CLionProjects/NuclearMrinaank/Grid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp
 
 CMakeFiles/NuclearMrinaank.dir/Grid.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/Grid.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yr12/CLionProjects/NuclearMrinaank/Grid.cpp > CMakeFiles/NuclearMrinaank.dir/Grid.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp > CMakeFiles/NuclearMrinaank.dir/Grid.cpp.i
 
 CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yr12/CLionProjects/NuclearMrinaank/Grid.cpp -o CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp -o CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
 
 CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
 CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o: ../CornerCell.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o -c /Users/yr12/CLionProjects/NuclearMrinaank/CornerCell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/CornerCell.cpp
 
 CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yr12/CLionProjects/NuclearMrinaank/CornerCell.cpp > CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/CornerCell.cpp > CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.i
 
 CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yr12/CLionProjects/NuclearMrinaank/CornerCell.cpp -o CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/CornerCell.cpp -o CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.s
+
+CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
+CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o: ../SideCell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/SideCell.cpp
+
+CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/SideCell.cpp > CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.i
+
+CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/SideCell.cpp -o CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s
 
 # Object files for target NuclearMrinaank
 NuclearMrinaank_OBJECTS = \
 "CMakeFiles/NuclearMrinaank.dir/main.cpp.o" \
 "CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o" \
 "CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o" \
-"CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
+"CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o" \
+"CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o"
 
 # External object files for target NuclearMrinaank
 NuclearMrinaank_EXTERNAL_OBJECTS =
@@ -123,9 +137,10 @@ NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/main.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o
+NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/build.make
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable NuclearMrinaank"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable NuclearMrinaank"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NuclearMrinaank.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +153,6 @@ CMakeFiles/NuclearMrinaank.dir/clean:
 .PHONY : CMakeFiles/NuclearMrinaank.dir/clean
 
 CMakeFiles/NuclearMrinaank.dir/depend:
-	cd /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yr12/CLionProjects/NuclearMrinaank /Users/yr12/CLionProjects/NuclearMrinaank /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/MichaelChen/CLionProjects/NuclearMrinaank /Users/MichaelChen/CLionProjects/NuclearMrinaank /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NuclearMrinaank.dir/depend
 

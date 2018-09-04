@@ -2,6 +2,7 @@
 #include "Cell.h"
 #include "Grid.h"
 #include "Debug.h"
+#include "CornerCell.h"
 
 int main()
 {

@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
   "CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
   "CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
+  "CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o"
   "NuclearMrinaank.pdb"
   "NuclearMrinaank"
 )

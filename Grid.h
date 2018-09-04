@@ -16,6 +16,10 @@ public:
     //Returns cell at location x,y
     static Cell* getCellAt(int x, int y);
 
+    int getHeight();
+
+    int getWidth();
+
 private:
     //declares height and width of grid
     const int height;

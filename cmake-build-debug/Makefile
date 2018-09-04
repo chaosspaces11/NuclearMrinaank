@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/pk/7h4y3m3j6r75xthnllhmrtjr0000gr/T/AppTranslocation/EC520004-ACE0-44F7-B15D-D0AE1164C7C2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/pk/7h4y3m3j6r75xthnllhmrtjr0000gr/T/AppTranslocation/EC520004-ACE0-44F7-B15D-D0AE1164C7C2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yr12/CLionProjects/NuclearMrinaank
+CMAKE_SOURCE_DIR = /Users/MichaelChen/CLionProjects/NuclearMrinaank
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/private/var/folders/pk/7h4y3m3j6r75xthnllhmrtjr0000gr/T/AppTranslocation/EC520004-ACE0-44F7-B15D-D0AE1164C7C2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/private/var/folders/pk/7h4y3m3j6r75xthnllhmrtjr0000gr/T/AppTranslocation/EC520004-ACE0-44F7-B15D-D0AE1164C7C2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ Grid.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
 .PHONY : Grid.cpp.s
 
+SideCell.o: SideCell.cpp.o
+
+.PHONY : SideCell.o
+
+# target to build an object file
+SideCell.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o
+.PHONY : SideCell.cpp.o
+
+SideCell.i: SideCell.cpp.i
+
+.PHONY : SideCell.i
+
+# target to preprocess a source file
+SideCell.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.i
+.PHONY : SideCell.cpp.i
+
+SideCell.s: SideCell.cpp.s
+
+.PHONY : SideCell.s
+
+# target to generate assembly for a file
+SideCell.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s
+.PHONY : SideCell.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -249,6 +276,9 @@ help:
 	@echo "... Grid.o"
 	@echo "... Grid.i"
 	@echo "... Grid.s"
+	@echo "... SideCell.o"
+	@echo "... SideCell.i"
+	@echo "... SideCell.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -14,9 +14,7 @@ public:
 
 
 private:
-    int adjacentLocations[2][2];
-
-    int unstableState;
+    int adjacentLocations[3][2];
 };
 
 

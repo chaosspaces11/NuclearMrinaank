@@ -26,14 +26,14 @@ public:
     int getY();
 
 private:
+
+    // Protected allows for child classes to access the attribute
+protected:
     // Amount of objects within the cell
     int state;
 
     //player
     int player;
-
-    //State where it explodes
-    int unstableState;
 
     // X coordinate
     int x;
@@ -41,11 +41,14 @@ private:
     // Y coordinate
     int y;
 
-    // Array of the adjacent cells
-    int adjacentLocations[4][2];
-
     // Distributes objects within current cell to adjacent cells
     void explode();
+
+    //State where it explodes
+    int unstableState;
+
+    // Array of the adjacent cells
+    int adjacentLocations[4][2];
 };
 
 #endif //NUCLEARMRINAANK_CELL_H

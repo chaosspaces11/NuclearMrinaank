@@ -77,5 +77,5 @@ int Cell::getX()
 
 int Cell::getY()
 {
-    return Cell::Y;
+    return Cell::y;
 }

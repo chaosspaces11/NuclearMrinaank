@@ -13,9 +13,14 @@ public:
     // Increments private variable 'states' by 1, calls explode function if maximum amount of states is reached.
     void buildUp();
 
+    void print();
+
 private:
     // Amount of objects within the cell
-    int states;
+    int state;
+
+    //State where it explodes
+    int unstableState;
 
     // X coordinate
     int x;
@@ -24,11 +29,10 @@ private:
     int y;
 
     // Array of the adjacent cells
-    int adjacentLocations[4];
+    int adjacentLocations[4][2];
 
     // Distributes objects within current cell to adjacent cells
     void explode();
-
 };
 
 #endif //NUCLEARMRINAANK_CELL_H

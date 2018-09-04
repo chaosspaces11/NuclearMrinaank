@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp
+iostream
+-
+Cell.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
+Grid.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
+
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
+
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Debug.h
+iostream
+-
+
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp
+iostream
+-
+Grid.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
+
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
+Cell.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
+vector
+-
+
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp
+iostream
+-
+Cell.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
+Grid.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
+Debug.h
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/Debug.h
+

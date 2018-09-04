@@ -11,13 +11,20 @@ public:
     Cell(int x, int y);
 
     // Increments private variable 'states' by 1, calls explode function if maximum amount of states is reached.
-    void buildUp();
+    void buildUp(int player);
 
+    //prints out the cell in a grid
     void print();
+
+    //getPlayer number
+    int getPlayer();
 
 private:
     // Amount of objects within the cell
     int state;
+
+    //player
+    int player;
 
     //State where it explodes
     int unstableState;

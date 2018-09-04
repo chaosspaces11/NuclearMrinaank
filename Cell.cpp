@@ -2,6 +2,7 @@
 #include "Cell.h"
 #include "Grid.h"
 
+
 Cell::Cell(int x, int y)
 {
     // Test output statements
@@ -13,6 +14,7 @@ Cell::Cell(int x, int y)
     Cell::y = y;
     Cell::state = 0;
     Cell::unstableState = 4;
+    Cell::player = 0;
 
     // Initialises the location of the cells around the initialised cell
     Cell::adjacentLocations[0][0] = Cell::x;
@@ -28,8 +30,15 @@ Cell::Cell(int x, int y)
     Cell::adjacentLocations[3][1] = Cell::y;
 };
 
-void Cell::buildUp()
+void Cell::buildUp(int player)
 {
+    //Changes player
+    if (player != Cell::player)
+    {
+        Cell::player = player;
+    }
+
+    //Increases state
     Cell::state += 1;
 
     //cell has exceeded maximum state
@@ -46,13 +55,17 @@ void Cell::explode()
     for (int i = 0; i < sizeof(Cell::adjacentLocations) / sizeof(Cell::adjacentLocations[0]);i++)
     {
         Cell* adjacentCell = Grid::getCellAt(Cell::adjacentLocations[i][0],Cell::adjacentLocations[i][1]);
-        adjacentCell->buildUp();
+        adjacentCell->buildUp(Cell::player);
     }
 }
 
 void Cell::print()
 {
-    std::cout << " " << Cell::state << " ";
+    std::cout << "\x1b[3" << Cell::player << "m " << Cell::state << " \x1b[0m";
 //    std::cout << "Cell: X: " << x << " Y: " << y << " State: " << Cell::state << std::endl;
 }
 
+int Cell::getPlayer()
+{
+    return Cell::player;
+}

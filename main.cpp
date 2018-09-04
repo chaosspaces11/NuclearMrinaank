@@ -3,25 +3,50 @@
 #include "Grid.h"
 #include "Debug.h"
 
-
 int main()
 {
     //demo game with single player, a and b are coords of selected cell
     Grid mainGrid(5,5);
 
+    int numPlayers = 0;
+    std::cout << "Number of players: ";
+    std::cin >> numPlayers;
+
+    int player = 1;
+
     int a = -1;
     int b = -1;
-    std::cout << "X: ";
+    std::cout << "Player " << player << std::endl << "X: ";
     std::cin >> a;
     if (a != -1)
     {
         std::cout << "Y: ";
         std::cin >> b;
     }
+    else
+    {
+        return 0;
+    }
     while (a != -1 || b != -1)
     {
         Cell* selectedCell = Grid::getCellAt(a,b);
-        selectedCell->buildUp();
+        while(selectedCell->getPlayer() != player && selectedCell->getPlayer() != 0)
+        {
+            std::cout << "Not your sinha! Please choose another" << std::endl << "X: ";
+            std::cin >> a;
+            if (a != -1)
+            {
+                std::cout << "Y: ";
+                std::cin >> b;
+            }
+            else
+            {
+                return 0;
+            }
+            selectedCell = Grid::getCellAt(a,b);
+        }
+
+        selectedCell->buildUp(player);
         for(int y = 0; y < 5; y++)
         {
             for (int x = 0; x < 5; x++)
@@ -32,12 +57,25 @@ int main()
             std::cout << std::endl;
         }
 
-        std::cout << "X: ";
+        if (player >= numPlayers)
+        {
+            player = 1;
+        }
+        else
+        {
+            player++;
+        }
+
+        std::cout << "Player " << player << std::endl << "X: ";
         std::cin >> a;
         if (a != -1)
         {
             std::cout << "Y: ";
             std::cin >> b;
+        }
+        else
+        {
+            return 0;
         }
     }
 

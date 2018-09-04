@@ -13,9 +13,6 @@ public:
     // Grid function that creates the width, height and amount of cells contained.
     Grid(int width, int height);
 
-    // Returns the private variable cells-->USELESS?????
-    int numCells();
-
     //Returns cell at location x,y
     static Cell* getCellAt(int x, int y);
 

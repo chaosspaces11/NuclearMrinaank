@@ -14,6 +14,7 @@ int main()
 
     int player = 1;
 
+
     int a = -1;
     int b = -1;
     std::cout << "Player " << player << std::endl << "X: ";

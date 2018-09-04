@@ -19,6 +19,12 @@ public:
     //getPlayer number
     int getPlayer();
 
+    //gets X
+    int getX();
+
+    //gets Y
+    int getY();
+
 private:
     // Amount of objects within the cell
     int state;

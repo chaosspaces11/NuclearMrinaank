@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
-  "/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
-  "/Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/main.cpp.o"
+  "/Users/yr12/CLionProjects/NuclearMrinaank/Cell.cpp" "/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
+  "/Users/yr12/CLionProjects/NuclearMrinaank/CornerCell.cpp" "/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
+  "/Users/yr12/CLionProjects/NuclearMrinaank/Grid.cpp" "/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
+  "/Users/yr12/CLionProjects/NuclearMrinaank/main.cpp" "/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

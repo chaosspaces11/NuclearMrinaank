@@ -17,17 +17,17 @@ Cell::Cell(int x, int y)
     Cell::player = 0;
 
     // Initialises the location of the cells around the initialised cell
-    Cell::adjacentLocations[0][0] = Cell::x;
-    Cell::adjacentLocations[0][1] = Cell::y - 1;
+    Cell::adjacentLocations[0][0] = Cell::getX();
+    Cell::adjacentLocations[0][1] = Cell::getY() - 1;
 
-    Cell::adjacentLocations[1][0] = Cell::x + 1;
-    Cell::adjacentLocations[1][1] = Cell::y;
+    Cell::adjacentLocations[1][0] = Cell::getX() + 1;
+    Cell::adjacentLocations[1][1] = Cell::getY();
 
-    Cell::adjacentLocations[2][0] = Cell::x;
-    Cell::adjacentLocations[2][1] = Cell::y+1;
+    Cell::adjacentLocations[2][0] = Cell::getX();
+    Cell::adjacentLocations[2][1] = Cell::getY()+1;
 
-    Cell::adjacentLocations[3][0] = Cell::x-1;
-    Cell::adjacentLocations[3][1] = Cell::y;
+    Cell::adjacentLocations[3][0] = Cell::getX()-1;
+    Cell::adjacentLocations[3][1] = Cell::getY();
 };
 
 void Cell::buildUp(int player)
@@ -68,4 +68,14 @@ void Cell::print()
 int Cell::getPlayer()
 {
     return Cell::player;
+}
+
+int Cell::getX()
+{
+    return Cell::x;
+}
+
+int Cell::getY()
+{
+    return Cell::Y;
 }

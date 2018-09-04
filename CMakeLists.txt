@@ -3,4 +3,4 @@ project(NuclearMrinaank)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(NuclearMrinaank main.cpp Cell.h Cell.cpp Grid.cpp Grid.h Debug.h)
+add_executable(NuclearMrinaank main.cpp Cell.h Cell.cpp Grid.cpp Grid.h Debug.h CornerCell.cpp CornerCell.h)

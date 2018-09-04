@@ -8,88 +8,99 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option working_dir="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option working_dir="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option working_dir="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="NuclearMrinaank">
-				<Option output="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearMrinaank" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option output="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearMrinaank" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 NuclearMrinaank"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 NuclearMrinaank"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="NuclearMrinaank/fast">
-				<Option output="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearMrinaank" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option output="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearMrinaank" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 NuclearMrinaank/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 NuclearMrinaank/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp">
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Cell.cpp">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
-		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h">
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Cell.h">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
-		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp">
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Debug.h">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
-		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/CMakeLists.txt">
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Grid.cpp">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Grid.h">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/main.cpp">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

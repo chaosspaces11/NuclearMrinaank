@@ -5,11 +5,15 @@
 #ifndef NUCLEARMRINAANK_SIDECELL_H
 #define NUCLEARMRINAANK_SIDECELL_H
 
-#include "Cell.h";
+#include "Cell.h"
 
-class SideCell : public Cell
-{
-    SideCell(int x, int y, int location1, int location2);
+class SideCell : public Cell{
+
+public:
+    SideCell(int x, int y, int location);
+
+private:
+    int adjacentLocations[3][2];
 };
 
 

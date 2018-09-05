@@ -4,14 +4,16 @@
 
 #include <iostream>
 #include "SideCell.h"
-SideCell::SideCell(int x, int y, int heightLocation, int widthLocation): Cell(x,y)
+#include "Grid.h"
+
+SideCell::SideCell(int x, int y, int location): Cell(x,y)
 {
-    SideCell::unstableState = 2;
+    SideCell::unstableState = 3;
     int currentIndex = 0;
 
 
 //     Initialises the location of the cells around the initialised cell
-    switch (heightLocation)
+    switch (location)
     {
         case 0:
             SideCell::adjacentLocations[currentIndex][0] = SideCell::getX();
@@ -22,33 +24,43 @@ SideCell::SideCell(int x, int y, int heightLocation, int widthLocation): Cell(x,
             SideCell::adjacentLocations[currentIndex][1] = SideCell::getY();
 
             break;
-        default:
+        case 1:
+        case 3:
             SideCell::adjacentLocations[currentIndex][0] = SideCell::getX() - 1;
             SideCell::adjacentLocations[currentIndex][1] = SideCell::getY();
             SideCell::adjacentLocations[++currentIndex][0] = SideCell::getX();
             SideCell::adjacentLocations[++currentIndex][1] = SideCell::getY() - 1;
             break;
+        default:
+            std::cout <<"ERROR initializing corner cell at (" << x << "," << y << ")!" << std::endl;
 
     }
 
     currentIndex++;
 
-    switch (widthLocation)
+    switch (location)
     {
         case 1:
             SideCell::adjacentLocations[currentIndex][0] = SideCell::getX();
             SideCell::adjacentLocations[currentIndex][1] = SideCell::getY() - 1;
             break;
+
         case 3:
             SideCell::adjacentLocations[currentIndex][0] = SideCell::getX() + 1;
             SideCell::adjacentLocations[currentIndex][1] = SideCell::getY();
             break;
-        default:
+
+        case 0:
+        case 2:
             SideCell::adjacentLocations[currentIndex][0] = SideCell::getX() + 1;
             SideCell::adjacentLocations[currentIndex][1] = SideCell::getY();
             SideCell::adjacentLocations[+currentIndex][0] = SideCell::getX();
             SideCell::adjacentLocations[+currentIndex][1] = SideCell::getY() - 1;
             break;
-    }
 
+        default:
+            std::cout <<"ERROR initializing corner cell at (" << x << "," << y << ")!" << std::endl;
+    }
 }
+
+

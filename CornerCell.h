@@ -14,7 +14,7 @@ public:
 
 
 private:
-    int adjacentLocations[3][2];
+    int adjacentLocations[2][2];
 };
 
 

@@ -6,6 +6,8 @@
 
 #include "Cell.h"
 #include <vector>
+#include "SideCell.h"
+#include "CornerCell.h"
 
 class Grid
 {
@@ -29,5 +31,7 @@ private:
     static std::vector<std::vector<Cell> > cells;
 };
 
+// Function input a,b
+// Outputs pointer
 
 #endif //NUCLEARMRINAANK_GRID_H

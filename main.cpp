@@ -31,10 +31,11 @@ int main()
     }
     while (a != -1 || b != -1)
     {
+        // SelectedCell only returns the Cell class type, not its children.
         Cell* selectedCell = Grid::getCellAt(a,b);
         while(selectedCell->getPlayer() != player && selectedCell->getPlayer() != 0)
         {
-            std::cout << "Not your sinha! Please choose another" << std::endl << "X: ";
+            std::cout << "Not your Sinha! Please choose another" << std::endl << "X: ";
             std::cin >> a;
             if (a != -1)
             {

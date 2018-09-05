@@ -11,9 +11,6 @@ class SideCell : public Cell{
 
 public:
     SideCell(int x, int y, int location);
-
-private:
-    int adjacentLocations[3][2];
 };
 
 

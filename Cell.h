@@ -42,7 +42,7 @@ protected:
     int y;
 
     // Distributes objects within current cell to adjacent cells
-    void explode();
+    virtual void explode();
 
     //State where it explodes
     int unstableState;

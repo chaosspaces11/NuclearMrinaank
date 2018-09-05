@@ -6,50 +6,71 @@
 
 int main()
 {
-    //demo game with single player, a and b are coords of selected cell
+    //demo game with single player, selectedX and selectedY are coords of selected cell
     Grid mainGrid(5,5);
 
+
     int numPlayers = 0;
+    // Requests number of players from user
     std::cout << "Number of players: ";
     std::cin >> numPlayers;
 
+    // Sets player token to the first player
     int player = 1;
 
+    // Setting selectedX and selectedY to sentinel values
+    int selectedX = -1;
+    int selectedY = -1;
 
-    int a = -1;
-    int b = -1;
+    // Requests X & Y from user
     std::cout << "Player " << player << std::endl << "X: ";
-    std::cin >> a;
-    if (a != -1)
+    std::cin >> selectedX;
+
+    // Checks for valid input
+    if (selectedX != -1)
     {
         std::cout << "Y: ";
-        std::cin >> b;
+        std::cin >> selectedY;
     }
     else
     {
         return 0;
     }
-    while (a != -1 || b != -1)
+
+    // Runs while sentinel value is not given, ie program is not terminated
+    while (selectedX != -1 || selectedY != -1)
     {
-        // SelectedCell only returns the Cell class type, not its children.
-        Cell* selectedCell = Grid::getCellAt(a,b);
+
+        // Returns the cell
+        Cell* selectedCell = Grid::getCellAt(selectedX,selectedY);
+
+        // Checks to see if current player can place on the cell
         while(selectedCell->getPlayer() != player && selectedCell->getPlayer() != 0)
         {
+
+            // Requests another integer if move is invalid
             std::cout << "Not your Sinha! Please choose another" << std::endl << "X: ";
-            std::cin >> a;
-            if (a != -1)
+            std::cin >> selectedX;
+
+            // Again sentinel value,
+            if (selectedX != -1)
             {
                 std::cout << "Y: ";
-                std::cin >> b;
+                std::cin >> selectedY;
             }
             else
             {
                 return 0;
             }
-            selectedCell = Grid::getCellAt(a,b);
+
+            // Getting pointer for cell
+            selectedCell = Grid::getCellAt(selectedX,selectedY);
         }
 
+        // Running increasing the Sinhas in selected cell
         selectedCell->buildUp(player);
+
+        // Prints out each cell for each row and column
         for(int y = 0; y < 5; y++)
         {
             for (int x = 0; x < 5; x++)
@@ -60,6 +81,7 @@ int main()
             std::cout << std::endl;
         }
 
+        // Loops current player back to first player if the last player has had its turn
         if (player >= numPlayers)
         {
             player = 1;
@@ -69,12 +91,15 @@ int main()
             player++;
         }
 
+        // Outputs current player
         std::cout << "Player " << player << std::endl << "X: ";
-        std::cin >> a;
-        if (a != -1)
+        std::cin >> selectedX;
+
+        // Again sentinel value
+        if (selectedX != -1)
         {
             std::cout << "Y: ";
-            std::cin >> b;
+            std::cin >> selectedY;
         }
         else
         {

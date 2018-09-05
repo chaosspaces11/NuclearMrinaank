@@ -8,37 +8,38 @@
 
 CornerCell::CornerCell(int x, int y, int location) : Cell(x,y)
 {
+    // Sets maximum number of Sinhas to 2
     CornerCell::unstableState = 2;
-//     Initialises the location of the cells around the initialised cell
-    CornerCell::adjacentLocations[1][2];
+
+    // Goes clockwise from topleft corner to determine valid side cells
     switch (location)
     {
         case 0:
             std::cout << "Intialised" << std::endl;
-            CornerCell::adjacentLocations[0][0] = x + 1;
-            CornerCell::adjacentLocations[0][1] = y;
-            CornerCell::adjacentLocations[1][0] = x;
-            CornerCell::adjacentLocations[1][1] = y + 1;
+            Cell::adjacentLocations[0][0] = x + 1;
+            Cell::adjacentLocations[0][1] = y;
+            Cell::adjacentLocations[1][0] = x;
+            Cell::adjacentLocations[1][1] = y + 1;
             std::cout << adjacentLocations << std::endl;
             std::cout << adjacentLocations[0][0] << " " << adjacentLocations[0][1] << std::endl;
             break;
         case 1:
-            CornerCell::adjacentLocations[0][0] = x - 1;
-            CornerCell::adjacentLocations[0][1] = y;
-            CornerCell::adjacentLocations[1][0] = x;
-            CornerCell::adjacentLocations[1][1] = y + 1;
+            Cell::adjacentLocations[0][0] = x - 1;
+            Cell::adjacentLocations[0][1] = y;
+            Cell::adjacentLocations[1][0] = x;
+            Cell::adjacentLocations[1][1] = y + 1;
             break;
         case 2:
-            CornerCell::adjacentLocations[0][0] = x - 1;
-            CornerCell::adjacentLocations[0][1] = y;
-            CornerCell::adjacentLocations[1][0] = x;
-            CornerCell::adjacentLocations[1][1] = y - 1;
+            Cell::adjacentLocations[0][0] = x - 1;
+            Cell::adjacentLocations[0][1] = y;
+            Cell::adjacentLocations[1][0] = x;
+            Cell::adjacentLocations[1][1] = y - 1;
             break;
         case 3:
-            CornerCell::adjacentLocations[0][0] = x + 1;
-            CornerCell::adjacentLocations[0][1] = y;
-            CornerCell::adjacentLocations[1][0] = x;
-            CornerCell::adjacentLocations[1][1] = y - 1;
+            Cell::adjacentLocations[0][0] = x + 1;
+            Cell::adjacentLocations[0][1] = y;
+            Cell::adjacentLocations[1][0] = x;
+            Cell::adjacentLocations[1][1] = y - 1;
             break;
         default:
             std::cout <<"ERROR initializing corner cell at (" << x << "," << y << ")!" << std::endl;

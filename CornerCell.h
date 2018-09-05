@@ -11,10 +11,6 @@ class CornerCell: public Cell
 {
 public:
     CornerCell(int x, int y, int location);
-
-
-private:
-    int adjacentLocations[2][2];
 };
 
 

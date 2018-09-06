@@ -5,6 +5,7 @@
 #include "Grid.h"
 #include "CornerCell.h"
 #include "SideCell.h"
+#include "Cell.h"
 
 //defining static vector Grid::cells
 std::vector<std::vector<Cell> > Grid::cells;
@@ -109,6 +110,32 @@ int Grid::getHeight()
 int Grid::getWidth()
 {
     return Grid::width;
+}
+
+bool Grid::checkValid(int player)
+{
+    // Currently there are no valid moves
+    bool valid = false;
+    for (int row = 0; row < Grid::height; row++)
+    {
+        // Runs if the function has found an available move
+        if (valid)
+        {
+            break;
+        }
+        else {
+            for (int column = 0; column < Grid::width; column++)
+            {
+                Cell* inspectingCell = Grid::getCellAt(column, row);
+                int cellOwner = inspectingCell->getPlayer();
+                if (player ==  cellOwner || cellOwner == 0){
+                    valid = true;
+                    break;
+                }
+            }
+        }
+    }
+    return valid;
 }
 
 

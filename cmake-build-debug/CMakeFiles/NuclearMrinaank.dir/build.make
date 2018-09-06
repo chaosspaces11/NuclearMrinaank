@@ -122,13 +122,41 @@ CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/SideCell.cpp -o CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s
 
+CMakeFiles/NuclearMrinaank.dir/Player.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
+CMakeFiles/NuclearMrinaank.dir/Player.cpp.o: ../Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/NuclearMrinaank.dir/Player.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/Player.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/Player.cpp
+
+CMakeFiles/NuclearMrinaank.dir/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/Player.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/Player.cpp > CMakeFiles/NuclearMrinaank.dir/Player.cpp.i
+
+CMakeFiles/NuclearMrinaank.dir/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/Player.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/Player.cpp -o CMakeFiles/NuclearMrinaank.dir/Player.cpp.s
+
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: CMakeFiles/NuclearMrinaank.dir/flags.make
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../PlayerManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o -c /Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.cpp
+
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.cpp > CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.i
+
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.cpp -o CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.s
+
 # Object files for target NuclearMrinaank
 NuclearMrinaank_OBJECTS = \
 "CMakeFiles/NuclearMrinaank.dir/main.cpp.o" \
 "CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o" \
 "CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o" \
 "CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o" \
-"CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o"
+"CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o" \
+"CMakeFiles/NuclearMrinaank.dir/Player.cpp.o" \
+"CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o"
 
 # External object files for target NuclearMrinaank
 NuclearMrinaank_EXTERNAL_OBJECTS =
@@ -138,9 +166,11 @@ NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o
+NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/Player.cpp.o
+NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/build.make
 NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable NuclearMrinaank"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable NuclearMrinaank"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NuclearMrinaank.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

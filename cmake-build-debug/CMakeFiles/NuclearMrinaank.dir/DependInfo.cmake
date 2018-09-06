@@ -7,6 +7,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Cell.cpp.o"
   "/Users/MichaelChen/CLionProjects/NuclearMrinaank/CornerCell.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
   "/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
+  "/Users/MichaelChen/CLionProjects/NuclearMrinaank/Player.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/Player.cpp.o"
+  "/Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o"
   "/Users/MichaelChen/CLionProjects/NuclearMrinaank/SideCell.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o"
   "/Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp" "/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir/main.cpp.o"
   )

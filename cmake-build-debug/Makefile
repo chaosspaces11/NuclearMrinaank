@@ -204,6 +204,60 @@ Grid.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
 .PHONY : Grid.cpp.s
 
+Player.o: Player.cpp.o
+
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
+PlayerManager.o: PlayerManager.cpp.o
+
+.PHONY : PlayerManager.o
+
+# target to build an object file
+PlayerManager.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o
+.PHONY : PlayerManager.cpp.o
+
+PlayerManager.i: PlayerManager.cpp.i
+
+.PHONY : PlayerManager.i
+
+# target to preprocess a source file
+PlayerManager.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.i
+.PHONY : PlayerManager.cpp.i
+
+PlayerManager.s: PlayerManager.cpp.s
+
+.PHONY : PlayerManager.s
+
+# target to generate assembly for a file
+PlayerManager.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.s
+.PHONY : PlayerManager.cpp.s
+
 SideCell.o: SideCell.cpp.o
 
 .PHONY : SideCell.o
@@ -276,6 +330,12 @@ help:
 	@echo "... Grid.o"
 	@echo "... Grid.i"
 	@echo "... Grid.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
+	@echo "... PlayerManager.o"
+	@echo "... PlayerManager.i"
+	@echo "... PlayerManager.s"
 	@echo "... SideCell.o"
 	@echo "... SideCell.i"
 	@echo "... SideCell.s"

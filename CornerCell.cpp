@@ -11,17 +11,14 @@ CornerCell::CornerCell(int x, int y, int location) : Cell(x,y)
     // Sets maximum number of Sinhas to 2
     CornerCell::unstableState = 2;
 
-    // Goes clockwise from topleft corner to determine valid side cells
+    // Goes clockwise from top-left corner to determine valid side cells
     switch (location)
     {
         case 0:
-            std::cout << "Intialised" << std::endl;
             Cell::adjacentLocations[0][0] = x + 1;
             Cell::adjacentLocations[0][1] = y;
             Cell::adjacentLocations[1][0] = x;
             Cell::adjacentLocations[1][1] = y + 1;
-            std::cout << adjacentLocations << std::endl;
-            std::cout << adjacentLocations[0][0] << " " << adjacentLocations[0][1] << std::endl;
             break;
         case 1:
             Cell::adjacentLocations[0][0] = x - 1;

@@ -8,6 +8,7 @@
 PlayerManager::PlayerManager(int players): players(players)
 {
     currentPlayer = 1;
+    firstRound = false;
 }
 
 bool PlayerManager::checkPosition(int selectedX, int selectedY, Grid mainGrid)
@@ -54,3 +55,11 @@ Cell* PlayerManager::requestMove(int player, Grid mainGrid)
     }
 }
 
+void PlayerManager::runRound(Grid mainGrid)
+{
+    for (int player = 0; player < players; player++)
+    {
+        Cell* selectedCell = requestMove(player, mainGrid);
+        selectedCell->buildUp(player);
+    }
+}

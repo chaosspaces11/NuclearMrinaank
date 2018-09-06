@@ -18,11 +18,12 @@ class PlayerManager
 
     bool checkPosition(int x, int y, Grid mainGrid);
 
-    void runRound();
+    void runRound(Grid mainGrid);
 
 private:
     int players;
     int currentPlayer;
+    bool firstRound;
 };
 
 

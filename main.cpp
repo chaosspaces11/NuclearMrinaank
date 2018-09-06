@@ -14,8 +14,8 @@ int main()
     int selectedY = -1;
 
     // Sets up width and height of the grid
-    int gridWidth = 3;
-    int gridHeight = 3;
+    int gridWidth = 5;
+    int gridHeight = 5;
 
     //demo game with single player, selectedX and selectedY are coords of selected cell
     Grid mainGrid(gridHeight, gridWidth);

@@ -19,6 +19,13 @@ CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o: ../Grid.cpp
 CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o: ../Grid.h
 CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o: ../SideCell.h
 
+CMakeFiles/NuclearMrinaank.dir/Player.cpp.o: ../Player.cpp
+CMakeFiles/NuclearMrinaank.dir/Player.cpp.o: ../Player.h
+
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../Cell.h
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../PlayerManager.cpp
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../PlayerManager.h
+
 CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o: ../Cell.h
 CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o: ../CornerCell.h
 CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o: ../Grid.h

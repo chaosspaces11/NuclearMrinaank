@@ -33,7 +33,7 @@ Cell::Cell(int x, int y)
 void Cell::buildUp(int player)
 {
 
-//    std::cout <<"Build up at (" << x << "," << y << ")!" << std::endl;
+    std::cout <<"Build up at (" << x << "," << y << ")!" << std::endl;
 
     // Changes ownership of the cell to current player
     if (player != Cell::player)
@@ -64,7 +64,7 @@ void Cell::explode()
     Cell::state = 0;
 
 
-//    std::cout <<"Explosion at (" << x << "," << y << ")!" << std::endl;
+    std::cout <<"Explosion at (" << x << "," << y << ")!" << std::endl;
 
     // For each Sinha within cell, distribute one to each neighbouring cell
     for (int i = 0; i < Cell::unstableState;i++)
@@ -78,7 +78,7 @@ void Cell::explode()
 }
 
 
-// Current 2d GUI
+// Current 2D GUI
 void Cell::print()
 {
     std::cout << "\x1b[3" << Cell::player << "m " << Cell::state << " \x1b[0m";

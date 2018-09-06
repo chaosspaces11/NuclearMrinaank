@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/NuclearMrinaank.dir/Grid.cpp.o"
   "CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.o"
   "CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o"
+  "CMakeFiles/NuclearMrinaank.dir/Player.cpp.o"
+  "CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o"
   "NuclearMrinaank.pdb"
   "NuclearMrinaank"
 )

@@ -24,6 +24,8 @@ public:
 
     bool checkValid(int player);
 
+    void renderDisplay();
+
 private:
     //declares height and width of grid
     const int height;

@@ -4,8 +4,9 @@
 
 #include "Player.h"
 
-Player::Player(int ID): ID(ID)
+Player::Player(int ID): ID(ID), active(true)
 {
+
 }
 
 int Player::getID()

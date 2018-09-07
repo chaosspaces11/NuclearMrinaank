@@ -13,8 +13,11 @@ class Player
 {
 public:
     Player(int ID);
+
     int getID();
+
     bool checkActive();
+
     void setActive(bool state);
 
 private:

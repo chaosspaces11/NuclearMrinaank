@@ -138,4 +138,17 @@ bool Grid::checkValid(int player)
     return valid;
 }
 
+void Grid::renderDisplay()
+{
+    for(int y = 0; y < this->getHeight(); y++)
+        {
+            for (int x = 0; x < this->getWidth(); x++)
+            {
+                Cell* cell = Grid::getCellAt(x,y);
+                cell->print();
+            }
+            std::cout << std::endl;
+        }
+
+}
 

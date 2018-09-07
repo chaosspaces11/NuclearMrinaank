@@ -7,10 +7,12 @@
 
 #include "Cell.h"
 #include "Grid.h"
+#include "Player.h"
 
 class PlayerManager
 {
-    PlayerManager(int players);
+public:
+    PlayerManager(int numPlayers);
 
     Cell* requestMove(int player, Grid mainGrid);
 
@@ -18,11 +20,12 @@ class PlayerManager
 
     bool checkPosition(int x, int y, Grid mainGrid);
 
-    void runRound();
+    void iteratePlayer(Grid mainGrid);
 
 private:
-    int players;
+    int numPlayers;
     int currentPlayer;
+    std::vector <Player> players;
 };
 
 

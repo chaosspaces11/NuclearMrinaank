@@ -12,19 +12,37 @@
 class PlayerManager
 {
 public:
-    PlayerManager(int numPlayers);
 
+    // Constructor
+    explicit PlayerManager(int numPlayers);
+
+    // Requests move from player
     Cell* requestMove(int player, Grid mainGrid);
 
+    // Check if cell can be placed on by current player
     bool checkPlayer(int x, int y);
 
+    // Check is cell is a valid position
     bool checkPosition(int x, int y, Grid mainGrid);
 
+    // Runs the turn of the current player
     void iteratePlayer(Grid mainGrid);
 
+    // Returning private variables
+    int getPlayers();
+
+    bool getInitialRound();
+
+    int getCurrentPlayer();
+
 private:
+
     int numPlayers;
-    int currentPlayer;
+
+    bool initialRound;
+
+    int playerIndex;
+
     std::vector <Player> players;
 };
 

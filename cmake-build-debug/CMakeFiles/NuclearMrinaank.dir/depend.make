@@ -26,6 +26,7 @@ CMakeFiles/NuclearMrinaank.dir/Player.cpp.o: ../Player.h
 CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../Cell.h
 CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../CornerCell.h
 CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../Grid.h
+CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../Player.h
 CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../PlayerManager.cpp
 CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../PlayerManager.h
 CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.o: ../SideCell.h

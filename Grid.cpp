@@ -86,7 +86,7 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
             // As its not a corner cell or a side cell, its a default cell
             else
             {
-                array.push_back( Cell(col,row));
+                array.emplace_back( Cell(col,row));
             }
         }
         // Adds the array to cells. This arrays is essentially the row of the grid.
@@ -128,7 +128,7 @@ bool Grid::checkValid(int player)
             {
                 Cell* inspectingCell = Grid::getCellAt(column, row);
                 int cellOwner = inspectingCell->getPlayer();
-                if (player ==  cellOwner || cellOwner == 0){
+                if (player ==  cellOwner){
                     valid = true;
                     break;
                 }
@@ -138,17 +138,67 @@ bool Grid::checkValid(int player)
     return valid;
 }
 
+
+// Generates the display of the grid.
 void Grid::renderDisplay()
 {
     for(int y = 0; y < this->getHeight(); y++)
+    {
+        for (int x = 0; x < this->getWidth(); x++)
         {
-            for (int x = 0; x < this->getWidth(); x++)
-            {
-                Cell* cell = Grid::getCellAt(x,y);
-                cell->print();
-            }
-            std::cout << std::endl;
+            Cell* cell = Grid::getCellAt(x,y);
+            cell->print();
         }
-
+        std::cout << std::endl;
+    }
 }
 
+
+// Checks if there is a winner by observing if all the other players lack a available move
+bool Grid::checkWin(int players)
+{
+    // FD of array containing players with boolean values representing their ability to place a cell
+    bool available[players];
+
+    // Assigns false to each element in the array
+    for (int index = 0; index < players; index++)
+    {
+        available[index] = false;
+    }
+
+    // Iterates through every cell within the grid and checks if every player owns at least 1 cell.
+    // This is used over multiple Grid::checkValids() as this only requires iteration through the grid.
+    for (int y = 0; y < this->getHeight(); y++)
+    {
+        for (int x = 0; x < this->getWidth(); x++)
+        {
+            // Gets the cell at the location
+            Cell *cell = Grid::getCellAt(x, y);
+
+            // Looks at owner of cell and determine if it is owned by a player
+            int owner = cell->getPlayer();
+            if (owner != 0)
+            {
+                // Sets corresponding player to true as they own at least 1 cell
+                available[cell->getPlayer() - 1] = true;
+            }
+        }
+    }
+
+
+    // Number corresponding to the players still in the game
+    int inGame = 0;
+
+    // Iterates through available array and appends 1 for each player still in the game
+    for (int index = 0; index < players; index++)
+    {
+        if (available[index])
+        {
+            inGame += 1;
+        }
+    }
+
+    // Returns if there is 2 or more players still playing
+    return (inGame >= 2);
+
+}

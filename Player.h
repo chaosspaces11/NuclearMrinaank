@@ -12,16 +12,22 @@
 class Player
 {
 public:
-    Player(int ID);
+    // Constructor, explicit avoids conversion of int to bool
+    explicit Player(int ID);
 
+    // Gets the id of the current player
     int getID();
 
+    // Gets whether or not the player is still in the game
     bool checkActive();
 
+    // Sets activity
     void setActive(bool state);
 
 private:
+
     int ID;
+
     bool active;
 };
 

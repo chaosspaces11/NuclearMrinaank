@@ -26,6 +26,8 @@ public:
 
     void renderDisplay();
 
+    bool checkWin(int players);
+
 private:
     //declares height and width of grid
     const int height;

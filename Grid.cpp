@@ -20,6 +20,7 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
     int bottom = 2;
     int left = 3;
 
+
     //Fills Grid::cells vector with values
     for (int row = 0; row < height; row++)
     {

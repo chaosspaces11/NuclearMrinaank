@@ -17,11 +17,19 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/CMakeLanguageInformation.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/CMakeSystemSpecificInformation.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/CheckIncludeFile.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/CheckLibraryExists.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/CheckSymbolExists.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Compiler/AppleClang-C.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Compiler/AppleClang-CXX.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Compiler/Clang.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Compiler/GNU.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/FindBoost.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/FindOpenGL.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/FindPackageMessage.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/FindThreads.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Platform/Apple-AppleClang-C.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Platform/Apple-AppleClang-CXX.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Platform/Apple-Clang-C.cmake"
@@ -50,5 +58,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/NuclearOpenGLTest.dir/DependInfo.cmake"
+  "CMakeFiles/NuclearNetworkTest.dir/DependInfo.cmake"
   "CMakeFiles/NuclearMrinaank.dir/DependInfo.cmake"
   )

@@ -1,15 +1,18 @@
 #include <iostream>
 #include "Cell.h"
 #include "Grid.h"
-#include "Debug.h"
 #include "CornerCell.h"
 #include "Player.h"
 #include "PlayerManager.h"
 
+//#include <OpenGL/gl.h>
+//#include <OpenGl/glu.h>
+//#include <GLUT/glut.h>
+
 int main()
 {
     // Sets up width and height of the grid
-    int gridWidth = 5;
+    int gridWidth = 7;
     int gridHeight = 5;
 
     // FD of the game winner

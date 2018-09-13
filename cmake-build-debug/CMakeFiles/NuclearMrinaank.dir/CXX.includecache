@@ -12,10 +12,6 @@
 Cell.h
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
 
-/Users/MichaelChen/CLionProjects/NuclearMrinaank/Debug.h
-iostream
--
-
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
 Cell.h
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
@@ -31,16 +27,6 @@ vector
 -
 Cell.h
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
-
-/Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.cpp
-iostream
--
-PlayerManager.h
-/Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.h
-Grid.h
-/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
-Player.h
-/Users/MichaelChen/CLionProjects/NuclearMrinaank/Player.h
 
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/PlayerManager.h
 Cell.h
@@ -61,8 +47,6 @@ Cell.h
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/Cell.h
 Grid.h
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h
-Debug.h
-/Users/MichaelChen/CLionProjects/NuclearMrinaank/Debug.h
 CornerCell.h
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/CornerCell.h
 Player.h

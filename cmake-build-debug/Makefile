@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named NuclearOpenGLTest
+
+# Build rule for target.
+NuclearOpenGLTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NuclearOpenGLTest
+.PHONY : NuclearOpenGLTest
+
+# fast build rule for target.
+NuclearOpenGLTest/fast:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/build
+.PHONY : NuclearOpenGLTest/fast
+
+#=============================================================================
+# Target rules for targets named NuclearNetworkTest
+
+# Build rule for target.
+NuclearNetworkTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NuclearNetworkTest
+.PHONY : NuclearNetworkTest
+
+# fast build rule for target.
+NuclearNetworkTest/fast:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/build
+.PHONY : NuclearNetworkTest/fast
+
+#=============================================================================
 # Target rules for targets named NuclearMrinaank
 
 # Build rule for target.
@@ -204,6 +230,33 @@ Grid.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
 .PHONY : Grid.cpp.s
 
+OpenGlTest.o: OpenGlTest.cpp.o
+
+.PHONY : OpenGlTest.o
+
+# target to build an object file
+OpenGlTest.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGlTest.cpp.o
+.PHONY : OpenGlTest.cpp.o
+
+OpenGlTest.i: OpenGlTest.cpp.i
+
+.PHONY : OpenGlTest.i
+
+# target to preprocess a source file
+OpenGlTest.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGlTest.cpp.i
+.PHONY : OpenGlTest.cpp.i
+
+OpenGlTest.s: OpenGlTest.cpp.s
+
+.PHONY : OpenGlTest.s
+
+# target to generate assembly for a file
+OpenGlTest.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGlTest.cpp.s
+.PHONY : OpenGlTest.cpp.s
+
 Player.o: Player.cpp.o
 
 .PHONY : Player.o
@@ -285,6 +338,33 @@ SideCell.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s
 .PHONY : SideCell.cpp.s
 
+TestClient.o: TestClient.cpp.o
+
+.PHONY : TestClient.o
+
+# target to build an object file
+TestClient.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/TestClient.cpp.o
+.PHONY : TestClient.cpp.o
+
+TestClient.i: TestClient.cpp.i
+
+.PHONY : TestClient.i
+
+# target to preprocess a source file
+TestClient.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/TestClient.cpp.i
+.PHONY : TestClient.cpp.i
+
+TestClient.s: TestClient.cpp.s
+
+.PHONY : TestClient.s
+
+# target to generate assembly for a file
+TestClient.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/TestClient.cpp.s
+.PHONY : TestClient.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -320,6 +400,8 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... NuclearOpenGLTest"
+	@echo "... NuclearNetworkTest"
 	@echo "... NuclearMrinaank"
 	@echo "... Cell.o"
 	@echo "... Cell.i"
@@ -330,6 +412,9 @@ help:
 	@echo "... Grid.o"
 	@echo "... Grid.i"
 	@echo "... Grid.s"
+	@echo "... OpenGlTest.o"
+	@echo "... OpenGlTest.i"
+	@echo "... OpenGlTest.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
@@ -339,6 +424,9 @@ help:
 	@echo "... SideCell.o"
 	@echo "... SideCell.i"
 	@echo "... SideCell.s"
+	@echo "... TestClient.o"
+	@echo "... TestClient.i"
+	@echo "... TestClient.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

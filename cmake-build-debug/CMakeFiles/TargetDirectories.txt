@@ -1,3 +1,5 @@
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearOpenGLTest.dir
+/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearNetworkTest.dir
 /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/NuclearMrinaank.dir

@@ -39,7 +39,6 @@ CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.o: ../SideCell.h
 
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../Cell.h
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../CornerCell.h
-CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../Debug.h
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../Grid.h
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../Player.h
 CMakeFiles/NuclearMrinaank.dir/main.cpp.o: ../PlayerManager.h

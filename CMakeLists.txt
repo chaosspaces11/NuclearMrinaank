@@ -6,6 +6,19 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Boost 1.67.0 COMPONENTS system filesystem thread REQUIRED)
 find_package(OpenGL REQUIRED)
 
+
+
+include_directories(/usr/local/include/GLFW)
+
+find_library(GLFW3 libglfw.3.2.dylib PATHS /usr/local/Cellar/glfw/3.2.1/lib)
+
+find_library(GLEW libGLEW.2.1.0.dylib PATHS /usr/local/Cellar/glew/2.1.0/lib)
+
+set(ALL_LIBS
+        ${OPENGL_LIBRARY}
+        ${GLFW3}
+        ${GLEW})
+
 if(Boost_FOUND)
 
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
@@ -28,5 +41,7 @@ if(Boost_FOUND)
 
 endif()
 
-target_link_libraries(NuclearOpenGLTest ${OPENGL_LIBRARIES})
+target_link_libraries(NuclearOpenGLTest
+        ${ALL_LIBS}
+        )
 

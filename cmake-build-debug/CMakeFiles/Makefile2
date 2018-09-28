@@ -65,80 +65,6 @@ CMAKE_SOURCE_DIR = /Users/yr12/CLionProjects/NuclearMrinaank
 CMAKE_BINARY_DIR = /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/NuclearOpenGLTest.dir
-
-# All Build rule for target.
-CMakeFiles/NuclearOpenGLTest.dir/all:
-	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/depend
-	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=15,16 "Built target NuclearOpenGLTest"
-.PHONY : CMakeFiles/NuclearOpenGLTest.dir/all
-
-# Include target in all.
-all: CMakeFiles/NuclearOpenGLTest.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/NuclearOpenGLTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NuclearOpenGLTest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/NuclearOpenGLTest.dir/rule
-
-# Convenience name for target.
-NuclearOpenGLTest: CMakeFiles/NuclearOpenGLTest.dir/rule
-
-.PHONY : NuclearOpenGLTest
-
-# clean rule for target.
-CMakeFiles/NuclearOpenGLTest.dir/clean:
-	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/clean
-.PHONY : CMakeFiles/NuclearOpenGLTest.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/NuclearOpenGLTest.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/NuclearMrinaank.dir
-
-# All Build rule for target.
-CMakeFiles/NuclearMrinaank.dir/all:
-	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/depend
-	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target NuclearMrinaank"
-.PHONY : CMakeFiles/NuclearMrinaank.dir/all
-
-# Include target in all.
-all: CMakeFiles/NuclearMrinaank.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/NuclearMrinaank.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 9
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NuclearMrinaank.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/NuclearMrinaank.dir/rule
-
-# Convenience name for target.
-NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/rule
-
-.PHONY : NuclearMrinaank
-
-# clean rule for target.
-CMakeFiles/NuclearMrinaank.dir/clean:
-	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/clean
-.PHONY : CMakeFiles/NuclearMrinaank.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/NuclearMrinaank.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/NuclearNetworkTestClient.dir
 
 # All Build rule for target.
@@ -209,6 +135,43 @@ CMakeFiles/NuclearNetworkTest.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/NuclearNetworkTest.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/NuclearMrinaank.dir
+
+# All Build rule for target.
+CMakeFiles/NuclearMrinaank.dir/all:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/depend
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target NuclearMrinaank"
+.PHONY : CMakeFiles/NuclearMrinaank.dir/all
+
+# Include target in all.
+all: CMakeFiles/NuclearMrinaank.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/NuclearMrinaank.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NuclearMrinaank.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/NuclearMrinaank.dir/rule
+
+# Convenience name for target.
+NuclearMrinaank: CMakeFiles/NuclearMrinaank.dir/rule
+
+.PHONY : NuclearMrinaank
+
+# clean rule for target.
+CMakeFiles/NuclearMrinaank.dir/clean:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/clean
+.PHONY : CMakeFiles/NuclearMrinaank.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/NuclearMrinaank.dir/clean
 
 .PHONY : clean
 

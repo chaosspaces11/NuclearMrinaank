@@ -19,7 +19,7 @@ endif()
 
 add_executable(NuclearMrinaank main.cpp Cell.h Cell.cpp Grid.cpp Grid.h CornerCell.cpp CornerCell.h SideCell.cpp SideCell.h Player.cpp Player.h PlayerManager.cpp PlayerManager.h Client.cpp Client.h)
 add_executable(NuclearNetworkTest Server.cpp Server.h NetworkConnection.cpp NetworkConnection.h)
-add_executable(NuclearNetworkTestClient Client.h Client.cpp)
+add_executable(NuclearNetworkTestClient TestClient.cpp)
 add_executable(NuclearOpenGLTest OpenGlTest.cpp)
 
 if(Boost_FOUND)

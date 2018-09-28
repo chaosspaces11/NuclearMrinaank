@@ -196,7 +196,6 @@ Client.o: Client.cpp.o
 # target to build an object file
 Client.cpp.o:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Client.cpp.o
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/Client.cpp.o
 .PHONY : Client.cpp.o
 
 Client.i: Client.cpp.i
@@ -206,7 +205,6 @@ Client.i: Client.cpp.i
 # target to preprocess a source file
 Client.cpp.i:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Client.cpp.i
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/Client.cpp.i
 .PHONY : Client.cpp.i
 
 Client.s: Client.cpp.s
@@ -216,7 +214,6 @@ Client.s: Client.cpp.s
 # target to generate assembly for a file
 Client.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Client.cpp.s
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/Client.cpp.s
 .PHONY : Client.cpp.s
 
 CornerCell.o: CornerCell.cpp.o
@@ -435,6 +432,33 @@ SideCell.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/SideCell.cpp.s
 .PHONY : SideCell.cpp.s
 
+TestClient.o: TestClient.cpp.o
+
+.PHONY : TestClient.o
+
+# target to build an object file
+TestClient.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/TestClient.cpp.o
+.PHONY : TestClient.cpp.o
+
+TestClient.i: TestClient.cpp.i
+
+.PHONY : TestClient.i
+
+# target to preprocess a source file
+TestClient.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/TestClient.cpp.i
+.PHONY : TestClient.cpp.i
+
+TestClient.s: TestClient.cpp.s
+
+.PHONY : TestClient.s
+
+# target to generate assembly for a file
+TestClient.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/TestClient.cpp.s
+.PHONY : TestClient.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -504,6 +528,9 @@ help:
 	@echo "... SideCell.o"
 	@echo "... SideCell.i"
 	@echo "... SideCell.s"
+	@echo "... TestClient.o"
+	@echo "... TestClient.i"
+	@echo "... TestClient.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -222,11 +222,9 @@
 		</Unit>
 		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Client.cpp">
 			<Option target="NuclearMrinaank"/>
-			<Option target="NuclearNetworkTestClient"/>
 		</Unit>
 		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/Client.h">
 			<Option target="NuclearMrinaank"/>
-			<Option target="NuclearNetworkTestClient"/>
 		</Unit>
 		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/CornerCell.cpp">
 			<Option target="NuclearMrinaank"/>
@@ -272,6 +270,9 @@
 		</Unit>
 		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/SideCell.h">
 			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/TestClient.cpp">
+			<Option target="NuclearNetworkTestClient"/>
 		</Unit>
 		<Unit filename="/Users/yr12/CLionProjects/NuclearMrinaank/main.cpp">
 			<Option target="NuclearMrinaank"/>

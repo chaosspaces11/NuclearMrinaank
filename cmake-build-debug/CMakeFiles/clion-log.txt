@@ -1,5 +1,5 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/MichaelChen/CLionProjects/NuclearMrinaank
--- Boost version: 1.64.0
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/yr12/CLionProjects/NuclearMrinaank
+-- Boost version: 1.67.0
 -- Found the following Boost libraries:
 --   system
 --   filesystem
@@ -7,6 +7,9 @@
 --   chrono
 --   date_time
 --   atomic
+-- Boost_INCLUDE_DIRS: /usr/local/include
+-- Boost_LIBRARIES: /usr/local/lib/libboost_system-mt.dylib;/usr/local/lib/libboost_filesystem-mt.dylib;/usr/local/lib/libboost_thread-mt.dylib;/usr/local/lib/libboost_chrono-mt.dylib;/usr/local/lib/libboost_date_time-mt.dylib;/usr/local/lib/libboost_atomic-mt.dylib
+-- Boost_VERSION: 106700
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug
+-- Build files have been written to: /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug

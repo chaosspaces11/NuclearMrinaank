@@ -59,6 +59,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/NuclearOpenGLTest.dir/DependInfo.cmake"
-  "CMakeFiles/NuclearNetworkTest.dir/DependInfo.cmake"
   "CMakeFiles/NuclearMrinaank.dir/DependInfo.cmake"
+  "CMakeFiles/NuclearNetworkTestClient.dir/DependInfo.cmake"
+  "CMakeFiles/NuclearNetworkTest.dir/DependInfo.cmake"
   )

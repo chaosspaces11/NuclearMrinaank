@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         boost::asio::io_service io_service;
 
         tcp::resolver resolver(io_service);
-        tcp::resolver::query query(argv[1], "9000");
+        tcp::resolver::query query(argv[1], "9001");
         tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
         tcp::resolver::iterator end;
 
@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
             else if (error)
                 throw boost::system::system_error(error); // Some other error.
 
-            std::cout.write(buf.data(), len);
+            std::cerr.write(buf.data(), len);
         }
     }
     catch (std::exception& e)

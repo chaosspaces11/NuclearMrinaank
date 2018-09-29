@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yr12/CLionProjects/NuclearMrinaank
+CMAKE_SOURCE_DIR = /Users/MichaelChen/CLionProjects/NuclearMrinaank
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yr12/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named NuclearNetworkTestClient
+# Target rules for targets named NuclearOpenGLTest
 
 # Build rule for target.
-NuclearNetworkTestClient: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NuclearNetworkTestClient
-.PHONY : NuclearNetworkTestClient
+NuclearOpenGLTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NuclearOpenGLTest
+.PHONY : NuclearOpenGLTest
 
 # fast build rule for target.
-NuclearNetworkTestClient/fast:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/build
-.PHONY : NuclearNetworkTestClient/fast
+NuclearOpenGLTest/fast:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/build
+.PHONY : NuclearOpenGLTest/fast
 
 #=============================================================================
 # Target rules for targets named NuclearNetworkTest
@@ -175,33 +175,6 @@ Cell.s: Cell.cpp.s
 Cell.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Cell.cpp.s
 .PHONY : Cell.cpp.s
-
-Client.o: Client.cpp.o
-
-.PHONY : Client.o
-
-# target to build an object file
-Client.cpp.o:
-	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Client.cpp.o
-.PHONY : Client.cpp.o
-
-Client.i: Client.cpp.i
-
-.PHONY : Client.i
-
-# target to preprocess a source file
-Client.cpp.i:
-	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Client.cpp.i
-.PHONY : Client.cpp.i
-
-Client.s: Client.cpp.s
-
-.PHONY : Client.s
-
-# target to generate assembly for a file
-Client.cpp.s:
-	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Client.cpp.s
-.PHONY : Client.cpp.s
 
 CornerCell.o: CornerCell.cpp.o
 
@@ -257,32 +230,32 @@ Grid.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
 .PHONY : Grid.cpp.s
 
-NetworkConnection.o: NetworkConnection.cpp.o
+OpenGlTest.o: OpenGlTest.cpp.o
 
-.PHONY : NetworkConnection.o
+.PHONY : OpenGlTest.o
 
 # target to build an object file
-NetworkConnection.cpp.o:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/NetworkConnection.cpp.o
-.PHONY : NetworkConnection.cpp.o
+OpenGlTest.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGlTest.cpp.o
+.PHONY : OpenGlTest.cpp.o
 
-NetworkConnection.i: NetworkConnection.cpp.i
+OpenGlTest.i: OpenGlTest.cpp.i
 
-.PHONY : NetworkConnection.i
+.PHONY : OpenGlTest.i
 
 # target to preprocess a source file
-NetworkConnection.cpp.i:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/NetworkConnection.cpp.i
-.PHONY : NetworkConnection.cpp.i
+OpenGlTest.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGlTest.cpp.i
+.PHONY : OpenGlTest.cpp.i
 
-NetworkConnection.s: NetworkConnection.cpp.s
+OpenGlTest.s: OpenGlTest.cpp.s
 
-.PHONY : NetworkConnection.s
+.PHONY : OpenGlTest.s
 
 # target to generate assembly for a file
-NetworkConnection.cpp.s:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/NetworkConnection.cpp.s
-.PHONY : NetworkConnection.cpp.s
+OpenGlTest.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGlTest.cpp.s
+.PHONY : OpenGlTest.cpp.s
 
 Player.o: Player.cpp.o
 
@@ -338,33 +311,6 @@ PlayerManager.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/PlayerManager.cpp.s
 .PHONY : PlayerManager.cpp.s
 
-Server.o: Server.cpp.o
-
-.PHONY : Server.o
-
-# target to build an object file
-Server.cpp.o:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/Server.cpp.o
-.PHONY : Server.cpp.o
-
-Server.i: Server.cpp.i
-
-.PHONY : Server.i
-
-# target to preprocess a source file
-Server.cpp.i:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/Server.cpp.i
-.PHONY : Server.cpp.i
-
-Server.s: Server.cpp.s
-
-.PHONY : Server.s
-
-# target to generate assembly for a file
-Server.cpp.s:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/Server.cpp.s
-.PHONY : Server.cpp.s
-
 SideCell.o: SideCell.cpp.o
 
 .PHONY : SideCell.o
@@ -398,7 +344,7 @@ TestClient.o: TestClient.cpp.o
 
 # target to build an object file
 TestClient.cpp.o:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/TestClient.cpp.o
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/TestClient.cpp.o
 .PHONY : TestClient.cpp.o
 
 TestClient.i: TestClient.cpp.i
@@ -407,7 +353,7 @@ TestClient.i: TestClient.cpp.i
 
 # target to preprocess a source file
 TestClient.cpp.i:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/TestClient.cpp.i
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/TestClient.cpp.i
 .PHONY : TestClient.cpp.i
 
 TestClient.s: TestClient.cpp.s
@@ -416,7 +362,7 @@ TestClient.s: TestClient.cpp.s
 
 # target to generate assembly for a file
 TestClient.cpp.s:
-	$(MAKE) -f CMakeFiles/NuclearNetworkTestClient.dir/build.make CMakeFiles/NuclearNetworkTestClient.dir/TestClient.cpp.s
+	$(MAKE) -f CMakeFiles/NuclearNetworkTest.dir/build.make CMakeFiles/NuclearNetworkTest.dir/TestClient.cpp.s
 .PHONY : TestClient.cpp.s
 
 main.o: main.cpp.o
@@ -454,33 +400,27 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... NuclearNetworkTestClient"
+	@echo "... NuclearOpenGLTest"
 	@echo "... NuclearNetworkTest"
 	@echo "... NuclearMrinaank"
 	@echo "... Cell.o"
 	@echo "... Cell.i"
 	@echo "... Cell.s"
-	@echo "... Client.o"
-	@echo "... Client.i"
-	@echo "... Client.s"
 	@echo "... CornerCell.o"
 	@echo "... CornerCell.i"
 	@echo "... CornerCell.s"
 	@echo "... Grid.o"
 	@echo "... Grid.i"
 	@echo "... Grid.s"
-	@echo "... NetworkConnection.o"
-	@echo "... NetworkConnection.i"
-	@echo "... NetworkConnection.s"
+	@echo "... OpenGlTest.o"
+	@echo "... OpenGlTest.i"
+	@echo "... OpenGlTest.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
 	@echo "... PlayerManager.o"
 	@echo "... PlayerManager.i"
 	@echo "... PlayerManager.s"
-	@echo "... Server.o"
-	@echo "... Server.i"
-	@echo "... Server.s"
 	@echo "... SideCell.o"
 	@echo "... SideCell.i"
 	@echo "... SideCell.s"

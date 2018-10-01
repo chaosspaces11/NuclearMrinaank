@@ -25,6 +25,7 @@ bool isInt(std::string data)
     return (valid == data.length());
 }
 
+
 int main()
 {
     // Sets up width and height of the grid
@@ -134,6 +135,36 @@ int main()
     }
     else
     {
+        std::cout << "Server mode selected" << std::endl;
+        while (true)
+        {
+            std::cout << "Would you like to:" << std::endl;
+            std::cout << "1. Create a room" << std::endl;
+            std::cout << "2. Join a room" << std::endl;
+            std::cin >> choice;
+            if (isInt(choice))
+            {
+                intChoice = stoi(choice);
+
+                if (intChoice == 1)
+                {
+                    break;
+                }
+                else if (intChoice == 2)
+                {
+                    break;
+                }
+                else
+                {
+                    std::cout << "Invalid number" << std::endl;
+                }
+
+            }
+            else
+            {
+                std::cout << "Not a number" << std::endl;
+            }
+        }
         std::cout << "Not implemented yet" << std::endl;
         return 0;
     }

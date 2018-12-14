@@ -203,6 +203,33 @@ CornerCell.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/CornerCell.cpp.s
 .PHONY : CornerCell.cpp.s
 
+GraphicsManager.o: GraphicsManager.cpp.o
+
+.PHONY : GraphicsManager.o
+
+# target to build an object file
+GraphicsManager.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/GraphicsManager.cpp.o
+.PHONY : GraphicsManager.cpp.o
+
+GraphicsManager.i: GraphicsManager.cpp.i
+
+.PHONY : GraphicsManager.i
+
+# target to preprocess a source file
+GraphicsManager.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/GraphicsManager.cpp.i
+.PHONY : GraphicsManager.cpp.i
+
+GraphicsManager.s: GraphicsManager.cpp.s
+
+.PHONY : GraphicsManager.s
+
+# target to generate assembly for a file
+GraphicsManager.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/GraphicsManager.cpp.s
+.PHONY : GraphicsManager.cpp.s
+
 Grid.o: Grid.cpp.o
 
 .PHONY : Grid.o
@@ -229,6 +256,36 @@ Grid.s: Grid.cpp.s
 Grid.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/Grid.cpp.s
 .PHONY : Grid.cpp.s
+
+OpenGLDylib/glfw-3.2.1/deps/glad.o: OpenGLDylib/glfw-3.2.1/deps/glad.c.o
+
+.PHONY : OpenGLDylib/glfw-3.2.1/deps/glad.o
+
+# target to build an object file
+OpenGLDylib/glfw-3.2.1/deps/glad.c.o:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGLDylib/glfw-3.2.1/deps/glad.c.o
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/OpenGLDylib/glfw-3.2.1/deps/glad.c.o
+.PHONY : OpenGLDylib/glfw-3.2.1/deps/glad.c.o
+
+OpenGLDylib/glfw-3.2.1/deps/glad.i: OpenGLDylib/glfw-3.2.1/deps/glad.c.i
+
+.PHONY : OpenGLDylib/glfw-3.2.1/deps/glad.i
+
+# target to preprocess a source file
+OpenGLDylib/glfw-3.2.1/deps/glad.c.i:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGLDylib/glfw-3.2.1/deps/glad.c.i
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/OpenGLDylib/glfw-3.2.1/deps/glad.c.i
+.PHONY : OpenGLDylib/glfw-3.2.1/deps/glad.c.i
+
+OpenGLDylib/glfw-3.2.1/deps/glad.s: OpenGLDylib/glfw-3.2.1/deps/glad.c.s
+
+.PHONY : OpenGLDylib/glfw-3.2.1/deps/glad.s
+
+# target to generate assembly for a file
+OpenGLDylib/glfw-3.2.1/deps/glad.c.s:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/OpenGLDylib/glfw-3.2.1/deps/glad.c.s
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/OpenGLDylib/glfw-3.2.1/deps/glad.c.s
+.PHONY : OpenGLDylib/glfw-3.2.1/deps/glad.c.s
 
 OpenGlTest.o: OpenGlTest.cpp.o
 
@@ -392,6 +449,36 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+stb_image.o: stb_image.cpp.o
+
+.PHONY : stb_image.o
+
+# target to build an object file
+stb_image.cpp.o:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/stb_image.cpp.o
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/stb_image.cpp.o
+.PHONY : stb_image.cpp.o
+
+stb_image.i: stb_image.cpp.i
+
+.PHONY : stb_image.i
+
+# target to preprocess a source file
+stb_image.cpp.i:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/stb_image.cpp.i
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/stb_image.cpp.i
+.PHONY : stb_image.cpp.i
+
+stb_image.s: stb_image.cpp.s
+
+.PHONY : stb_image.s
+
+# target to generate assembly for a file
+stb_image.cpp.s:
+	$(MAKE) -f CMakeFiles/NuclearOpenGLTest.dir/build.make CMakeFiles/NuclearOpenGLTest.dir/stb_image.cpp.s
+	$(MAKE) -f CMakeFiles/NuclearMrinaank.dir/build.make CMakeFiles/NuclearMrinaank.dir/stb_image.cpp.s
+.PHONY : stb_image.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -409,9 +496,15 @@ help:
 	@echo "... CornerCell.o"
 	@echo "... CornerCell.i"
 	@echo "... CornerCell.s"
+	@echo "... GraphicsManager.o"
+	@echo "... GraphicsManager.i"
+	@echo "... GraphicsManager.s"
 	@echo "... Grid.o"
 	@echo "... Grid.i"
 	@echo "... Grid.s"
+	@echo "... OpenGLDylib/glfw-3.2.1/deps/glad.o"
+	@echo "... OpenGLDylib/glfw-3.2.1/deps/glad.i"
+	@echo "... OpenGLDylib/glfw-3.2.1/deps/glad.s"
 	@echo "... OpenGlTest.o"
 	@echo "... OpenGlTest.i"
 	@echo "... OpenGlTest.s"
@@ -430,6 +523,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... stb_image.o"
+	@echo "... stb_image.i"
+	@echo "... stb_image.s"
 .PHONY : help
 
 

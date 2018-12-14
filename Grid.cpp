@@ -9,6 +9,8 @@
 
 //defining static vector Grid::cells
 std::vector<std::vector<Cell> > Grid::cells;
+std::vector<float> backgroundVertices;
+std::vector<unsigned int> backgroundIndices;
 
 // Grid constructor
 Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
@@ -93,6 +95,37 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
         // Adds the array to cells. This arrays is essentially the row of the grid.
         cells.push_back(array);
     }
+
+    std::vector<float> backgroundVertices = {// Coordinate vectors     Colour Vectors      Texture Vectors
+             1.0f, 1.0f, 1.0f,      1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner
+          1.0f, -1.0f, 1.0f,     1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner
+          -1.0f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom left corner
+          -1.0f, 1.0f, 1.0f,     1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top left corner
+
+          0.975f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
+          0.975f, -1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner gridded
+
+          1.0f, 0.975f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
+          -1.0f, 0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner gridded
+
+          -0.975f, 1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
+          -0.975f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner gridded
+
+          -1.0f, -0.975f, 1.0f,  1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
+          1.0f, -0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f // bottom right corner gridded
+    };
+
+    std::vector<unsigned int> backgroundIndices = {
+            0,1,4,
+            5,4,1,
+            6,3,7,
+            6,3,0,
+            8,3,9,
+            9,3,2,
+            10,2,1,
+            11,1,10
+    };
+
 //    std::cout << "Grid file linked successfully" << std::endl;
 }
 

@@ -3,8 +3,8 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="NuclearMrinaank" targetName="NuclearMrinaank" />
-      <config projectName="NuclearMrinaank" targetName="NuclearNetworkTest" />
       <config projectName="NuclearMrinaank" targetName="NuclearOpenGLTest" />
+      <config projectName="NuclearMrinaank" targetName="NuclearNetworkTest" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -13,8 +13,35 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54020236-d890-42fb-a556-60aff33c5f71" name="Default Changelist" comment="">
+    <list default="true" id="54020236-d890-42fb-a556-60aff33c5f71" name="Default Changelist" comment="Currently has input checking for:&#10;IP address&#10;Game mode selection&#10;Creating/Joining room">
+      <change afterPath="$PROJECT_DIR$/GraphicsManager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphicsManager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NuclearMrinaank_Icon_SinhaDefault.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NuclearMrinaank_Icon_SinhaDefault.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenGlShader.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/container.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fragmentShader.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stb_image.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grid.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Grid.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grid.h" beforeDir="false" afterPath="$PROJECT_DIR$/Grid.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLEW/cmake/glew/CopyImportedTargetProperties.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLEW/cmake/glew/glew-config.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLEW/cmake/glew/glew-targets-release.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLEW/cmake/glew/glew-targets.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLEW/libGLEW.2.1.0.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLFW3/cmake/glfw3/glfw3Config.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLFW3/cmake/glfw3/glfw3ConfigVersion.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLFW3/cmake/glfw3/glfw3Targets-release.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLFW3/cmake/glfw3/glfw3Targets.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGLDylib/GLFW3/libglfw.3.2.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenGlTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGlTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayerManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/NuclearMrinaank.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/NuclearMrinaank.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -29,43 +56,59 @@
     <session id="1211160526">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="4" />
-          <entry key="project.open.time.19" value="1" />
+          <entry key="project.closed" value="26" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.15" value="5" />
+          <entry key="project.open.time.16" value="10" />
+          <entry key="project.open.time.17" value="3" />
+          <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="17749" />
-          <entry key="h" value="3354" />
-          <entry key="txt" value="2896" />
+          <entry key="cpp" value="28941" />
+          <entry key="glsl" value="800" />
+          <entry key="h" value="3752" />
+          <entry key="txt" value="3162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="493" />
-          <entry key="ObjectiveC" value="21103" />
-          <entry key="PLAIN_TEXT" value="2403" />
+          <entry key="CMakeLists.txt" value="634" />
+          <entry key="GLSL shader file" value="799" />
+          <entry key="ObjectiveC" value="32693" />
+          <entry key="PLAIN_TEXT" value="2529" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="25" />
-          <entry key="h" value="15" />
-          <entry key="txt" value="1" />
+          <entry key="c" value="3" />
+          <entry key="cmake" value="1" />
+          <entry key="cpp" value="42" />
+          <entry key="fragmentShader" value="1" />
+          <entry key="fs" value="1" />
+          <entry key="glsl" value="2" />
+          <entry key="h" value="29" />
+          <entry key="jpg" value="3" />
+          <entry key="png" value="2" />
+          <entry key="txt" value="7" />
           <entry key="vector" value="7" />
+          <entry key="vertexShader" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="1" />
-          <entry key="ObjectiveC" value="47" />
+          <entry key="CMakeCache.txt" value="1" />
+          <entry key="CMakeLists.txt" value="7" />
+          <entry key="GLSL shader file" value="1" />
+          <entry key="Image" value="5" />
+          <entry key="ObjectiveC" value="81" />
+          <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -106,11 +149,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OpenGlTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2561">
+              <caret line="445" column="8" selection-start-line="445" selection-start-column="8" selection-end-line="446" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="143" column="31" lean-forward="true" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+            <state relative-caret-position="165">
+              <caret line="151" column="41" selection-start-line="151" selection-start-column="41" selection-end-line="151" selection-end-column="41" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -119,61 +174,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestClient.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
-              <folding>
-                <element signature="e#273#292#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+            <state relative-caret-position="187">
+              <caret line="27" column="97" selection-start-line="27" selection-start-column="97" selection-end-line="27" selection-end-column="97" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PlayerManager.cpp">
+        <entry file="file://$PROJECT_DIR$/GraphicsManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PlayerManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Player.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="211">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
-                <element signature="e#116#133#0" expanded="true" />
+                <element signature="e#49#77#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Player.cpp">
+        <entry file="file://$PROJECT_DIR$/GraphicsManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="182">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+              <folding>
+                <element signature="e#133#155#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,6 +222,7 @@
       <find>currentPlayer</find>
       <find>std::cout</find>
       <find>$PROJECT_DIR$/../../../</find>
+      <find>simple</find>
     </findStrings>
     <replaceStrings>
       <replace>yr12</replace>
@@ -224,17 +253,29 @@
         <option value="$PROJECT_DIR$/player.h" />
         <option value="$PROJECT_DIR$/player.cpp" />
         <option value="$PROJECT_DIR$/player0.cpp" />
-        <option value="$PROJECT_DIR$/Grid.h" />
         <option value="$PROJECT_DIR$/Player.cpp" />
         <option value="$PROJECT_DIR$/Player.h" />
         <option value="$PROJECT_DIR$/PlayerManager.h" />
-        <option value="$PROJECT_DIR$/PlayerManager.cpp" />
-        <option value="$PROJECT_DIR$/Grid.cpp" />
         <option value="$PROJECT_DIR$/Cell.cpp" />
         <option value="$PROJECT_DIR$/Debug.h" />
         <option value="$PROJECT_DIR$/Debug.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/NetworkConnection.cpp" />
+        <option value="$PROJECT_DIR$/OpenGLDylib/glad/glad.h" />
+        <option value="$PROJECT_DIR$/vertexShader" />
+        <option value="$PROJECT_DIR$/fragmentShader" />
+        <option value="$PROJECT_DIR$/vertexShader.fs" />
+        <option value="$PROJECT_DIR$/OpenGlShader.h" />
+        <option value="$PROJECT_DIR$/stb_image.cpp" />
+        <option value="$PROJECT_DIR$/fragmentShader.glsl" />
+        <option value="$PROJECT_DIR$/PlayerManager.cpp" />
+        <option value="$PROJECT_DIR$/Grid.h" />
+        <option value="$PROJECT_DIR$/Grid.cpp" />
+        <option value="$PROJECT_DIR$/vertexShader.glsl" />
+        <option value="$PROJECT_DIR$/MultithreaderTest.cpp" />
+        <option value="$PROJECT_DIR$/GraphicsManager.h" />
         <option value="$PROJECT_DIR$/OpenGlTest.cpp" />
+        <option value="$PROJECT_DIR$/GraphicsManager.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -245,9 +286,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="56" />
+    <option name="y" value="24" />
+    <option name="width" value="1384" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -262,6 +305,10 @@
               <item name="NuclearMrinaank" type="b2602c69:ProjectViewProjectNode" />
               <item name="NuclearMrinaank" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NuclearMrinaank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -274,6 +321,17 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="/usr/local/include" />
+      <recent name="$PROJECT_DIR$/OpenGLDylib" />
+      <recent name="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/OpenGLDylib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -334,7 +392,25 @@
       <workItem from="1536219754976" duration="4646000" />
       <workItem from="1536620639883" duration="5996000" />
       <workItem from="1536793676346" duration="4308000" />
-      <workItem from="1538356663601" duration="630000" />
+      <workItem from="1538356663601" duration="5095000" />
+      <workItem from="1541574034967" duration="228000" />
+      <workItem from="1541588751069" duration="1933000" />
+      <workItem from="1541659933352" duration="4254000" />
+      <workItem from="1541718908362" duration="6269000" />
+      <workItem from="1542246805225" duration="775000" />
+      <workItem from="1542506390746" duration="1458000" />
+      <workItem from="1542514507584" duration="3483000" />
+      <workItem from="1542524005150" duration="206000" />
+      <workItem from="1542524240781" duration="766000" />
+      <workItem from="1542527296722" duration="1325000" />
+      <workItem from="1542931726905" duration="4683000" />
+      <workItem from="1542971445755" duration="189000" />
+      <workItem from="1543547809988" duration="2483000" />
+      <workItem from="1543710988954" duration="2054000" />
+      <workItem from="1543903233614" duration="3232000" />
+      <workItem from="1544065274069" duration="10908000" />
+      <workItem from="1544412696117" duration="11028000" />
+      <workItem from="1544656580081" duration="11593000" />
     </task>
     <task id="LOCAL-00001" summary="Plans for classes">
       <created>1535536426592</created>
@@ -469,11 +545,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538188686802</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added input checking for game mode selection and joining room.">
+      <created>1538357876530</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1538357876530</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Currently has input checking for:&#10;IP address&#10;Game mode selection&#10;Creating/Joining room">
+      <created>1538484659165</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1538484659165</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78580000" />
+    <option name="totallyTimeSpent" value="149912000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -485,25 +575,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="56" y="24" width="1384" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73486686" visible="true" weight="0.32188842" />
-      <window_info id="Structure" order="1" sideWeight="0.26513317" side_tool="true" visible="true" weight="0.32188842" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73351645" visible="true" weight="0.23025335" />
+      <window_info id="Structure" order="1" sideWeight="0.26648352" side_tool="true" weight="0.32188842" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" x="0" y="45" width="1280" height="712" id="Run" order="2" sideWeight="0.46995708" visible="true" weight="0.004819277" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49776453" weight="0.3277849" />
+      <window_info active="true" anchor="bottom" x="0" y="45" width="1280" height="712" id="Run" order="2" sideWeight="0.8442623" visible="true" weight="0.43661973" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8755365" weight="0.5795181" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.3277849" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.47854078" weight="0.5614458" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.5472103" weight="0.47831327" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.53004295" side_tool="true" visible="true" weight="0.004819277" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.80042917" weight="0.32891566" />
-      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.49785408" weight="0.32891566" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.35842028" weight="0.418694" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.5424739" weight="0.34827146" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.1557377" side_tool="true" visible="true" weight="0.43661973" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.7980626" weight="0.3277849" />
+      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.49329358" weight="0.3277849" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -584,16 +674,11 @@
     <MESSAGE value="Full implementation of PlayerManager and Player classes.&#10;Players that are out of the game are also appropriately skipped.&#10;Addition of check win function allows for determination of winners.&#10;Indexing from 1.&#10;&#10;Errors: &#10;- No known errors thus far." />
     <MESSAGE value="Merge branch 'master' into playerClassDev&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;PlayerManager.cpp&#10;#&#9;PlayerManager.h&#10;#&#9;main.cpp" />
     <MESSAGE value="Added input checking for game mode selection." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added input checking for game mode selection." />
+    <MESSAGE value="Added input checking for game mode selection and joining room." />
+    <MESSAGE value="Currently has input checking for:&#10;IP address&#10;Game mode selection&#10;Creating/Joining room" />
+    <option name="LAST_COMMIT_MESSAGE" value="Currently has input checking for:&#10;IP address&#10;Game mode selection&#10;Creating/Joining room" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -617,13 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CornerCell.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CornerCell.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -639,20 +717,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Debug.h" />
-    <entry file="file://$PROJECT_DIR$/Grid.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grid.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2355">
-          <caret line="157" column="90" selection-start-line="157" selection-start-column="90" selection-end-line="157" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -674,34 +738,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OpenGlTest.cpp">
+    <entry file="file://$PROJECT_DIR$/NetworkConnection.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="645">
+          <caret line="43" column="47" lean-forward="true" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestClient.cpp">
+    <entry file="file://$PROJECT_DIR$/PlayerManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-          <folding>
-            <element signature="e#273#292#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PlayerManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="122">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -709,35 +756,210 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/include/KHR/khrplatform.h" />
+    <entry file="file://$PROJECT_DIR$/OpenGLDylib/glad/glad.h" />
+    <entry file="file://$PROJECT_DIR$/OpenGLDylib/glfw-3.2.1/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenGLDylib/glfw-3.2.1/src/init.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fragmentShader" />
+    <entry file="file://$PROJECT_DIR$/vertexShader" />
+    <entry file="file://$PROJECT_DIR$/vertexShader.fs" />
+    <entry file="file://$PROJECT_DIR$/TestClient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CornerCell.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stb_image.h" />
+    <entry file="file:///usr/local/include/stb_image.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NuclearMrinaank_Icon_SinhaDefault.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stb_image.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomeface.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NuclearMrinaank_Icon_SinhaDefault.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///usr/local/include/GLFW/glfw3.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="788" column="26" selection-start-line="788" selection-start-column="26" selection-end-line="788" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glad.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1140" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenGlShader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-601">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="e#116#133#0" expanded="true" />
+            <element signature="e#128#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grid.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="48" selection-start-line="34" selection-start-column="4" selection-end-line="35" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlayerManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="102" column="50" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
+          <folding>
+            <element signature="e#47#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grid.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-543">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="e#48#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Player.cpp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64">
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-71" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vertexShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PlayerManager.h">
+    <entry file="file://$PROJECT_DIR$/OpenGlTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="143" column="31" lean-forward="true" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+        <state relative-caret-position="2561">
+          <caret line="445" column="8" selection-start-line="445" selection-start-column="8" selection-end-line="446" selection-end-column="37" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding>
+            <element signature="e#133#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#49#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultithreaderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="e#48#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="27" column="97" selection-start-line="27" selection-start-column="97" selection-end-line="27" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="151" column="41" selection-start-line="151" selection-start-column="41" selection-end-line="151" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

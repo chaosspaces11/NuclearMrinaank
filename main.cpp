@@ -5,13 +5,31 @@
 #include "CornerCell.h"
 #include "Player.h"
 #include "PlayerManager.h"
+#include "GraphicsManager.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include "OpenGlShader.h"
 
-//#include <OpenGL/gl.h>
-//#include <OpenGl/glu.h>
-//#include <GLUT/glut.h>
+#include <thread>
+#include <chrono>
 
+#include <stb_image.h>
+
+#include <pthread.h>
 // Temporary functions:
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+}
+
+// Checks input to see if escape key is pressed
+void processInput(GLFWwindow *window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
 
 // I don't quite know what to put these under
 
@@ -121,7 +139,7 @@ bool ipParser (std::string data)
     return true;
 }
 
-int main()
+void *dataThread(void* )
 {
     // Sets up width and height of the grid
     int gridWidth = 7;
@@ -204,11 +222,16 @@ int main()
         // Sets up the player manager
         PlayerManager playerManager(numPlayers);
 
+        // Sets up graphics manager
+
+
+
         // Runs until a winner is found
         while (true)
         {
             // Runs the turn of the player
             playerManager.iteratePlayer(mainGrid);
+
 
             // If it is not the 1st round as the current player should own 0 cells in the first round
             if (!playerManager.getInitialRound())
@@ -239,7 +262,7 @@ int main()
         std::cout << "Player " << winner << " has won!" << std::endl;
 
         // Code exits
-        return 0;
+//        return 0;
     }
     else
         // Online multiplayer
@@ -294,6 +317,40 @@ int main()
 
         // Stuff goes here
         std::cout << "Not implemented yet" << std::endl;
-        return 0;
+        return NULL;
     }
+};
+
+void *graphicsThread( void*)
+{
+    GraphicsManager graphicsManager;
+    Shader ourShader("../vertexShader.glsl", "../fragmentShader.glsl");
+    graphicsManager.render();
+    return NULL;
+}
+
+int main()
+{
+    pthread_t threads[2];
+    int rc;
+
+
+    rc = pthread_create(&threads[1], NULL, dataThread, NULL);
+//    std::cout << "THREAD ESTABLISHED" << std::endl;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+    GraphicsManager graphicsManager;
+    Shader ourShader( "../vertexShader.glsl", "../fragmentShader.glsl");
+    while(!glfwWindowShouldClose(graphicsManager.getWindow()))
+    {
+        ourShader.use();
+        graphicsManager.render();
+    }
+    glfwTerminate();
+
+    pthread_join(threads[1],NULL);
+
+    return 0;
+
 }

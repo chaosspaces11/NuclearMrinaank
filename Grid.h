@@ -32,9 +32,11 @@ private:
     //declares height and width of grid
     const int height;
     const int width;
+    std::vector<float> backgroundVertices;
+    std::vector<unsigned int> backgroundIndices;
 
     //declares vector of cells
-    static std::vector<std::vector<Cell> > cells;
+    static std::vector<std::vector<Cell>> cells;
 };
 
 // Function input a,b

@@ -6,6 +6,11 @@
 #include "Grid.h"
 #include "Player.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include "OpenGlShader.h"
+#include <stb_image.h>
+
 
 // Construction of the player manager
 PlayerManager::PlayerManager(int numPlayers): numPlayers(numPlayers), initialRound(true)
@@ -21,7 +26,6 @@ PlayerManager::PlayerManager(int numPlayers): numPlayers(numPlayers), initialRou
 
     // Sets the index to the first player
     playerIndex = 1;
-
 }
 
 // Checks the positon given to ensure that it is within the grid.

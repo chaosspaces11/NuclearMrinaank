@@ -9,11 +9,16 @@
 #include "SideCell.h"
 #include "CornerCell.h"
 
+//#include "GraphicsManager.h"
+
+
+class GraphicsManager;
+
 class Grid
 {
 public:
     // Grid function that creates the width, height and amount of cells contained.
-    Grid(int width, int height);
+    Grid(int width, int height, GraphicsManager graphicsManager);
 
     //Returns cell at location x,y
     static Cell* getCellAt(int x, int y);
@@ -28,18 +33,32 @@ public:
 
     bool checkWin(int players);
 
+    // Graphics
+    std::vector<float>* getVBOData();
+    std::vector<unsigned int>* getEBOData();
+    unsigned int* getVAOAddress();
+    unsigned int* getVBOAddress();
+    unsigned int* getEBOAddress();
+
+    void renderGameGrid(GraphicsManager graphicsManager);
+
+    void updateVBO(std::vector<float>* updatedArray);
+
 private:
     //declares height and width of grid
     const int height;
     const int width;
+
+    // Graphics
     std::vector<float> backgroundVertices;
     std::vector<unsigned int> backgroundIndices;
+
+    unsigned int VAO;
+    unsigned int VBO;
+    unsigned int EBO;
 
     //declares vector of cells
     static std::vector<std::vector<Cell>> cells;
 };
-
-// Function input a,b
-// Outputs pointer
 
 #endif //NUCLEARMRINAANK_GRID_H

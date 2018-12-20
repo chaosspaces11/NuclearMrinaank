@@ -139,18 +139,31 @@ bool ipParser (std::string data)
     return true;
 }
 
-void *dataThread(void* )
+struct mutualItems
+        {
+            Grid coreGrid;
+            PlayerManager* corePlayerManager;
+            GraphicsManager* coreGraphicsManager;
+        };
+
+
+void *dataThread(void* mutualItemsInput)
 {
     // Sets up width and height of the grid
-    int gridWidth = 7;
-    int gridHeight = 5;
+//    int gridWidth = 7;
+//    int gridHeight = 5;
 
     // FD of the game winner
     int winner = 0;
 
     //demo game with single player, selectedX and selectedY are coords of selected cell
-    Grid mainGrid(gridHeight, gridWidth);
+//    Grid mainGrid(gridHeight, gridWidth);
 
+    mutualItems* mutualItems1 = (mutualItems*) mutualItemsInput;
+    Grid* mainGridPtr = &(mutualItems1->coreGrid);
+
+
+    GraphicsManager* graphicsManagerPtr = (mutualItems1->coreGraphicsManager);
     // Sets up sentinel value for players
     int numPlayers = 0;
 
@@ -221,16 +234,16 @@ void *dataThread(void* )
 
         // Sets up the player manager
         PlayerManager playerManager(numPlayers);
-
-        // Sets up graphics manager
-
-
+        mutualItems1->corePlayerManager = &playerManager;
 
         // Runs until a winner is found
         while (true)
         {
+//            mutualItems1->corePlayerManager = playerManager;
+
+//            mutualItems1->coreGraphicsManager = *graphicsManagerPtr;
             // Runs the turn of the player
-            playerManager.iteratePlayer(mainGrid);
+            playerManager.iteratePlayer(*mainGridPtr);
 
 
             // If it is not the 1st round as the current player should own 0 cells in the first round
@@ -238,7 +251,7 @@ void *dataThread(void* )
             {
 
                 // Checks to see if there is a winner
-                if (!mainGrid.checkWin(playerManager.getPlayers()))
+                if (!((*mainGridPtr).checkWin(playerManager.getPlayers())))
                 {
 
                     // Sets the winner, -1 is used to return indexing from 1 to 0
@@ -256,7 +269,7 @@ void *dataThread(void* )
         }
 
         // Draws final display before ending the game
-        mainGrid.renderDisplay();
+        (*mainGridPtr).renderDisplay();
 
         // Outputs the winner
         std::cout << "Player " << winner << " has won!" << std::endl;
@@ -321,31 +334,49 @@ void *dataThread(void* )
     }
 };
 
-void *graphicsThread( void*)
-{
-    GraphicsManager graphicsManager;
-    Shader ourShader("../vertexShader.glsl", "../fragmentShader.glsl");
-    graphicsManager.render();
-    return NULL;
-}
+//void *graphicsThread( void*)
+//{
+//    GraphicsManager graphicsManager;
+//    Shader ourShader("../vertexShader.glsl", "../fragmentShader.glsl");
+//    graphicsManager.render();
+//    return NULL;
+//}
 
 int main()
 {
     pthread_t threads[2];
     int rc;
 
+    PlayerManager temp(2);
+    GraphicsManager graphicsManager;
+    mutualItems core = {.coreGrid = Grid(4,6,graphicsManager), .corePlayerManager = &temp, .coreGraphicsManager = &graphicsManager};
+    Grid* gridPtr = &(core.coreGrid);
 
-    rc = pthread_create(&threads[1], NULL, dataThread, NULL);
-//    std::cout << "THREAD ESTABLISHED" << std::endl;
+    rc = pthread_create(&threads[1], NULL, dataThread, (void*)&core);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
-    GraphicsManager graphicsManager;
     Shader ourShader( "../vertexShader.glsl", "../fragmentShader.glsl");
+
+    graphicsManager.assignBufferData((*gridPtr).getVAOAddress(), *(*gridPtr).getVBOData(), (*gridPtr).getVBOAddress(), *(*gridPtr).getEBOData(), (*gridPtr).getEBOAddress());
     while(!glfwWindowShouldClose(graphicsManager.getWindow()))
     {
         ourShader.use();
-        graphicsManager.render();
+
+//        std::cout << (*gridPtr->getVBOData())[3] << std::endl;
+        // Renders screen
+        graphicsManager.renderWindow();
+
+        // Renders client
+        graphicsManager.renderClient();
+
+        // Renders grid
+        graphicsManager.updateGridColour(core.corePlayerManager->getCurrentPlayer(), gridPtr);
+        (*gridPtr).renderGameGrid(graphicsManager);
+
+        // Renders sinhas
+
+        graphicsManager.concludeRendering();
     }
     glfwTerminate();
 

@@ -26,6 +26,7 @@ endif()
 add_executable(NuclearMrinaank main.cpp Cell.h Cell.cpp Grid.cpp Grid.h CornerCell.cpp CornerCell.h SideCell.cpp SideCell.h Player.cpp Player.h PlayerManager.cpp PlayerManager.h OpenGlShader.h GraphicsManager.cpp GraphicsManager.h OpenGLDylib/glfw-3.2.1/deps/glad.c stb_image.cpp)
 add_executable(NuclearNetworkTest TestClient.cpp)
 add_executable(NuclearOpenGLTest OpenGlTest.cpp OpenGLDylib/glfw-3.2.1/deps/glad.c stb_image.cpp)
+add_executable(NuclearMrinaankMultithreadTest  MultithreadTest.cpp)
 
 if(Boost_FOUND)
     target_link_libraries(NuclearNetworkTest ${Boost_LIBRARIES})

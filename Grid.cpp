@@ -6,6 +6,8 @@
 #include "CornerCell.h"
 #include "SideCell.h"
 #include "Cell.h"
+#include "GraphicsManager.h"
+#include "PlayerManager.h"
 
 //defining static vector Grid::cells
 std::vector<std::vector<Cell> > Grid::cells;
@@ -13,7 +15,7 @@ std::vector<float> backgroundVertices;
 std::vector<unsigned int> backgroundIndices;
 
 // Grid constructor
-Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
+Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize), height(ySize)
 {
     // Integer expression for the location of the edge cells, the top right corner is considered as 0, incrementing as
     // you proceed clockwise.
@@ -22,14 +24,16 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
     int bottom = 2;
     int left = 3;
 
+    unsigned long position;
+
 
     //Fills Grid::cells vector with values
     for (int row = 0; row < height; row++)
     {
-        std::vector <Cell> array;
+        std::vector<Cell> array;
 
         // Iterates through for each column
-        for(int col = 0; col < width; col++)
+        for (int col = 0; col < width; col++)
         {
             // This is a terrible solution, but it'll work
 
@@ -40,91 +44,352 @@ Grid::Grid(int xSize, int ySize): width(xSize), height(ySize)
                 // Checks if it's a corner cell
                 if (row == 0)
                 {
-                    array.push_back( CornerCell(col,row,top) );
+                    array.push_back(CornerCell(col, row, top));
+                    position = (array.size() - 1);
+                    graphicsManager.assignBufferData(
+                            array[position].getVAOaddress(),
+                            *(array[position].getVBOdata()),
+                            array[position].getVBOaddress(),
+                            *(array[position].getEBOdata()),
+                            array[position].getEBOaddress()
+                            );
                 }
 
-                // The addition of 1 is required as "row" is indexed from 0 while "width" is indexed from 1
-                // Checks if it's a corner cell
+                    // The addition of 1 is required as "row" is indexed from 0 while "width" is indexed from 1
+                    // Checks if it's a corner cell
                 else if ((row + 1 - width) == 0)
                 {
-                    array.push_back( CornerCell(col,row,left) );
+                    array.push_back(CornerCell(col, row, left));
+                    position = (array.size() - 1);
+                    graphicsManager.assignBufferData(
+                            array[position].getVAOaddress(),
+                            *(array[position].getVBOdata()),
+                            array[position].getVBOaddress(),
+                            *(array[position].getEBOdata()),
+                            array[position].getEBOaddress()
+                    );
                 }
 
-                // If not a corner cell, pushes it as a side cell
+                    // If not a corner cell, pushes it as a side cell
                 else
                 {
-                    array.push_back( SideCell(col,row,left) );
+                    array.push_back(SideCell(col, row, left));
+                    position = (array.size() - 1);
+                    graphicsManager.assignBufferData(
+                            array[position].getVAOaddress(),
+                            *(array[position].getVBOdata()),
+                            array[position].getVBOaddress(),
+                            *(array[position].getEBOdata()),
+                            array[position].getEBOaddress()
+                    );
                 }
             }
 
-            // Runs through the same process as the above if statement except this time checking the rightmost column.
+                // Runs through the same process as the above if statement except this time checking the rightmost column.
             else if ((col + 1 - height) == 0)
             {
                 if (row == 0)
                 {
-                    array.push_back( CornerCell(col,row,right) );
+                    array.push_back(CornerCell(col, row, right));
+                    position = (array.size() - 1);
+                    graphicsManager.assignBufferData(
+                            array[position].getVAOaddress(),
+                            *(array[position].getVBOdata()),
+                            array[position].getVBOaddress(),
+                            *(array[position].getEBOdata()),
+                            array[position].getEBOaddress()
+                    );
                 }
                 else if ((row + 1 - width) == 0)
                 {
-                    array.push_back( CornerCell(col,row,bottom) );
+                    array.push_back(CornerCell(col, row, bottom));
+                    position = (array.size() - 1);
+                    graphicsManager.assignBufferData(
+                            array[position].getVAOaddress(),
+                            *(array[position].getVBOdata()),
+                            array[position].getVBOaddress(),
+                            *(array[position].getEBOdata()),
+                            array[position].getEBOaddress()
+                    );
                 }
                 else
                 {
-                    array.push_back( SideCell(col,row,right) );
+                    array.push_back(SideCell(col, row, right));
+                    position = (array.size() - 1);
+                    graphicsManager.assignBufferData(
+                            array[position].getVAOaddress(),
+                            *(array[position].getVBOdata()),
+                            array[position].getVBOaddress(),
+                            *(array[position].getEBOdata()),
+                            array[position].getEBOaddress()
+                    );
                 }
             }
 
-            // As there is no corner cells, checks to see if it a top side cell
+                // As there is no corner cells, checks to see if it a top side cell
             else if (row == 0)
             {
-                array.push_back( SideCell(col,row, top) );
+                array.push_back(SideCell(col, row, top));
+                position = (array.size() - 1);
+                graphicsManager.assignBufferData(
+                        array[position].getVAOaddress(),
+                        *(array[position].getVBOdata()),
+                        array[position].getVBOaddress(),
+                        *(array[position].getEBOdata()),
+                        array[position].getEBOaddress()
+                );
             }
 
-            // Checks to see if it is a bottom side cell
+                // Checks to see if it is a bottom side cell
             else if ((row + 1 - width) == 0)
             {
-                array.push_back( SideCell(col,row, bottom) );
+                array.push_back(SideCell(col, row, bottom));
+                position = (array.size() - 1);
+                graphicsManager.assignBufferData(
+                        array[position].getVAOaddress(),
+                        *(array[position].getVBOdata()),
+                        array[position].getVBOaddress(),
+                        *(array[position].getEBOdata()),
+                        array[position].getEBOaddress()
+                );
             }
 
-            // As its not a corner cell or a side cell, its a default cell
+                // As its not a corner cell or a side cell, its a default cell
             else
             {
-                array.emplace_back( Cell(col,row));
+                array.emplace_back(Cell(col, row));
+                position = (array.size() - 1);
+                graphicsManager.assignBufferData(
+                        array[position].getVAOaddress(),
+                        *(array[position].getVBOdata()),
+                        array[position].getVBOaddress(),
+                        *(array[position].getEBOdata()),
+                        array[position].getEBOaddress()
+                );
             }
         }
         // Adds the array to cells. This arrays is essentially the row of the grid.
-        cells.push_back(array);
+        (Grid::cells).push_back(array);
     }
 
-    std::vector<float> backgroundVertices = {// Coordinate vectors     Colour Vectors      Texture Vectors
-             1.0f, 1.0f, 1.0f,      1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner
-          1.0f, -1.0f, 1.0f,     1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner
-          -1.0f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom left corner
-          -1.0f, 1.0f, 1.0f,     1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top left corner
+    // The { bracket below refuses to be indented correctly, deal with it Mrinaank.
+    backgroundVertices = {
+            // Background Grid
+             0.2625f,  0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f, // top right
+             0.2625f, -0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom right
+            -0.7625f, -0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom let
+            -0.7625f,  0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// top left
 
-          0.975f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
-          0.975f, -1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner gridded
+            // Row 1
+            -0.7375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// top left
+            -0.5125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// top right
+            -0.5125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom right
+            -0.7375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom left
 
-          1.0f, 0.975f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
-          -1.0f, 0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner gridded
+            -0.4875f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,  0.0f,0.0f,// top left
+            -0.2625f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,  0.0f,0.0f,// top right
+            -0.2625f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,  0.0f,0.0f,// bottom right
+            -0.4875f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
 
-          -0.975f, 1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
-          -0.975f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner gridded
+            -0.2375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.0125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.0125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.2375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
 
-          -1.0f, -0.975f, 1.0f,  1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner gridded
-          1.0f, -0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f // bottom right corner gridded
+            0.0125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            0.2375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            0.2375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            0.0125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            // Row 2
+            -0.7375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.5125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.5125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.7375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.4875f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.2625f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.2625f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.4875f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.2375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.0125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.0125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.2375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            0.0125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            0.2375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            0.2375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            0.0125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            // Row 3
+            -0.7375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.5125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.5125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.7375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.4875f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.2625f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.2625f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.4875f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.2375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.0125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.0125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.2375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            0.0125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            0.2375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            0.2375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            0.0125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            // Row 4
+            -0.7375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.5125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.5125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.7375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.4875f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.2625f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.2625f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.4875f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.2375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.0125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.0125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.2375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            0.0125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            0.2375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            0.2375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            0.0125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            // Row 5
+            -0.7375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.5125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.5125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.7375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.4875f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.2625f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.2625f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.4875f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.2375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.0125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.0125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.2375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            0.0125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            0.2375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            0.2375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            0.0125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            // Row 6
+            -0.7375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.5125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.5125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.7375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.4875f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.2625f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.2625f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.4875f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            -0.2375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            -0.0125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            -0.0125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            -0.2375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+
+            0.0125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
+            0.2375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
+            0.2375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
+            0.0125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+        };
+
+    backgroundIndices = {
+            0,1,3,
+            1,2,3,
+
+            // Row 1
+            4,5,6,
+            6,7,4,
+
+            8,9,10,
+            10,11,8,
+
+            12,13,14,
+            14,15,12,
+
+            16,17,18,
+            18,19,16,
+
+            // Row 2
+            20,21,22,
+            22,23,20,
+
+            24,25,26,
+            26,27,24,
+
+            28,29,30,
+            30,31,28,
+
+            32,33,34,
+            34,35,32,
+
+            // Row 3
+            36,37,38,
+            38,39,36,
+
+            40,41,42,
+            42,43,40,
+
+            44,45,46,
+            46,47,44,
+
+            48,49,50,
+            50,51,48,
+
+            // Row 4
+            52,53,54,
+            54,55,52,
+
+            56,57,58,
+            58,59,56,
+
+            60,61,62,
+            62,63,60,
+
+            64,65,66,
+            66,67,64,
+
+            // Row 5
+            68,69,70,
+            70,71,68,
+
+            72,73,74,
+            74,75,72,
+
+            76,77,78,
+            78,79,76,
+
+            80,81,82,
+            82,83,80,
+
+            // Row 6
+            84,85,86,
+            86,87,84,
+
+            88,89,90,
+            90,91,88,
+
+            92,93,94,
+            94,95,92,
+
+            96,97,98,
+            98,99,96
     };
 
-    std::vector<unsigned int> backgroundIndices = {
-            0,1,4,
-            5,4,1,
-            6,3,7,
-            6,3,0,
-            8,3,9,
-            9,3,2,
-            10,2,1,
-            11,1,10
-    };
 
 //    std::cout << "Grid file linked successfully" << std::endl;
 }
@@ -172,7 +437,6 @@ bool Grid::checkValid(int player)
     return valid;
 }
 
-
 // Generates the display of the grid.
 void Grid::renderDisplay()
 {
@@ -186,7 +450,6 @@ void Grid::renderDisplay()
         std::cout << std::endl;
     }
 }
-
 
 // Checks if there is a winner by observing if all the other players lack a available move
 bool Grid::checkWin(int players)
@@ -235,4 +498,44 @@ bool Grid::checkWin(int players)
     // Returns if there is 2 or more players still playing
     return (inGame >= 2);
 
+};
+
+std::vector<float>* Grid::getVBOData()
+{
+    return &backgroundVertices;
+};
+
+std::vector<unsigned int>* Grid::getEBOData()
+{
+    return &backgroundIndices;
+};
+// VAO, VBO, Textures
+
+unsigned int* Grid::getVAOAddress()
+{
+    return &VAO;
+};
+
+unsigned int* Grid::getVBOAddress()
+{
+    return &VBO;
+};
+
+unsigned int* Grid::getEBOAddress()
+{
+    return &EBO;
+};
+
+void Grid::updateVBO(std::vector<float>* updatedArray)
+{
+    backgroundVertices = *updatedArray;
+}
+
+void Grid::renderGameGrid(GraphicsManager graphicsManager)
+{
+    graphicsManager.bindVertex(&VAO);
+
+    graphicsManager.renderExternalData(backgroundIndices);
+
+    graphicsManager.unbindVertex();
 }

@@ -43,7 +43,7 @@ private:
 
     int playerIndex;
 
-    std::vector <Player> players;
+    std::vector<Player> players;
 };
 
 

@@ -15,7 +15,6 @@
 // Construction of the player manager
 PlayerManager::PlayerManager(int numPlayers): numPlayers(numPlayers), initialRound(true)
 {
-
     // Generates an array of the Player class for each player.
     for (int player = 0; player < numPlayers; player++)
     {

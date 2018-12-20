@@ -12,6 +12,7 @@
 
 #include <cstdlib>
 #include <pthread.h>
+#include <vector>
 
 // 1px  = 0.0025f
 // 10px = 0.025f
@@ -72,7 +73,7 @@ int main()
     Shader ourShader( "../vertexShader.glsl", "../fragmentShader.glsl");
 
     // Vertices to define the points of our triangle
-    float vertices[] = {
+    std::vector<float> vertices = {
             // Background Grid
             1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // top right corner
             1.0f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, // bottom right corner
@@ -355,7 +356,7 @@ int main()
     // Creating a vertex buffer object and vertex array object.
     unsigned int VBO, VAO, EBO, VBO2, VAO2, EBO2;
 
-    // I have no idea what the below code does, but it works so yeah.
+
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &EBO);
@@ -367,7 +368,7 @@ int main()
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size()* sizeof(float), &vertices[0], GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
@@ -464,6 +465,7 @@ int main()
         glBindVertexArray(VAO);
 
         // Draws the stuff
+//        std::cout << sizeof(indices)/ sizeof(indices[0]) * 3;
         glDrawElements(GL_TRIANGLES, sizeof(indices)/ sizeof(indices[0]) * 3, GL_UNSIGNED_INT, 0);
 
         glBindVertexArray(0);

@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <vector>
-#include "GraphicsManager.h"
+//#include "GraphicsManager.h"
 
 class GraphicsManager;
 
@@ -32,7 +32,7 @@ public:
     int getY();
 
     //
-    void renderSinhas(GraphicsManager graphicsManager);
+//    void renderSinhas(GraphicsManager graphicsManager);
 
     unsigned int* getVAOaddress();
     unsigned int* getVBOaddress();

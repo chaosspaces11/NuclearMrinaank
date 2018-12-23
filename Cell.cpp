@@ -2,7 +2,7 @@
 #include "Cell.h"
 #include "Grid.h"
 
-
+class Grid;
 Cell::Cell(int x, int y)
 {
     // Test output statements
@@ -15,6 +15,7 @@ Cell::Cell(int x, int y)
     Cell::state = 0;
     Cell::unstableState = 4;
     Cell::player = 0;
+    float size = 0.125;
 
     // Initialises the location of the cells around the initialised cell
     Cell::adjacentLocations[0][0] = x;
@@ -28,6 +29,47 @@ Cell::Cell(int x, int y)
 
     Cell::adjacentLocations[3][0] = x - 1;
     Cell::adjacentLocations[3][1] = y;
+
+    Cell::sinhaVertices =
+            {
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f, 0.0f,
+
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.02f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.02f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.2f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.2f, 0.0f,
+
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
+
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
+            };
+    Cell::sinhaIndices =
+            {
+                // Sinha 1
+                0,1,2,
+                2,3,0,
+
+                // Sinha 2
+                4,5,6,
+                6,7,4,
+
+                // Sinha 3
+                8,9,10,
+                10,11,8,
+
+                // Sinha 4
+                12,13,14,
+                14,15,12
+            };
 };
 
 void Cell::buildUp(int player)
@@ -77,7 +119,6 @@ void Cell::explode()
     }
 }
 
-
 // Current 2D GUI
 void Cell::print()
 {
@@ -100,3 +141,37 @@ int Cell::getY()
 {
     return Cell::y;
 }
+
+unsigned int* Cell::getVAOaddress()
+{
+    return &(Cell::VAOaddress);
+}
+
+unsigned int* Cell::getVBOaddress()
+{
+    return &(Cell::VBOaddress);
+}
+
+unsigned int* Cell::getEBOaddress()
+{
+    return &(Cell::EBOaddress);
+}
+
+std::vector<float>* Cell::getVBOdata()
+{
+    return &(Cell::sinhaVertices);
+}
+
+std::vector<unsigned int>* Cell::getEBOdata()
+{
+    return &(Cell::sinhaIndices);
+}
+
+//void Cell::renderSinhas(GraphicsManager graphicsManager)
+//{
+//    graphicsManager.bindVertex(Cell::getVAOaddress());
+//
+//    graphicsManager.renderExternalData(*(Cell::getEBOdata()), Cell::unstableState*3);
+//
+//    graphicsManager.unbindVertex();
+//}

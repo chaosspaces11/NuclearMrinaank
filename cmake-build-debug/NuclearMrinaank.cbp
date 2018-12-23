@@ -5,7 +5,7 @@
 		<Option title="NuclearMrinaank"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\usr\local\lib\cmake\glfw3\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
@@ -27,16 +27,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="NuclearOpenGLTest">
 				<Option output="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearOpenGLTest" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
@@ -44,6 +34,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -65,6 +57,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -79,6 +73,62 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="NuclearMrinaankMultithreadTest">
+				<Option output="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearMrinaankMultithreadTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 NuclearMrinaankMultithreadTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="NuclearMrinaankMultithreadTest/fast">
+				<Option output="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearMrinaankMultithreadTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 NuclearMrinaankMultithreadTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="NuclearNetworkTest">
 				<Option output="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug/NuclearNetworkTest" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/MichaelChen/CLionProjects/NuclearMrinaank/cmake-build-debug"/>
@@ -86,6 +136,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -107,6 +159,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -128,6 +182,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -149,6 +205,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
+					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -176,10 +234,26 @@
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/CornerCell.h">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/GraphicsManager.cpp">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/GraphicsManager.h">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.cpp">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/Grid.h">
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/MultithreadTest.cpp">
+			<Option target="NuclearMrinaankMultithreadTest"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps/glad.c">
+			<Option target="NuclearOpenGLTest"/>
+			<Option target="NuclearMrinaank"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGlShader.h">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGlTest.cpp">
@@ -209,8 +283,24 @@
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/main.cpp">
 			<Option target="NuclearMrinaank"/>
 		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/stb_image.cpp">
+			<Option target="NuclearOpenGLTest"/>
+			<Option target="NuclearMrinaank"/>
+		</Unit>
 		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/../../../../usr/local/lib/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/../../../../usr/local/lib/cmake/glfw3/glfw3Targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Users/MichaelChen/CLionProjects/NuclearMrinaank/../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

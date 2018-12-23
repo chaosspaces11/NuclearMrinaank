@@ -4,6 +4,12 @@
 #ifndef NUCLEARMRINAANK_CELL_H
 #define NUCLEARMRINAANK_CELL_H
 
+#include <iostream>
+#include <vector>
+//#include "GraphicsManager.h"
+
+class GraphicsManager;
+
 class Cell
 {
 public:
@@ -24,6 +30,18 @@ public:
 
     //gets Y
     int getY();
+
+    //
+//    void renderSinhas(GraphicsManager graphicsManager);
+
+    unsigned int* getVAOaddress();
+    unsigned int* getVBOaddress();
+    unsigned int* getEBOaddress();
+
+    std::vector<float>* getVBOdata();
+    std::vector<unsigned int>* getEBOdata();
+
+
 
 private:
 
@@ -49,6 +67,16 @@ protected:
 
     // Array of the adjacent cells
     int adjacentLocations[4][2];
+
+    unsigned int VAOaddress;
+    unsigned int EBOaddress;
+    unsigned int VBOaddress;
+
+    std::vector<float> sinhaVertices;
+    std::vector<unsigned int> sinhaIndices;
+
+
+
 };
 
 #endif //NUCLEARMRINAANK_CELL_H

@@ -14,6 +14,10 @@
 #include <thread>
 #include <chrono>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <stb_image.h>
 
 #include <pthread.h>
@@ -330,7 +334,7 @@ void *dataThread(void* mutualItemsInput)
 
         // Stuff goes here
         std::cout << "Not implemented yet" << std::endl;
-        return NULL;
+//        return NULL;
     }
 };
 
@@ -352,7 +356,7 @@ int main()
     mutualItems core = {.coreGrid = Grid(4,6,graphicsManager), .corePlayerManager = &temp, .coreGraphicsManager = &graphicsManager};
     Grid* gridPtr = &(core.coreGrid);
 
-    rc = pthread_create(&threads[1], NULL, dataThread, (void*)&core);
+//    rc = pthread_create(&threads[1], NULL, dataThread, (void*)&core);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
@@ -373,14 +377,32 @@ int main()
         // Renders grid
         graphicsManager.updateGridColour(core.corePlayerManager->getCurrentPlayer(), gridPtr);
         (*gridPtr).renderGameGrid(graphicsManager);
+        graphicsManager.checkClick((*gridPtr), core.corePlayerManager->getCurrentPlayer());
+
+        // Rotation Matrix
+        glm::mat4 transform = glm::mat4(1.0f);
+        transform = glm::rotate(transform, (float)glfwGetTime()*2, glm::vec3(0.0, 0.0, 1.0));
+        GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
 
         // Renders sinhas
+        for (int row = 0; row < gridPtr->getHeight(); row++)
+        {
+            for (int column = 0; column < gridPtr -> getWidth(); column ++)
+            {
+                Cell* currentCell = gridPtr ->getCellAt(column,row);
+                graphicsManager.updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+
+                currentCell->renderSinhas(graphicsManager);
+            }
+        }
 
         graphicsManager.concludeRendering();
     }
+//    pthread_join(threads[1],NULL);
     glfwTerminate();
 
-    pthread_join(threads[1],NULL);
+
 
     return 0;
 

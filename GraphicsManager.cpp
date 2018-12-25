@@ -9,6 +9,11 @@
 #include "OpenGlShader.h"
 #include <stb_image.h>
 #include <vector>
+#include "GLUT/glut.h"
+#include <thread>
+#include <cmath>
+#include <chrono>
+//#include ""
 
 GraphicsManager::GraphicsManager()
 {
@@ -124,12 +129,42 @@ void GraphicsManager::processInput(GLFWwindow *window)
         glfwSetWindowShouldClose(window, true);
     }
 }
+
+void GraphicsManager::clickHandler(GLFWwindow *window, int button, int action, int mods)
+{
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+    {
+//        std::cout << "Button press detected" << std::endl;
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+        std::cout << "Mouse X:" << floor(xpos/100) << std::endl;
+        std::cout << "Mouse Y:" << floor(ypos/100) << std::endl;
+    }
+}
+
+void GraphicsManager::checkClick(Grid grid, int player)
+{
+    int state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
+    if (state == GLFW_PRESS)
+    {
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+        std::cout << "Mouse X:" << floor(xpos/100) << std::endl;
+        std::cout << "Mouse Y:" << floor(xpos/100) << std::endl;
+        // Buildup
+        grid.getCellAt(floor(xpos/100)-1,floor(ypos/100)-1)->buildUp(player);
+        // Time out
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    }
+}
 void GraphicsManager::renderWindow()
 {
     GraphicsManager::processInput(window);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }
+
+
 
 void GraphicsManager::renderClient()
 {
@@ -174,12 +209,37 @@ void GraphicsManager::assignBufferData(unsigned int* VAOaddress, std::vector<flo
 //    glBindVertexArray(2);
 }
 
-void GraphicsManager::assignBufferData(unsigned int* VAOaddress, std::vector<float> VBOdata ,unsigned int* VBOaddress,std::vector<unsigned int> EBOdata,unsigned int* EBOaddress, unsigned int TEXaddress)
+void GraphicsManager::assignBufferData(unsigned int* VAOaddress, std::vector<float> VBOdata ,unsigned int* VBOaddress,std::vector<unsigned int> EBOdata,unsigned int* EBOaddress, unsigned int* TEXaddress)
 {
     glGenVertexArrays(1, VAOaddress);
     glGenBuffers(1, VBOaddress);
     glGenBuffers(1, EBOaddress);
     glBindVertexArray(*VAOaddress);
+
+    glGenTextures(1, TEXaddress);
+    glBindTexture(GL_TEXTURE_2D, *TEXaddress);
+
+    // Toggling settings for texture
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    stbi_set_flip_vertically_on_load(true);
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("../NuclearMrinaank_Icon_SinhaDefault.png", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
 
     glBindBuffer(GL_ARRAY_BUFFER, *VBOaddress);
     glBufferData(GL_ARRAY_BUFFER, VBOdata.size()* sizeof(float), &VBOdata[0], GL_DYNAMIC_DRAW);
@@ -198,9 +258,11 @@ void GraphicsManager::assignBufferData(unsigned int* VAOaddress, std::vector<flo
 
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(8 * sizeof(float)));
     glEnableVertexAttribArray(3);
+    glBindTexture(GL_TEXTURE_2D, *TEXaddress);
 
     glBindVertexArray(0);
-//    glBindVertexArray(2);
+
+
 }
 
 void GraphicsManager::bindVertex(unsigned int* VAOaddress)
@@ -211,6 +273,11 @@ void GraphicsManager::bindVertex(unsigned int* VAOaddress)
 void GraphicsManager::renderExternalData(std::vector<unsigned int> EBOdata)
 {
     glDrawElements(GL_TRIANGLES, EBOdata.size(), GL_UNSIGNED_INT, 0);
+}
+
+void GraphicsManager::renderExternalData(std::vector<unsigned int> EBOdata, int elements)
+{
+    glDrawElements(GL_TRIANGLES, elements*6, GL_UNSIGNED_INT, 0);
 }
 
 void GraphicsManager::unbindVertex()

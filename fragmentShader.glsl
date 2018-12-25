@@ -5,10 +5,13 @@ in vec3 ourColor;
 in vec2 TexCoord;
 in float opacity;
 
-//uniform sampler2D texture1;
+uniform sampler2D texture1;
 
 void main()
 {
 //    FragColor = mix(texture(texture1, TexCoord), vec4(ourColor,1.0), opacity);
-    FragColor = vec4(ourColor,1.0);
+    vec4 texColor = mix(texture(texture1, TexCoord), vec4(ourColor,1.0), opacity);
+    if(texColor.a < 0.2)
+            discard;
+    FragColor = texColor;
 }

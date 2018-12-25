@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Cell.h"
 #include "Grid.h"
+#include "GraphicsManager.h"
 
-class Grid;
 Cell::Cell(int x, int y)
 {
     // Test output statements
@@ -30,27 +30,28 @@ Cell::Cell(int x, int y)
     Cell::adjacentLocations[3][0] = x - 1;
     Cell::adjacentLocations[3][1] = y;
 
+    Cell::colour = {1.0f, 0.0f, 0.0f};
     Cell::sinhaVertices =
             {
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.01f, 0.01f, 0.0f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.01f, 0.01f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.01f, 0.01f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.01f, 0.01f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f,0.01f, 0.01f, 0.0f,
 
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.02f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.02f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.2f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.02f, 0.2f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.02f, 0.02f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.02f, 0.02f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.02f, 0.02f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f,0.02f, 0.02f, 0.0f,
 
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.03f, 0.03f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f, 0.03f, 0.03f, 0.0f,
 
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.04f, 0.04f, 0.0f,
+                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f, 0.04f, 0.04f, 0.0f,
             };
     Cell::sinhaIndices =
             {
@@ -70,6 +71,21 @@ Cell::Cell(int x, int y)
                 12,13,14,
                 14,15,12
             };
+
+//    int width, height, nrChannels;
+//    stbi_set_flip_vertically_on_load(true);
+//    Cell::texture1 = ;
+//    unsigned char *data = stbi_load("../NuclearMrinaank_Icon_SinhaDefault.png", &width, &height, &nrChannels, 0);
+//    if (data)
+//    {
+//        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+//        glGenerateMipmap(GL_TEXTURE_2D);
+//    }
+//    else
+//    {
+//        std::cout << "Failed to load texture" << std::endl;
+//    }
+//    stbi_image_free(data);
 };
 
 void Cell::buildUp(int player)
@@ -81,6 +97,30 @@ void Cell::buildUp(int player)
     if (player != Cell::player)
     {
         Cell::player = player;
+        switch (player)
+        {
+            default:
+            case 1:
+                Cell::colour = {1.0f, 0.0f, 0.0f};
+                break;
+            case 2:
+                Cell::colour = {0.0f, 1.0f, 0.0f};
+                break;
+            case 3:
+                Cell::colour = {0.0f, 0.0f, 1.0f};
+                break;
+            case 4:
+                Cell::colour = {1.0f, 1.0f, 0.0f};
+                break;
+
+        }
+
+        for (int vertice = 0; vertice < (sinhaVertices.size()/11); vertice++)
+        {
+            sinhaVertices[vertice*11 + 3] = colour[0];
+            sinhaVertices[vertice*11 + 4] = colour[1];
+            sinhaVertices[vertice*11 + 5] = colour[2];
+        }
     }
 
     // Increases state
@@ -157,6 +197,11 @@ unsigned int* Cell::getEBOaddress()
     return &(Cell::EBOaddress);
 }
 
+unsigned int* Cell::getTEXaddress()
+{
+    return &(Cell::TEXaddress);
+}
+
 std::vector<float>* Cell::getVBOdata()
 {
     return &(Cell::sinhaVertices);
@@ -167,11 +212,19 @@ std::vector<unsigned int>* Cell::getEBOdata()
     return &(Cell::sinhaIndices);
 }
 
-//void Cell::renderSinhas(GraphicsManager graphicsManager)
-//{
-//    graphicsManager.bindVertex(Cell::getVAOaddress());
-//
-//    graphicsManager.renderExternalData(*(Cell::getEBOdata()), Cell::unstableState*3);
-//
-//    graphicsManager.unbindVertex();
-//}
+std::vector<float> Cell::getColour()
+{
+    return Cell::colour;
+}
+
+void Cell::renderSinhas(GraphicsManager graphicsManager)
+{
+    graphicsManager.bindVertex(Cell::getVAOaddress());
+
+    graphicsManager.renderExternalData(*(Cell::getEBOdata()), Cell::state);
+
+    graphicsManager.unbindVertex();
+}
+
+
+

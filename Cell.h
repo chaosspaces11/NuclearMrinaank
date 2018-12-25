@@ -6,9 +6,9 @@
 
 #include <iostream>
 #include <vector>
-//#include "GraphicsManager.h"
+#include "GraphicsManager.h"
 
-class GraphicsManager;
+//class GraphicsManager;
 
 class Cell
 {
@@ -32,15 +32,17 @@ public:
     int getY();
 
     //
-//    void renderSinhas(GraphicsManager graphicsManager);
+    void renderSinhas(GraphicsManager graphicsManager);
 
     unsigned int* getVAOaddress();
     unsigned int* getVBOaddress();
     unsigned int* getEBOaddress();
+    unsigned int* getTEXaddress();
 
     std::vector<float>* getVBOdata();
     std::vector<unsigned int>* getEBOdata();
 
+    std::vector<float> getColour();
 
 
 private:
@@ -71,9 +73,11 @@ protected:
     unsigned int VAOaddress;
     unsigned int EBOaddress;
     unsigned int VBOaddress;
+    unsigned int TEXaddress;
 
     std::vector<float> sinhaVertices;
     std::vector<unsigned int> sinhaIndices;
+    std::vector<float> colour;
 
 
 

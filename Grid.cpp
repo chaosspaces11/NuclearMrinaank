@@ -51,13 +51,14 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             *(array[position].getVBOdata()),
                             array[position].getVBOaddress(),
                             *(array[position].getEBOdata()),
-                            array[position].getEBOaddress()
+                            array[position].getEBOaddress(),
+                            array[position].getTEXaddress()
                             );
                 }
 
                     // The addition of 1 is required as "row" is indexed from 0 while "width" is indexed from 1
                     // Checks if it's a corner cell
-                else if ((row + 1 - width) == 0)
+                else if ((row + 1 - height) == 0)
                 {
                     array.push_back(CornerCell(col, row, left));
                     position = (array.size() - 1);
@@ -66,7 +67,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             *(array[position].getVBOdata()),
                             array[position].getVBOaddress(),
                             *(array[position].getEBOdata()),
-                            array[position].getEBOaddress()
+                            array[position].getEBOaddress(),
+                            array[position].getTEXaddress()
                     );
                 }
 
@@ -80,13 +82,14 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             *(array[position].getVBOdata()),
                             array[position].getVBOaddress(),
                             *(array[position].getEBOdata()),
-                            array[position].getEBOaddress()
+                            array[position].getEBOaddress(),
+                            array[position].getTEXaddress()
                     );
                 }
             }
 
                 // Runs through the same process as the above if statement except this time checking the rightmost column.
-            else if ((col + 1 - height) == 0)
+            else if ((col + 1 - width) == 0)
             {
                 if (row == 0)
                 {
@@ -97,10 +100,11 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             *(array[position].getVBOdata()),
                             array[position].getVBOaddress(),
                             *(array[position].getEBOdata()),
-                            array[position].getEBOaddress()
+                            array[position].getEBOaddress(),
+                            array[position].getTEXaddress()
                     );
                 }
-                else if ((row + 1 - width) == 0)
+                else if ((row + 1 - height) == 0)
                 {
                     array.push_back(CornerCell(col, row, bottom));
                     position = (array.size() - 1);
@@ -109,7 +113,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             *(array[position].getVBOdata()),
                             array[position].getVBOaddress(),
                             *(array[position].getEBOdata()),
-                            array[position].getEBOaddress()
+                            array[position].getEBOaddress(),
+                            array[position].getTEXaddress()
                     );
                 }
                 else
@@ -121,7 +126,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             *(array[position].getVBOdata()),
                             array[position].getVBOaddress(),
                             *(array[position].getEBOdata()),
-                            array[position].getEBOaddress()
+                            array[position].getEBOaddress(),
+                            array[position].getTEXaddress()
                     );
                 }
             }
@@ -136,12 +142,13 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                         *(array[position].getVBOdata()),
                         array[position].getVBOaddress(),
                         *(array[position].getEBOdata()),
-                        array[position].getEBOaddress()
+                        array[position].getEBOaddress(),
+                        array[position].getTEXaddress()
                 );
             }
 
                 // Checks to see if it is a bottom side cell
-            else if ((row + 1 - width) == 0)
+            else if ((row + 1 - height) == 0)
             {
                 array.push_back(SideCell(col, row, bottom));
                 position = (array.size() - 1);
@@ -150,7 +157,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                         *(array[position].getVBOdata()),
                         array[position].getVBOaddress(),
                         *(array[position].getEBOdata()),
-                        array[position].getEBOaddress()
+                        array[position].getEBOaddress(),
+                        array[position].getTEXaddress()
                 );
             }
 
@@ -164,7 +172,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                         *(array[position].getVBOdata()),
                         array[position].getVBOaddress(),
                         *(array[position].getEBOdata()),
-                        array[position].getEBOaddress()
+                        array[position].getEBOaddress(),
+                        array[position].getTEXaddress()
                 );
             }
         }

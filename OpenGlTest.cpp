@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+//#include <math.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -16,8 +16,6 @@
 
 // 1px  = 0.0025f
 // 10px = 0.025f
-
-#define NUM_THREADS 2
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -452,7 +450,6 @@ int main()
 
 
         glm::mat4 transform = glm::mat4(1.0f);
-//        transform = glm::translate(transform, glm::vec3(1.0,0.0,0.0));
         transform = glm::rotate(transform, (float)glfwGetTime()*2, glm::vec3(0.0, 0.0, 1.0));
 
         // Uses program
@@ -460,6 +457,8 @@ int main()
 
         GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+
 
         // Appends data from VAO
         glBindVertexArray(VAO);

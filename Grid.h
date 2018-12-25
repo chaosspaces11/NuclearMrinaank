@@ -9,10 +9,9 @@
 #include "SideCell.h"
 #include "CornerCell.h"
 
-//#include "GraphicsManager.h"
+#include "GraphicsManager.h"
 
-
-class GraphicsManager;
+//class GraphicsManager;
 
 class Grid
 {

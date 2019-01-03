@@ -143,15 +143,26 @@ bool ipParser (std::string data)
     return true;
 }
 
-struct mutualItems
-        {
-            Grid coreGrid;
-            PlayerManager* corePlayerManager;
-            GraphicsManager* coreGraphicsManager;
-        };
+struct ChangeLogger
+{
+    // After player has changed, update grid colour.
+    bool playerChanged;
+
+    // After grid changed, reset empty cells to 0.
+    bool gridChanged;
+
+    std::vector<std::vector<int>> coordLogs;
+
+    // Detects if an explosion animation is supposed to be rendered.
+    bool explosionActive;
 
 
-void *dataThread(void* mutualItemsInput)
+
+};
+
+
+
+void *dataThread()
 {
     // Sets up width and height of the grid
 //    int gridWidth = 7;
@@ -163,11 +174,10 @@ void *dataThread(void* mutualItemsInput)
     //demo game with single player, selectedX and selectedY are coords of selected cell
 //    Grid mainGrid(gridHeight, gridWidth);
 
-    mutualItems* mutualItems1 = (mutualItems*) mutualItemsInput;
-    Grid* mainGridPtr = &(mutualItems1->coreGrid);
+//    Grid* mainGridPtr = &(mutualItems1->coreGrid);
 
 
-    GraphicsManager* graphicsManagerPtr = (mutualItems1->coreGraphicsManager);
+//    GraphicsManager* graphicsManagerPtr = (mutualItems1->coreGraphicsManager);
     // Sets up sentinel value for players
     int numPlayers = 0;
 
@@ -238,7 +248,7 @@ void *dataThread(void* mutualItemsInput)
 
         // Sets up the player manager
         PlayerManager playerManager(numPlayers);
-        mutualItems1->corePlayerManager = &playerManager;
+//        mutualItems1->corePlayerManager = &playerManager;
 
         // Runs until a winner is found
         while (true)
@@ -247,7 +257,7 @@ void *dataThread(void* mutualItemsInput)
 
 //            mutualItems1->coreGraphicsManager = *graphicsManagerPtr;
             // Runs the turn of the player
-            playerManager.iteratePlayer(*mainGridPtr);
+//            playerManager.iteratePlayer(*mainGridPtr);
 
 
             // If it is not the 1st round as the current player should own 0 cells in the first round
@@ -255,25 +265,25 @@ void *dataThread(void* mutualItemsInput)
             {
 
                 // Checks to see if there is a winner
-                if (!((*mainGridPtr).checkWin(playerManager.getPlayers())))
-                {
-
-                    // Sets the winner, -1 is used to return indexing from 1 to 0
-                    winner = playerManager.getCurrentPlayer() - 1;
-
-                    // Fixes index shift
-                    if (winner == 0)
-                    {
-                        winner = 1;
-                    }
-
-                    break;
-                }
+//                if (!((*mainGridPtr).checkWin(playerManager.getPlayers())))
+//                {
+//
+//                    // Sets the winner, -1 is used to return indexing from 1 to 0
+//                    winner = playerManager.getCurrentPlayer() - 1;
+//
+//                    // Fixes index shift
+//                    if (winner == 0)
+//                    {
+//                        winner = 1;
+//                    }
+//
+//                    break;
+//                }
             }
         }
 
         // Draws final display before ending the game
-        (*mainGridPtr).renderDisplay();
+//        (*mainGridPtr).renderDisplay();
 
         // Outputs the winner
         std::cout << "Player " << winner << " has won!" << std::endl;
@@ -338,68 +348,104 @@ void *dataThread(void* mutualItemsInput)
     }
 };
 
-//void *graphicsThread( void*)
-//{
-//    GraphicsManager graphicsManager;
-//    Shader ourShader("../vertexShader.glsl", "../fragmentShader.glsl");
-//    graphicsManager.render();
-//    return NULL;
-//}
-
 int main()
 {
-    pthread_t threads[2];
-    int rc;
 
-    PlayerManager temp(2);
+    const int gridWidth = 4;
+    const int gridHeight = 6;
+
+    int server = -1;
+    int players = -1;
+
+    PlayerManager playerManager(2);
     GraphicsManager graphicsManager;
-    mutualItems core = {.coreGrid = Grid(4,6,graphicsManager), .corePlayerManager = &temp, .coreGraphicsManager = &graphicsManager};
-    Grid* gridPtr = &(core.coreGrid);
-
-//    rc = pthread_create(&threads[1], NULL, dataThread, (void*)&core);
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
-
+    Grid grid(gridWidth, gridHeight,graphicsManager);
     Shader ourShader( "../vertexShader.glsl", "../fragmentShader.glsl");
 
-    graphicsManager.assignBufferData((*gridPtr).getVAOAddress(), *(*gridPtr).getVBOData(), (*gridPtr).getVBOAddress(), *(*gridPtr).getEBOData(), (*gridPtr).getEBOAddress());
+    ChangeLogger dataLog = {.playerChanged = false, .gridChanged = false, .coordLogs = {}};
+
+    graphicsManager.assignBufferData((grid).getVAOAddress(), *(grid).getVBOData(), (grid).getVBOAddress(), *(grid).getEBOData(), (grid).getEBOAddress());
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
     while(!glfwWindowShouldClose(graphicsManager.getWindow()))
     {
         ourShader.use();
 
-//        std::cout << (*gridPtr->getVBOData())[3] << std::endl;
-        // Renders screen
+        // Renders window
         graphicsManager.renderWindow();
 
-        // Renders client
-        graphicsManager.renderClient();
-
-        // Renders grid
-        graphicsManager.updateGridColour(core.corePlayerManager->getCurrentPlayer(), gridPtr);
-        (*gridPtr).renderGameGrid(graphicsManager);
-        graphicsManager.checkClick((*gridPtr), core.corePlayerManager->getCurrentPlayer());
-
-        // Rotation Matrix
-        glm::mat4 transform = glm::mat4(1.0f);
-        transform = glm::rotate(transform, (float)glfwGetTime()*2, glm::vec3(0.0, 0.0, 1.0));
-        GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
-
-        // Renders sinhas
-        for (int row = 0; row < gridPtr->getHeight(); row++)
+        if (server == -1)
         {
-            for (int column = 0; column < gridPtr -> getWidth(); column ++)
-            {
-                Cell* currentCell = gridPtr ->getCellAt(column,row);
-                graphicsManager.updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+            graphicsManager.renderMainMenu();
 
-                currentCell->renderSinhas(graphicsManager);
-            }
+            server = graphicsManager.handleMenuClick();
+
         }
 
+        // Runs the if loop if server is equal to 0, aka false.
+        else if (server == 0)
+        {
+            if (players == -1)
+            {
+                graphicsManager.renderPlayer();
+
+                players = graphicsManager.handlePlayerClick();
+
+                if (players > 1 && players < 5)
+                {
+                    std::cout << "Ran" << players << std::endl;
+                    playerManager.setPlayers(players);
+                    std::cout << playerManager.getPlayers();
+                }
+            }
+            else
+            {
+                // Renders client - Outer white boarder.
+                graphicsManager.renderClient();
+
+                // Renders grid
+
+                // If player changed
+                graphicsManager.updateGridColour(playerManager.getCurrentPlayer(), &grid);
+                // End if
+
+                (grid).renderGameGrid(graphicsManager);
+                graphicsManager.handleGridClick((grid), &playerManager);
+
+                // Rotation Matrix
+
+                // Renders sinhas
+                for (int row = 0; row < grid.getHeight(); row++)
+                {
+                    for (int column = 0; column < grid.getWidth(); column ++)
+                    {
+
+
+
+                        Cell* currentCell = Grid::getCellAt(column,row);
+                        glm::mat4 transform = glm::mat4(1.0f);
+                        transform = glm::rotate(transform, (float)glfwGetTime()*2 * (currentCell->getState()+1), glm::vec3(0.0, 0.0, 1.0));
+                        GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+
+                        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+//                        graphicsManager.updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+                        currentCell->renderSinhas(graphicsManager);
+                    }
+                }
+            }
+
+
+        }
+        else if (server == 1)
+        {
+            // Establish connection to server
+            // ...
+            // ...
+            // ...
+            // ...
+        }
         graphicsManager.concludeRendering();
     }
-//    pthread_join(threads[1],NULL);
     glfwTerminate();
 
 

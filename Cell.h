@@ -44,8 +44,17 @@ public:
 
     std::vector<float> getColour();
 
+    int getState();
 
-private:
+    int* getAdjacentLocations();
+
+    std::vector < std::vector <float> > getAnimationVectors();
+
+    void explodeAnimation();
+
+    void updateGraphicsData(GraphicsManager graphicsManager);
+
+//private:
 
     // Protected allows for child classes to access the attribute
 protected:
@@ -79,6 +88,13 @@ protected:
     std::vector<unsigned int> sinhaIndices;
     std::vector<float> colour;
 
+    float sinha1Mod, sinha2Mod, sinha3Mod, sinha4Mod;
+    float sinha1Arg, sinha2Arg, sinha3Arg, sinha4Arg;
+
+    int maxMod, minMod;
+    int maxArg, minArg;
+
+    void randomizeSinhas();
 
 
 };

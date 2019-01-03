@@ -7,6 +7,7 @@ in float opacity;
 
 uniform sampler2D texture1;
 
+
 void main()
 {
 //    FragColor = mix(texture(texture1, TexCoord), vec4(ourColor,1.0), opacity);

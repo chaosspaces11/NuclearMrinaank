@@ -9,11 +9,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "OpenGlShader.h"
+//#include "PlayerManager.h"
 //#include "Grid.h"
 #include <stb_image.h>
 #include <vector>
 
 class Grid;
+class PlayerManager;
 
 class GraphicsManager
 {
@@ -25,6 +27,10 @@ public:
 
     void renderWindow();
     void renderClient();
+    void renderMainMenu();
+    void renderPlayer();
+
+    void bindTexture(unsigned int TEXaddress);
 
     GLFWwindow* getWindow();
 
@@ -38,6 +44,7 @@ public:
     void updateGridColour(int currentPlayer, Grid* grid);
 
     std::vector<float> clientVertices;
+    std::vector<float> menuVertices;
 
     void assignBufferData(unsigned int* VAOaddress, std::vector<float> VBOdata ,unsigned int* VBOaddress,std::vector<unsigned int> EBOdata,unsigned int* EBOaddress);
     void assignBufferData(unsigned int* VAOaddress, std::vector<float> VBOdata ,unsigned int* VBOaddress,std::vector<unsigned int> EBOdata,unsigned int* EBOaddress, unsigned int* TEXaddress);
@@ -45,19 +52,23 @@ public:
     void updateBufferData(unsigned int* VAOaddress, unsigned int* bufferAddress, std::vector<float> updatedData);
 //    void updateBufferData(unsigned int* bufferAddress, std::vector<unsigned int> updatedData);
 
-    static void clickHandler(GLFWwindow *window, int button, int action, int mods);
+//    static void gridClickHandler(GLFWwindow *window, int button, int action, int mods);
 
-    void checkClick(Grid grid, int player);
+    void handleGridClick(Grid grid, PlayerManager* playerManagerPtr);
+    int  handleMenuClick();
+    int  handlePlayerClick();
 
 
 private:
     GLFWwindow* window;
     Shader* ourShader;
 
-
     std::vector<unsigned int> clientIndices;
+    std::vector<unsigned int> menuIndices;
 
     unsigned int clientVAO, clientVBO, clientEBO;
+    unsigned int menuVAO, menuVBO, menuEBO, menuTEX;
+    unsigned int playerTEX;
 };
 
 

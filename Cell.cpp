@@ -1,10 +1,14 @@
 #include <iostream>
+#include <random>
 #include "Cell.h"
 #include "Grid.h"
 #include "GraphicsManager.h"
+#include "math.h"
 
 Cell::Cell(int x, int y)
 {
+
+
     // Test output statements
 //    std::cout << "Cell file linked successfully" << std::endl;
 //    std::cout << "X: " << x << " Y: " << y << std::endl;
@@ -15,7 +19,19 @@ Cell::Cell(int x, int y)
     Cell::state = 0;
     Cell::unstableState = 4;
     Cell::player = 0;
+
+    Cell::maxMod = 25;
+    Cell::minMod = 5;
+
+    Cell::maxArg = 360;
+    Cell::minArg = 100;
+
+    // Graphics related initialisation
     float size = 0.125;
+    float leftX,rightX,topY,bottomY;
+
+    float sinha1X, sinha2X, sinha3X, sinha4X;
+    float sinha1Y, sinha2Y, sinha3Y, sinha4Y;
 
     // Initialises the location of the cells around the initialised cell
     Cell::adjacentLocations[0][0] = x;
@@ -30,29 +46,56 @@ Cell::Cell(int x, int y)
     Cell::adjacentLocations[3][0] = x - 1;
     Cell::adjacentLocations[3][1] = y;
 
+    // Positions defining the corners of a sinha square.
+    leftX =   (float)(-0.625 - size/2 + (0.25 * x));
+    rightX =  (float)(-0.625 + size/2 + (0.25 * x));
+    topY =    (float)(0.625 + size/2 - (0.25 * y));
+    bottomY = (float)(0.625 - size/2 - (0.25 * y));
+
+    // Colour for all sinhas within cell
     Cell::colour = {1.0f, 0.0f, 0.0f};
+
+    Cell::randomizeSinhas();
+
+//    std::cout << Cell::sinha1Mod << " " << Cell::sinha1Arg;
+    sinha1X = (float)(sinha1Mod * sin((double)sinha1Arg));
+    sinha2X = (float)(sinha2Mod * sin((double)sinha2Arg));
+    sinha3X = (float)(sinha3Mod * sin((double)sinha3Arg));
+    sinha4X = (float)(sinha4Mod * sin((double)sinha4Arg));
+    sinha1Y = (float)(sinha1Mod * sin((double)sinha1Arg));
+    sinha2Y = (float)(sinha2Mod * sin((double)sinha2Arg));
+    sinha3Y = (float)(sinha3Mod * sin((double)sinha3Arg));
+    sinha4Y = (float)(sinha4Mod * sin((double)sinha4Arg));
+
+//    std::cout << "Sinha 1 Randomised Values X:" << sinha1X << " Y: " << sinha1Y << std::endl;
+
+
+    // Data to be inputted into the VBO for rendering.
     Cell::sinhaVertices =
             {
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.01f, 0.01f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.01f, 0.01f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.01f, 0.01f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f,0.01f, 0.01f, 0.0f,
+            //  Position, 3 elements   Colour, 3 elements                                 Texture, 2 elements, Centre Shift, 3 elements, Unit Vector,
+                leftX,  topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f,          sinha1X, sinha1Y, 0.0f, // 1.0f,
+                rightX, topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f,          sinha1X, sinha1Y, 0.0f, // 1.0f,
+                rightX, bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f,          sinha1X, sinha1Y, 0.0f, // 1.0f,
+                leftX,  bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.0f,          sinha1X, sinha1Y, 0.0f, // 1.0f,
 
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.02f, 0.02f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.02f, 0.02f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.02f, 0.02f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f,0.02f, 0.02f, 0.0f,
+                leftX,  topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f,          sinha2X, sinha2Y, 0.0f, // 1.0f,
+                rightX, topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f,          sinha2X, sinha2Y, 0.0f, // 1.0f,
+                rightX, bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f,          sinha2X, sinha2Y, 0.0f, // 1.0f,
+                leftX,  bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.0f,          sinha2X, sinha2Y, 0.0f, // 1.0f,
 
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.03f, 0.03f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.03f, 0.03f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.03f, 0.03f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f, 0.03f, 0.03f, 0.0f,
+                leftX,  topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f,          sinha3X, sinha3Y, 0.0f, // 1.0f,
+                rightX, topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f,          sinha3X, sinha3Y, 0.0f, // 1.0f,
+                rightX, bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f,          sinha3X, sinha3Y, 0.0f, // 1.0f,
+                leftX,  bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.0f,          sinha3X, sinha3Y, 0.0f, // 1.0f,
 
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f, 0.04f, 0.04f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 + size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f, 0.04f, 0.04f, 0.0f,
-                (float)(-0.625 + size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f, 0.04f, 0.04f, 0.0f,
-                (float)(-0.625 - size/2 + (0.25 * x)), (float)(0.625 - size/2 - (0.25 * y)), 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.01f, 0.04f, 0.04f, 0.0f,
+                leftX,  topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 1.0f,          sinha4X, sinha4Y, 0.0f, // 1.0f,
+                rightX, topY,    0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 1.0f,          sinha4X, sinha4Y, 0.0f, // 1.0f,
+                rightX, bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 1.0f, 0.0f,          sinha4X, sinha4Y, 0.0f, // 1.0f,
+                leftX,  bottomY, 0.0f, Cell::colour[0], Cell::colour[1], Cell::colour[2], 0.0f, 0.0f,          sinha4X, sinha4Y, 0.0f, // 1.0f
             };
+
+    // Outlines how the each row within sinhaVertices should be connected.
     Cell::sinhaIndices =
             {
                 // Sinha 1
@@ -72,20 +115,7 @@ Cell::Cell(int x, int y)
                 14,15,12
             };
 
-//    int width, height, nrChannels;
-//    stbi_set_flip_vertically_on_load(true);
-//    Cell::texture1 = ;
-//    unsigned char *data = stbi_load("../NuclearMrinaank_Icon_SinhaDefault.png", &width, &height, &nrChannels, 0);
-//    if (data)
-//    {
-//        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-//        glGenerateMipmap(GL_TEXTURE_2D);
-//    }
-//    else
-//    {
-//        std::cout << "Failed to load texture" << std::endl;
-//    }
-//    stbi_image_free(data);
+    getAnimationVectors();
 };
 
 void Cell::buildUp(int player)
@@ -130,6 +160,7 @@ void Cell::buildUp(int player)
     if (Cell::state == Cell::unstableState)
     {
         Cell::explode();
+        Cell::randomizeSinhas();
     }
 
     // Should never happen unless an error has occured
@@ -221,10 +252,63 @@ void Cell::renderSinhas(GraphicsManager graphicsManager)
 {
     graphicsManager.bindVertex(Cell::getVAOaddress());
 
+    graphicsManager.bindTexture(*(Cell::getTEXaddress()));
+
     graphicsManager.renderExternalData(*(Cell::getEBOdata()), Cell::state);
 
     graphicsManager.unbindVertex();
 }
 
 
+void Cell::randomizeSinhas()
+{
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<double> dist(1.0, 1000.0);
+    Cell::sinha1Mod = (float)(((int)(dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
+    Cell::sinha2Mod = (float)((((int)dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
+    Cell::sinha3Mod = (float)((((int)dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
+    Cell::sinha4Mod = (float)((((int)dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
 
+    Cell::sinha1Arg = (float)((((int)dist(mt)) % Cell::maxArg) + Cell::minArg);
+    Cell::sinha2Arg = (float)((((int)dist(mt)) % Cell::maxArg) + Cell::minArg);
+    Cell::sinha3Arg = (float)((((int)dist(mt)) % Cell::maxArg) + Cell::minArg);
+    Cell::sinha4Arg = (float)((((int)dist(mt)) % Cell::maxArg) + Cell::minArg);
+}
+
+int Cell::getState()
+{
+    return Cell::state;
+}
+
+int* Cell::getAdjacentLocations()
+{
+    return &(adjacentLocations[0][0]);
+}
+
+std::vector< std::vector <float> > Cell::getAnimationVectors()
+{
+    std::vector< std::vector<float>> sideVectors;
+    for (int i = 0; i < unstableState; i++)
+    {
+        std::vector<float> appendingVector = {(float)(adjacentLocations[i][0] - x)/1000,(float)(adjacentLocations[i][1] - y)/1000, 0.0f};
+        sideVectors.push_back(appendingVector);
+    }
+    return sideVectors;
+
+}
+
+void Cell::explodeAnimation()
+{
+    std::vector<std::vector<float>> animationVectors = Cell::getAnimationVectors();
+    for (int i = 0; i < animationVectors.size(); i++)
+    {
+
+
+    }
+}
+
+void Cell::updateGraphicsData(GraphicsManager graphicsManager)
+{
+    graphicsManager.updateBufferData(&VAOaddress, &VBOaddress, sinhaVertices);
+}

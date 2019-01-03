@@ -14,16 +14,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54020236-d890-42fb-a556-60aff33c5f71" name="Default Changelist" comment="Development on main:&#10;- Circular dependency resolved through forward declaration of some classes.&#10;- Added transition of colours of Sinhas based off the owner of the cell.">
+    <list default="true" id="54020236-d890-42fb-a556-60aff33c5f71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NuclearMrinaank_MainMenu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NuclearMrinaank_NumPlayers.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cell.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Cell.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cell.h" beforeDir="false" afterPath="$PROJECT_DIR$/Cell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CornerCell.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CornerCell.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GraphicsManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicsManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GraphicsManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/GraphicsManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Grid.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Grid.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grid.h" beforeDir="false" afterPath="$PROJECT_DIR$/Grid.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MultithreadTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MultithreadTest.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenGlTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGlTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayerManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayerManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/fragmentShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -39,49 +43,51 @@
     <session id="1211160526">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="34" />
+          <entry key="project.closed" value="35" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.15" value="5" />
-          <entry key="project.open.time.16" value="11" />
+          <entry key="project.open.time.16" value="12" />
           <entry key="project.open.time.17" value="4" />
           <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.19" value="4" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="3" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="36" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="39065" />
-          <entry key="glsl" value="895" />
-          <entry key="h" value="5282" />
-          <entry key="txt" value="3945" />
+          <entry key="cpp" value="46047" />
+          <entry key="glsl" value="1194" />
+          <entry key="h" value="6124" />
+          <entry key="txt" value="3989" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="679" />
-          <entry key="GLSL shader file" value="894" />
-          <entry key="ObjectiveC" value="44347" />
-          <entry key="PLAIN_TEXT" value="3267" />
+          <entry key="GLSL shader file" value="1193" />
+          <entry key="ObjectiveC" value="52171" />
+          <entry key="PLAIN_TEXT" value="3311" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="c" value="3" />
           <entry key="cmake" value="1" />
-          <entry key="cpp" value="59" />
+          <entry key="cpp" value="68" />
           <entry key="fragmentShader" value="1" />
           <entry key="fs" value="1" />
-          <entry key="glsl" value="8" />
-          <entry key="h" value="41" />
+          <entry key="glsl" value="10" />
+          <entry key="h" value="42" />
           <entry key="jpg" value="3" />
-          <entry key="png" value="2" />
+          <entry key="png" value="3" />
           <entry key="txt" value="7" />
-          <entry key="vector" value="7" />
+          <entry key="vector" value="8" />
           <entry key="vertexShader" value="1" />
         </counts>
       </usages-collector>
@@ -89,9 +95,9 @@
         <counts>
           <entry key="CMakeCache.txt" value="1" />
           <entry key="CMakeLists.txt" value="7" />
-          <entry key="GLSL shader file" value="7" />
-          <entry key="Image" value="5" />
-          <entry key="ObjectiveC" value="110" />
+          <entry key="GLSL shader file" value="9" />
+          <entry key="Image" value="6" />
+          <entry key="ObjectiveC" value="121" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -134,25 +140,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Cell.h">
+        <entry file="file://$PROJECT_DIR$/Grid.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
+            <state relative-caret-position="3120">
+              <caret line="208" column="96" selection-start-line="208" selection-start-column="96" selection-end-line="208" selection-end-column="96" />
               <folding>
-                <element signature="e#111#130#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GraphicsManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-              <folding>
-                <element signature="e#134#153#0" expanded="true" />
-                <element signature="e#247#269#0" expanded="true" />
+                <element signature="e#48#67#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,11 +154,80 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cell.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            <state relative-caret-position="232">
+              <caret line="308" column="1" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cell.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CornerCell.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GraphicsManager.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding>
+                <element signature="e#276#298#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GraphicsManager.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="243" column="101" lean-forward="true" selection-start-line="243" selection-end-line="244" />
+              <folding>
+                <element signature="e#48#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vertexShader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fragmentShader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Player.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -173,29 +235,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="382" column="65" selection-start-line="382" selection-start-column="65" selection-end-line="382" selection-end-column="65" />
+            <state relative-caret-position="2294">
+              <caret line="419" column="77" selection-start-line="419" selection-start-column="77" selection-end-line="419" selection-end-column="77" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#568#763#0" />
+                <element signature="e#812#1321#0" />
+                <element signature="e#1323#3248#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PlayerManager.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1740">
-              <caret line="116" column="47" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PlayerManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -204,36 +251,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Gridd</find>
-      <find>michae</find>
-      <find>MichaelChen</find>
-      <find>CornerCell</find>
-      <find>getX</find>
-      <find>getY</find>
-      <find>a</find>
-      <find>b</find>
-      <find>print()</find>
-      <find>currentPlayer</find>
-      <find>$PROJECT_DIR$/../../../</find>
-      <find>simple</find>
-      <find>cells</find>
-      <find>GraphicsManager</find>
-      <find>ass</find>
-      <find>getVaoAddress</find>
-      <find>std</find>
-      <find>assignBu</find>
+      <find>(float)(-0.625 + size/2 + (0.25 * x))</find>
+      <find>(float)(0.625 + size/2 - (0.25 * y))</find>
+      <find>(float)(0.625 - size/2 - (0.25 * y))</find>
+      <find>playerIndex =</find>
+      <find>checkCl</find>
+      <find>checkClick</find>
+      <find>check</find>
+      <find>checkC</find>
+      <find>click</find>
+      <find>client</find>
+      <find>chec</find>
+      <find>clien</find>
+      <find>renderMainMenu</find>
+      <find>renderMaine</find>
+      <find>renderSinhas</find>
+      <find>renderMain</find>
+      <find>*gridPtr</find>
+      <find>checkPlayer</find>
+      <find>handlePlayer</find>
+      <find>png</find>
       <find>std::cout</find>
-      <find>VAO add</find>
-      <find>gl</find>
-      <find>VAOaddress</find>
-      <find>glBindBuffer</find>
-      <find>assignBuff</find>
-      <find>assignB</find>
+      <find>checkValid</find>
+      <find>1px</find>
+      <find>explode()</find>
+      <find>iteratePlayer</find>
+      <find>handle</find>
+      <find>struct</find>
       <find>build</find>
-      <find>waitE</find>
-      <find>math</find>
-      <find>return</find>
-      <find>processInput</find>
+      <find>buil</find>
+      <find>Sinha 1</find>
     </findStrings>
     <replaceStrings>
       <replace>yr12</replace>
@@ -259,7 +306,6 @@
         <option value="$PROJECT_DIR$/Test Driver.cpp" />
         <option value="$PROJECT_DIR$/TestDriver.cpp" />
         <option value="$PROJECT_DIR$/TestDriver.h" />
-        <option value="$PROJECT_DIR$/CornerCell.cpp" />
         <option value="$PROJECT_DIR$/player.h" />
         <option value="$PROJECT_DIR$/player.cpp" />
         <option value="$PROJECT_DIR$/player0.cpp" />
@@ -277,18 +323,19 @@
         <option value="$PROJECT_DIR$/MultithreaderTest.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Grid.h" />
+        <option value="$PROJECT_DIR$/PlayerManager.h" />
+        <option value="$PROJECT_DIR$/PlayerManager.cpp" />
+        <option value="$PROJECT_DIR$/GraphicsManager.h" />
+        <option value="$PROJECT_DIR$/OpenGlTest.cpp" />
         <option value="$PROJECT_DIR$/Grid.cpp" />
         <option value="$PROJECT_DIR$/fragmentShader.glsl" />
         <option value="$PROJECT_DIR$/vertexShader.glsl" />
         <option value="$PROJECT_DIR$/MultithreadTest.cpp" />
-        <option value="$PROJECT_DIR$/PlayerManager.cpp" />
-        <option value="$PROJECT_DIR$/PlayerManager.h" />
+        <option value="$PROJECT_DIR$/CornerCell.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Cell.h" />
         <option value="$PROJECT_DIR$/Cell.cpp" />
-        <option value="$PROJECT_DIR$/GraphicsManager.h" />
         <option value="$PROJECT_DIR$/GraphicsManager.cpp" />
-        <option value="$PROJECT_DIR$/OpenGlTest.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -299,8 +346,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="18" />
     <option name="y" value="23" />
-    <option name="width" value="1051" />
+    <option name="width" value="1406" />
     <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -343,14 +391,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/OpenGLDylib" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="/usr/local/include" />
       <recent name="$PROJECT_DIR$/OpenGLDylib" />
       <recent name="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/OpenGLDylib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -444,7 +492,10 @@
       <workItem from="1545028875399" duration="3927000" />
       <workItem from="1545177012991" duration="11506000" />
       <workItem from="1545267047990" duration="26198000" />
-      <workItem from="1545736429259" duration="480000" />
+      <workItem from="1545736429259" duration="29222000" />
+      <workItem from="1546229198442" duration="522000" />
+      <workItem from="1546231017962" duration="6820000" />
+      <workItem from="1546416170143" duration="1419000" />
     </task>
     <task id="LOCAL-00001" summary="Plans for classes">
       <created>1535536426592</created>
@@ -621,11 +672,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545561016259</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Development on main:&#10;- Sinhas are now added based off user click.">
+      <created>1545737118399</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1545737118399</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208763000" />
+    <option name="totallyTimeSpent" value="246266000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -637,16 +695,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1051" height="873" extended-state="0" />
+    <frame x="18" y="23" width="1406" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73351645" visible="true" weight="0.1655104" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73351645" visible="true" weight="0.207478" />
       <window_info id="Structure" order="1" sideWeight="0.26648352" side_tool="true" weight="0.32188842" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49713877" weight="0.3277849" />
       <window_info active="true" anchor="bottom" x="0" y="45" width="1280" height="712" id="Run" order="2" sideWeight="0.7181688" visible="true" weight="0.43661973" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86552215" weight="0.5787452" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86552215" weight="0.49167734" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985694" weight="0.3277849" />
@@ -717,7 +775,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Plans for classes" />
     <MESSAGE value="Implementation of basic linking between Cell header file, Cell source file and main project file." />
     <MESSAGE value="Implementation of basic linking between Cell header file, Cell source file and main project file.&#10;Currently, the usage of the make function of Cell.cpp results in an error.&#10;Usage of make function of main.cpp results in successful output statement." />
     <MESSAGE value="Further testing on the linking of files.&#10;Attempting to resolve error of make function on cell.cpp." />
@@ -742,7 +799,8 @@
     <MESSAGE value="Development on main:&#10;- Integration of OPENGL, screen currently shows grid which changes colour in accordance with the turn of the current player.&#10;- Currently have an issue of circular dependency which needs to be resolved." />
     <MESSAGE value="Development on main:&#10;- CIrcular dependency unresolved, commented out so code below should work." />
     <MESSAGE value="Development on main:&#10;- Circular dependency resolved through forward declaration of some classes.&#10;- Added transition of colours of Sinhas based off the owner of the cell." />
-    <option name="LAST_COMMIT_MESSAGE" value="Development on main:&#10;- Circular dependency resolved through forward declaration of some classes.&#10;- Added transition of colours of Sinhas based off the owner of the cell." />
+    <MESSAGE value="Development on main:&#10;- Sinhas are now added based off user click." />
+    <option name="LAST_COMMIT_MESSAGE" value="Development on main:&#10;- Sinhas are now added based off user click." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -752,17 +810,20 @@
           <line>42</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/PlayerManager.cpp</url>
+          <line>107</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/CornerCell.cpp</url>
+          <line>44</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="1496" selection-start-line="1496" selection-end-line="1496" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SideCell.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -882,23 +943,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MultithreadTest.h" />
-    <entry file="file://$PROJECT_DIR$/Player.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SideCell.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CornerCell.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
@@ -920,111 +967,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vertexShader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fragmentShader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PlayerManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="116" column="47" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/NuclearMrinaank_MainMenu.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/PlayerManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grid.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-243">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding>
-            <element signature="e#48#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MultithreadTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding>
-            <element signature="e#49#68#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="262">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenGlTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-998">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="76">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="18" />
           <folding>
             <element signature="e#41#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GraphicsManager.cpp">
+    <entry file="file://$PROJECT_DIR$/PlayerManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2302">
-          <caret line="154" column="58" selection-start-line="154" selection-start-column="58" selection-end-line="154" selection-end-column="58" />
+        <state relative-caret-position="1269">
+          <caret line="135" column="15" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MultithreadTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="448" selection-start-line="448" selection-end-line="448" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grid.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3120">
+          <caret line="208" column="96" selection-start-line="208" selection-start-column="96" selection-end-line="208" selection-end-column="96" />
           <folding>
             <element signature="e#48#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GraphicsManager.h">
+    <entry file="file://$PROJECT_DIR$/Player.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#134#153#0" expanded="true" />
-            <element signature="e#247#269#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Cell.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
-          <folding>
-            <element signature="e#111#130#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="334">
+          <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CornerCell.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Cell.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        <state relative-caret-position="232">
+          <caret line="308" column="1" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vertexShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#276#298#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="243" column="101" lean-forward="true" selection-start-line="243" selection-end-line="244" />
+          <folding>
+            <element signature="e#48#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="382" column="65" selection-start-line="382" selection-start-column="65" selection-end-line="382" selection-end-column="65" />
+        <state relative-caret-position="2294">
+          <caret line="419" column="77" selection-start-line="419" selection-start-column="77" selection-end-line="419" selection-end-column="77" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#568#763#0" />
+            <element signature="e#812#1321#0" />
+            <element signature="e#1323#3248#0" />
           </folding>
         </state>
       </provider>

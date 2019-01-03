@@ -11,8 +11,8 @@
 
 //defining static vector Grid::cells
 std::vector<std::vector<Cell> > Grid::cells;
-std::vector<float> backgroundVertices;
-std::vector<unsigned int> backgroundIndices;
+//std::vector<float> backgroundVertices;
+//std::vector<unsigned int> backgroundIndices;
 
 // Grid constructor
 Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize), height(ySize)
@@ -54,6 +54,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             array[position].getEBOaddress(),
                             array[position].getTEXaddress()
                             );
+
+//                    std::cout << *(array[position].getTEXaddress());
                 }
 
                     // The addition of 1 is required as "row" is indexed from 0 while "width" is indexed from 1
@@ -70,6 +72,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             array[position].getEBOaddress(),
                             array[position].getTEXaddress()
                     );
+
+//                    std::cout << *(array[position].getTEXaddress());
                 }
 
                     // If not a corner cell, pushes it as a side cell
@@ -85,6 +89,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             array[position].getEBOaddress(),
                             array[position].getTEXaddress()
                     );
+
+//                    std::cout << *(array[position].getTEXaddress());
                 }
             }
 
@@ -103,6 +109,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             array[position].getEBOaddress(),
                             array[position].getTEXaddress()
                     );
+
+//                    std::cout << *(array[position].getTEXaddress());
                 }
                 else if ((row + 1 - height) == 0)
                 {
@@ -116,6 +124,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             array[position].getEBOaddress(),
                             array[position].getTEXaddress()
                     );
+
+//                    std::cout << *(array[position].getTEXaddress());
                 }
                 else
                 {
@@ -129,6 +139,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                             array[position].getEBOaddress(),
                             array[position].getTEXaddress()
                     );
+
+//                    std::cout << *(array[position].getTEXaddress());
                 }
             }
 
@@ -145,7 +157,10 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                         array[position].getEBOaddress(),
                         array[position].getTEXaddress()
                 );
+
+//                std::cout << *(array[position].getTEXaddress());
             }
+
 
                 // Checks to see if it is a bottom side cell
             else if ((row + 1 - height) == 0)
@@ -160,6 +175,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                         array[position].getEBOaddress(),
                         array[position].getTEXaddress()
                 );
+
+//                std::cout << *(array[position].getTEXaddress());
             }
 
                 // As its not a corner cell or a side cell, its a default cell
@@ -175,6 +192,8 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
                         array[position].getEBOaddress(),
                         array[position].getTEXaddress()
                 );
+
+//                std::cout << *(array[position].getTEXaddress());
             }
         }
         // Adds the array to cells. This arrays is essentially the row of the grid.
@@ -184,136 +203,136 @@ Grid::Grid(int xSize, int ySize, GraphicsManager graphicsManager): width(xSize),
     // The { bracket below refuses to be indented correctly, deal with it Mrinaank.
     backgroundVertices = {
             // Background Grid
-             0.2625f,  0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f, // top right
-             0.2625f, -0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom right
-            -0.7625f, -0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom let
-            -0.7625f,  0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// top left
+             0.2625f,  0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2625f, -0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7625f, -0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom let
+            -0.7625f,  0.7625f, 0.0f,  0.85f, 0.007f, 0.007f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
 
             // Row 1
-            -0.7375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// top left
-            -0.5125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// top right
-            -0.5125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom right
-            -0.7375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,0.0f,// bottom left
+            -0.7375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.5125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.5125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.4875f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,  0.0f,0.0f,// top left
-            -0.2625f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,  0.0f,0.0f,// top right
-            -0.2625f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,  0.0f,0.0f,// bottom right
-            -0.4875f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.4875f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.2625f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.2625f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.4875f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.2375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.0125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.0125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.2375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.2375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.0125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.0125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.2375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            0.0125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            0.2375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            0.2375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            0.0125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+             0.0125f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+             0.2375f,  0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2375f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+             0.0125f,  0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
             // Row 2
-            -0.7375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.5125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.5125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.7375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.7375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.5125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.5125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.4875f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.2625f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.2625f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.4875f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.4875f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.2625f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.2625f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.4875f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.2375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.0125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.0125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.2375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.2375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.0125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.0125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.2375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            0.0125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            0.2375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            0.2375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            0.0125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+             0.0125f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+             0.2375f,  0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2375f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+             0.0125f,  0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
             // Row 3
-            -0.7375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.5125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.5125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.7375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.7375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.5125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.5125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.4875f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.2625f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.2625f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.4875f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.4875f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.2625f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.2625f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.4875f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.2375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.0125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.0125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.2375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.2375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.0125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.0125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.2375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            0.0125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            0.2375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            0.2375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            0.0125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+             0.0125f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+             0.2375f,  0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2375f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+             0.0125f,  0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
             // Row 4
-            -0.7375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.5125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.5125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.7375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.7375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.5125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.5125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.4875f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.2625f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.2625f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.4875f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.4875f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.2625f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.2625f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.4875f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.2375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.0125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.0125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.2375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.2375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.0125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.0125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.2375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            0.0125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            0.2375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            0.2375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            0.0125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+             0.0125f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+             0.2375f,  -0.0125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2375f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+             0.0125f,  -0.2375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
             // Row 5
-            -0.7375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.5125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.5125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.7375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.7375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.5125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.5125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.4875f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.2625f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.2625f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.4875f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.4875f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.2625f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.2625f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.4875f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.2375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.0125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.0125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.2375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.2375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.0125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.0125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.2375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            0.0125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            0.2375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            0.2375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            0.0125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+             0.0125f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+             0.2375f,  -0.2625f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2375f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+             0.0125f,  -0.4875f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
             // Row 6
-            -0.7375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.5125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.5125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.7375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.7375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.5125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.5125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.7375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.4875f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.2625f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.2625f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.4875f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.4875f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.2625f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.2625f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.4875f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            -0.2375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            -0.0125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            -0.0125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            -0.2375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+            -0.2375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+            -0.0125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+            -0.0125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+            -0.2375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom left
 
-            0.0125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top left
-            0.2375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// top right
-            0.2375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom right
-            0.0125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,0.0f,0.0f,// bottom left
+             0.0125f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top left
+             0.2375f,  -0.5125f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // top right
+             0.2375f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom right
+             0.0125f,  -0.7375f, 0.0f,  0.0f, 0.0f, 0.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom left
         };
 
     backgroundIndices = {

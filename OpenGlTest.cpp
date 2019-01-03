@@ -14,7 +14,7 @@
 #include <pthread.h>
 #include <vector>
 
-// 1px  = 0.0025f
+// 1px  = -0.0025f
 // 10px = 0.025f
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)

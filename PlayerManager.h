@@ -35,6 +35,10 @@ public:
 
     int getCurrentPlayer();
 
+    void setPlayers(int input);
+
+    void nextPlayer();
+
 private:
 
     int numPlayers;

@@ -8,15 +8,10 @@
 
 int main()
 {
-    std::vector<int> arg, kwarg;
-    std::vector<int>* argPtr = &arg;
-    arg= {0,1,2,3};
+    int test[4][2] = {{0,1},{2,3},{4,5},{6,7}};
+    std::cout << std::endl;
+    std::cout << *(&test[0][0] + 3) << std::endl;
 
-    kwarg = {(*argPtr)[0],4,5,6};
-    for (int element; element < kwarg.size(); element++)
-    {
-        std::cout << kwarg[element];
-    }
 
     return 0;
 }

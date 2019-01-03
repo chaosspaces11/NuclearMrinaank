@@ -10,6 +10,7 @@
 #include <stb_image.h>
 #include <vector>
 #include "GLUT/glut.h"
+#include "PlayerManager.h"
 #include <thread>
 #include <cmath>
 #include <chrono>
@@ -48,29 +49,29 @@ GraphicsManager::GraphicsManager()
 
     GraphicsManager::clientVertices = {
             // Background Grid
-            1.0f, 1.0f, 1.0f,     1.0f, 1.0f, 1.0f,   0.0f, 0.0f,  0.0f, 0.0f, 0.0f,// top right corner
-            1.0f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// bottom right corner
-            -1.0f, -1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// bottom left corner
-            -1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// top left corner
+             1.0f,  1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// top right corner
+             1.0f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom right corner
+            -1.0f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom left corner
+            -1.0f,  1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// top left corner
 
-            0.975f, 1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// top right corner gridded
-            0.975f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// bottom right corner gridded
+            0.975f,  1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// top right corner gridded
+            0.975f, -1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom right corner gridded
 
-            1.0f, 0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// top right corner gridded
-            -1.0f, 0.975f, 1.0f,  1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// bottom right corner gridded
+             1.0f, 0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// top right corner gridded
+            -1.0f, 0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom right corner gridded
 
-            -0.975f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// top right corner gridded
-            -0.975f, -1.0f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// bottom right corner gridded
+            -0.975f, 1.0f, 1.0f,   1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// top right corner gridded
+            -0.975f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom right corner gridded
 
-            -1.0f, -0.975f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// top right corner gridded
-            1.0f, -0.975f, 1.0f,    1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// bottom right corner gridded
+            -1.0f, -0.975f, 1.0f,  1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// top right corner gridded
+            1.0f, -0.975f, 1.0f,   1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,  0.0f, 0.0f, 0.0f,// bottom right corner gridded
 
             // Dividing Bar
-            0.5125f, 1.0f, 1.0f,  1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,// 12
-            0.4875f, 1.0f, 1.0f,  1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+            0.5125f, 1.0f, 1.0f,  1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,   0.0f, 0.0f, 0.0f,// 12
+            0.4875f, 1.0f, 1.0f,  1.0f, 1.0f, 1.0f,   -1.0f, -1.0f,   0.0f, 0.0f, 0.0f,
 
-            0.5125f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            0.4875f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f
+            0.5125f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  -1.0f, -1.0f,   0.0f, 0.0f, 0.0f,
+            0.4875f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  -1.0f, -1.0f,   0.0f, 0.0f, 0.0f
     };
 
     GraphicsManager::clientIndices = {
@@ -113,7 +114,96 @@ GraphicsManager::GraphicsManager()
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(8 * sizeof(float)));
     glEnableVertexAttribArray(3);
 
+
     glBindVertexArray(0);
+
+    GraphicsManager::menuVertices = {
+             1.0f,  1.0f, 0.0f,    0.0f, 0.0f, 0.0f,   1.0f, 1.0f,  0.0f, 0.0f, 0.0f, // top right corner
+             1.0f, -1.0f, 0.0f,    0.0f, 0.0f, 0.0f,   1.0f, 0.0f,  0.0f, 0.0f, 0.0f, // bottom right corner
+            -1.0f, -1.0f, 0.0f,    0.0f, 0.0f, 0.0f,   0.0f, 0.0f,  0.0f, 0.0f, 0.0f, // bottom left corner
+            -1.0f,  1.0f, 0.0f,    0.0f, 0.0f, 0.0f,   0.0f, 1.0f,  0.0f, 0.0f, 0.0f, // top left corner
+    };
+
+    GraphicsManager::menuIndices = {
+            0,1,2,
+            2,3,0
+    };
+
+    glGenVertexArrays(1, &menuVAO);
+    glGenBuffers(1, &menuVBO);
+    glGenBuffers(1, &menuEBO);
+    glGenTextures(1, &menuTEX);
+
+    glBindVertexArray(menuVAO);
+    glBindTexture(GL_TEXTURE_2D, menuTEX);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    stbi_set_flip_vertically_on_load(true);
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("../NuclearMrinaank_MainMenu.png", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
+
+    glBindTexture(GL_TEXTURE_2D, menuTEX);
+
+    glBindBuffer(GL_ARRAY_BUFFER, menuVBO);
+    glBufferData(GL_ARRAY_BUFFER, menuVertices.size()* sizeof(float), &menuVertices[0], GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, menuEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, menuIndices.size()* sizeof(unsigned int), &menuIndices[0], GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(3* sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(8 * sizeof(float)));
+    glEnableVertexAttribArray(3);
+
+    glBindVertexArray(0);
+
+    glGenTextures(1, &playerTEX);
+    glBindTexture(GL_TEXTURE_2D, playerTEX);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    stbi_set_flip_vertically_on_load(true);
+//    int width, height, nrChannels;
+    data = stbi_load("../NuclearMrinaank_NumPlayers.png", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
+    glBindTexture(GL_TEXTURE_2D, playerTEX);
 
 }
 
@@ -130,33 +220,99 @@ void GraphicsManager::processInput(GLFWwindow *window)
     }
 }
 
-void GraphicsManager::clickHandler(GLFWwindow *window, int button, int action, int mods)
+
+void GraphicsManager::handleGridClick(Grid grid, PlayerManager* playerManagerPtr)
 {
-    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+    int state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
+    if (state == GLFW_PRESS)
     {
-//        std::cout << "Button press detected" << std::endl;
         double xpos, ypos;
+        int updatedX, updatedY;
         glfwGetCursorPos(window, &xpos, &ypos);
-        std::cout << "Mouse X:" << floor(xpos/100) << std::endl;
-        std::cout << "Mouse Y:" << floor(ypos/100) << std::endl;
+        updatedX = (int)(floor(xpos/100)-1);
+        updatedY = (int)(floor(ypos/100)-1);
+
+        std::cout << "Current player: " << (playerManagerPtr->getCurrentPlayer()) << std::endl;
+
+        if (updatedX >= 0 && updatedX < grid.getWidth() && updatedY >= 0 && updatedY < grid.getHeight() )
+        {
+            if (playerManagerPtr->getCurrentPlayer() == grid.getCellAt(updatedX, updatedY)->getPlayer() ||
+                grid.getCellAt(updatedX, updatedY)->getPlayer() == 0)
+            {
+                Cell *currentCell = grid.getCellAt(updatedX, updatedY);
+                currentCell->buildUp(playerManagerPtr->getCurrentPlayer());
+//                GraphicsManager::updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+                // Time out
+
+                // Needs to increment current player by 1.
+                playerManagerPtr->nextPlayer();
+                std::this_thread::sleep_for(std::chrono::milliseconds(300));
+                playerManagerPtr->iteratePlayer(grid);
+            }
+            else
+            {
+                std::cout << grid.getCellAt(updatedX, updatedY)->getPlayer() << std::endl;
+            }
+        }
+
     }
 }
 
-void GraphicsManager::checkClick(Grid grid, int player)
+int GraphicsManager::handleMenuClick()
 {
     int state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
     if (state == GLFW_PRESS)
     {
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
-        std::cout << "Mouse X:" << floor(xpos/100) << std::endl;
-        std::cout << "Mouse Y:" << floor(xpos/100) << std::endl;
-        // Buildup
-        grid.getCellAt(floor(xpos/100)-1,floor(ypos/100)-1)->buildUp(player);
-        // Time out
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::cout << xpos << " " << ypos << std::endl;
+
+        if (xpos <= 600 && xpos >= 200 && ypos <= 630 && ypos >= 530)
+        {
+            std::cout << "Lobby clicked" << std::endl;
+            return 0;
+        }
+        else
+        {
+            return -1;
+        }
     }
+    else
+    {
+        return -1;
+    }
+
 }
+
+int GraphicsManager::handlePlayerClick()
+{
+    int state = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
+    if (state == GLFW_PRESS)
+    {
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+//        std::cout << xpos << " " << ypos << std::endl;
+//        std::cout << "Player clicked" << std::endl;
+
+        if (ypos <= 450 && ypos >= 350)
+        {
+            if(xpos >= 165 && xpos <= 265)
+            {
+                return 2;
+            }
+            else if(xpos >= 350 && xpos <= 450)
+            {
+                return 3;
+            }
+            else if (xpos >= 540 && xpos <= 640)
+            {
+                return 4;
+            }
+        }
+    }
+    return -1;
+}
+
 void GraphicsManager::renderWindow()
 {
     GraphicsManager::processInput(window);
@@ -164,13 +320,32 @@ void GraphicsManager::renderWindow()
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-
-
 void GraphicsManager::renderClient()
 {
     glBindVertexArray(clientVAO);
-    glDrawElements(GL_TRIANGLES, clientIndices.size() * 3, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES,(int)(clientIndices.size()*3), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+}
+
+void GraphicsManager::renderMainMenu()
+{
+    glBindVertexArray(menuVAO);
+    GraphicsManager::bindTexture(GraphicsManager::menuTEX);
+    glDrawElements(GL_TRIANGLES, (int)(menuIndices.size()*3), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+}
+
+void GraphicsManager::renderPlayer()
+{
+    glBindVertexArray(menuVAO);
+    GraphicsManager::bindTexture(GraphicsManager::playerTEX);
+    glDrawElements(GL_TRIANGLES, (int)(menuIndices.size()*3), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+}
+
+void GraphicsManager::bindTexture(unsigned int TEXaddress)
+{
+    glBindTexture(GL_TEXTURE_2D, TEXaddress);
 }
 
 GLFWwindow* GraphicsManager::getWindow()
@@ -204,6 +379,9 @@ void GraphicsManager::assignBufferData(unsigned int* VAOaddress, std::vector<flo
 
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(8 * sizeof(float)));
     glEnableVertexAttribArray(3);
+
+//    glVertexAttribPointer(4, 1, GL_FLOAT, GL_FALSE, 12 * sizeof(float), (void*)(11 * sizeof(float)));
+//    glEnableVertexAttribArray(4);
 
     glBindVertexArray(0);
 //    glBindVertexArray(2);
@@ -258,6 +436,11 @@ void GraphicsManager::assignBufferData(unsigned int* VAOaddress, std::vector<flo
 
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(8 * sizeof(float)));
     glEnableVertexAttribArray(3);
+
+//    glVertexAttribPointer(4, 1, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(11 * sizeof(float)));
+//    glEnableVertexAttribArray(4);
+
+
     glBindTexture(GL_TEXTURE_2D, *TEXaddress);
 
     glBindVertexArray(0);
@@ -272,7 +455,7 @@ void GraphicsManager::bindVertex(unsigned int* VAOaddress)
 
 void GraphicsManager::renderExternalData(std::vector<unsigned int> EBOdata)
 {
-    glDrawElements(GL_TRIANGLES, EBOdata.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, (int)EBOdata.size(), GL_UNSIGNED_INT, 0);
 }
 
 void GraphicsManager::renderExternalData(std::vector<unsigned int> EBOdata, int elements)

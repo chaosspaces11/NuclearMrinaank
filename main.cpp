@@ -145,11 +145,8 @@ bool ipParser (std::string data)
 
 struct ChangeLogger
 {
-    // After player has changed, update grid colour.
-    bool playerChanged;
-
-    // After grid changed, reset empty cells to 0.
-    bool gridChanged;
+    //
+    bool roundProgressed;
 
     std::vector<std::vector<int>> coordLogs;
 
@@ -357,15 +354,18 @@ int main()
     int server = -1;
     int players = -1;
 
+    clock_t roundClockInitial;
+    clock_t roundClockFinal;
+    roundClockInitial = clock();
+
     PlayerManager playerManager(2);
     GraphicsManager graphicsManager;
     Grid grid(gridWidth, gridHeight,graphicsManager);
     Shader ourShader( "../vertexShader.glsl", "../fragmentShader.glsl");
 
-    ChangeLogger dataLog = {.playerChanged = false, .gridChanged = false, .coordLogs = {}};
+    ChangeLogger dataLog = {.roundProgressed = false, .coordLogs = {}};
 
     graphicsManager.assignBufferData((grid).getVAOAddress(), *(grid).getVBOData(), (grid).getVBOAddress(), *(grid).getEBOData(), (grid).getEBOAddress());
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     while(!glfwWindowShouldClose(graphicsManager.getWindow()))
     {
@@ -393,25 +393,34 @@ int main()
 
                 if (players > 1 && players < 5)
                 {
-                    std::cout << "Ran" << players << std::endl;
                     playerManager.setPlayers(players);
-                    std::cout << playerManager.getPlayers();
                 }
+                roundClockInitial = clock();
             }
             else
             {
+                roundClockFinal = clock();
                 // Renders client - Outer white boarder.
                 graphicsManager.renderClient();
 
                 // Renders grid
 
                 // If player changed
-                graphicsManager.updateGridColour(playerManager.getCurrentPlayer(), &grid);
-                // End if
+                if ((float)(roundClockFinal - roundClockInitial)/CLOCKS_PER_SEC > 0.01)
+                {
+                    roundClockInitial = clock();
+                    graphicsManager.handleGridClick((grid), &playerManager);
+
+                }
 
                 (grid).renderGameGrid(graphicsManager);
-                graphicsManager.handleGridClick((grid), &playerManager);
 
+                if (dataLog.roundProgressed)
+                {
+                    graphicsManager.updateGridColour(playerManager.getCurrentPlayer(), &grid);
+                    dataLog.roundProgressed = false;
+                    roundClockInitial = clock();
+                }
                 // Rotation Matrix
 
                 // Renders sinhas
@@ -419,16 +428,26 @@ int main()
                 {
                     for (int column = 0; column < grid.getWidth(); column ++)
                     {
-
-
-
                         Cell* currentCell = Grid::getCellAt(column,row);
-                        glm::mat4 transform = glm::mat4(1.0f);
-                        transform = glm::rotate(transform, (float)glfwGetTime()*2 * (currentCell->getState()+1), glm::vec3(0.0, 0.0, 1.0));
+                        glm::mat4 rotationAnimation = glm::mat4(1.0f);
+                        rotationAnimation = glm::rotate(rotationAnimation, (float)glfwGetTime()* 2 * (currentCell->getState()+1), glm::vec3(1.0, 0.0, 1.0));
                         GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
 
-                        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
-//                        graphicsManager.updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+                        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(rotationAnimation));
+
+                        glm::mat4 explosionAnimation = glm::mat4(1.0f);
+
+                        if (currentCell->getChanged())
+                        {
+                            graphicsManager.updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+                            dataLog.coordLogs.push_back({column,row});
+                            dataLog.roundProgressed = true;
+                            currentCell->toggleChanged();
+                        }
+                        if (currentCell->getState() == 0)
+                        {
+                            currentCell->resetOwner();
+                        }
                         currentCell->renderSinhas(graphicsManager);
                     }
                 }

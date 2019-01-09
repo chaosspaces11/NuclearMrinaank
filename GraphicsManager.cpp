@@ -246,7 +246,6 @@ void GraphicsManager::handleGridClick(Grid grid, PlayerManager* playerManagerPtr
 
                 // Needs to increment current player by 1.
                 playerManagerPtr->nextPlayer();
-                std::this_thread::sleep_for(std::chrono::milliseconds(300));
                 playerManagerPtr->iteratePlayer(grid);
             }
             else

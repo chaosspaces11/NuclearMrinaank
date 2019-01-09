@@ -37,7 +37,7 @@ public:
     void concludeRendering();
 
     void bindVertex(unsigned int* VAOaddress);
-    void renderExternalData(std::vector<unsigned int> EBOdata);
+    static void renderExternalData(std::vector<unsigned int> EBOdata);
     void renderExternalData(std::vector<unsigned int> EBOdata, int elements);
     void unbindVertex();
 

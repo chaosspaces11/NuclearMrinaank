@@ -26,6 +26,8 @@ Cell::Cell(int x, int y)
     Cell::maxArg = 360;
     Cell::minArg = 100;
 
+    Cell::changed = false;
+
     // Graphics related initialisation
     float size = 0.125;
     float leftX,rightX,topY,bottomY;
@@ -156,6 +158,11 @@ void Cell::buildUp(int player)
     // Increases state
     Cell::state += 1;
 
+    if (!(Cell::changed))
+    {
+        Cell::toggleChanged();
+    }
+
     // Cell has exceeded maximum state
     if (Cell::state == Cell::unstableState)
     {
@@ -178,6 +185,7 @@ void Cell::explode()
 
 
     std::cout <<"Explosion at (" << x + 1<< "," << y + 1<< ")!" << std::endl;
+    Cell::explodeAnimation();
 
     // For each Sinha within cell, distribute one to each neighbouring cell
     for (int i = 0; i < Cell::unstableState;i++)
@@ -301,14 +309,29 @@ std::vector< std::vector <float> > Cell::getAnimationVectors()
 void Cell::explodeAnimation()
 {
     std::vector<std::vector<float>> animationVectors = Cell::getAnimationVectors();
-    for (int i = 0; i < animationVectors.size(); i++)
+    std::vector<std::vector<float>> swappingBuffer = {};
+    for (int i = 0; i < animationVectors.size()*4; i++)
     {
-
-
+        swappingBuffer.push_back({Cell::sinhaVertices[i*11+8],Cell::sinhaVertices[i*11+9]});
     }
 }
 
 void Cell::updateGraphicsData(GraphicsManager graphicsManager)
 {
     graphicsManager.updateBufferData(&VAOaddress, &VBOaddress, sinhaVertices);
+}
+
+void Cell::toggleChanged()
+{
+    Cell::changed = !Cell::changed;
+}
+
+bool Cell::getChanged()
+{
+    return Cell::changed;
+}
+
+void Cell::resetOwner()
+{
+    Cell::player = 0;
 }

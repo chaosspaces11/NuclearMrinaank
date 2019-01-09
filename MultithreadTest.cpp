@@ -8,10 +8,7 @@
 
 int main()
 {
-    int test[4][2] = {{0,1},{2,3},{4,5},{6,7}};
-    std::cout << std::endl;
-    std::cout << *(&test[0][0] + 3) << std::endl;
-
-
+    std::vector<int> qwert = {0,1,2,3};
+    qwert.pop_back();
     return 0;
 }

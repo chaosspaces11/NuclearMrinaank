@@ -54,6 +54,11 @@ public:
 
     void updateGraphicsData(GraphicsManager graphicsManager);
 
+    void toggleChanged();
+
+    bool getChanged();
+
+    void resetOwner();
 //private:
 
     // Protected allows for child classes to access the attribute
@@ -95,6 +100,9 @@ protected:
     int maxArg, minArg;
 
     void randomizeSinhas();
+
+    bool changed;
+    bool exploding;
 
 
 };

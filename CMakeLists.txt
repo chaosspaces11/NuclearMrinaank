@@ -6,17 +6,18 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Boost 1.64.0 COMPONENTS system filesystem thread REQUIRED)
 find_package(OpenGL REQUIRED)
 
-include_directories(OpenGLDylib/glfw-3.2.1)
-find_package(glfw3)
-include_directories(OpenGLDylib/glfw-3.2.1/deps)
+#include_directories(OpenGLDylib/glfw-3.2.1)
+#include_directories(OpenGLDylib/glfw-3.2.1/deps)
+#include_directories(OpenGLDylib/glfw-3.2.1/src/CMakeFiles)
+find_package(glfw3 PATHS OpenGLDylib/glfw-3.2.1/src/CMakeFiles)
 
-#find_library(GLFW3 libglfw.3.2.dylib PATHS ikkkk)
+find_library(glfw3 libglfw.3.2.dylib PATHS OpenGLDylib)
 #
 #find_library(GLEW libGLEW.2.1.0.dylib PATHS /usr/local/Cellar/glew/2.1.0/lib)
 #
 set(ALL_LIBS
         ${OPENGL_LIBRARY}
-        ${GLFW3}
+        ${glfw3}
         )
 
 if(Boost_FOUND)

@@ -34,8 +34,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -57,8 +55,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -90,8 +86,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -113,8 +107,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -136,8 +128,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -159,8 +149,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -182,8 +170,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>
@@ -205,8 +191,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1"/>
-					<Add directory="/Users/MichaelChen/CLionProjects/NuclearMrinaank/OpenGLDylib/glfw-3.2.1/deps"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include"/>

@@ -14,9 +14,9 @@
 #include <thread>
 #include <chrono>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "OpenGLDylib/glm/glm.hpp"
+#include "OpenGLDylib/glm/gtc/matrix_transform.hpp"
+#include "OpenGLDylib/glm//gtc/type_ptr.hpp"
 
 #include <stb_image.h>
 

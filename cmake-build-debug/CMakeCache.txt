@@ -278,6 +278,9 @@ ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 //The directory containing a CMake configuration file for glad.
 glad_DIR:PATH=glad_DIR-NOTFOUND
 
+//Path to a library.
+glfw3:FILEPATH=/usr/local/lib/libglfw.3.2.dylib
+
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=/usr/local/lib/cmake/glfw3
 

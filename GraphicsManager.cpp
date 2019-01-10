@@ -5,7 +5,7 @@
 #include "Grid.h"
 #include "GraphicsManager.h"
 #include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "OpenGLDylib/glfw-3.2.1/include/GLFW/glfw3.h"
 #include "OpenGlShader.h"
 #include <stb_image.h>
 #include <vector>

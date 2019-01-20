@@ -52,13 +52,26 @@ public:
 
     void explodeAnimation();
 
-    void updateGraphicsData(GraphicsManager graphicsManager);
+    void updateGraphicsData();
 
     void toggleChanged();
 
     bool getChanged();
 
     void resetOwner();
+
+    bool getExploding();
+
+    void finishExploding();
+
+    float getExplosionInitial();
+
+    void setExploding(bool value);
+
+    void incrementExplosion();
+
+    void distributeSinhas();
+
 //private:
 
     // Protected allows for child classes to access the attribute
@@ -104,6 +117,10 @@ protected:
     bool changed;
     bool exploding;
 
+    float explosionClockInitial;
+
+    std::vector<std::vector<float>> swappingBuffer;
+//    float explosionClockFinal;
 
 };
 

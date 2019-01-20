@@ -49,10 +49,7 @@ public:
     void assignBufferData(unsigned int* VAOaddress, std::vector<float> VBOdata ,unsigned int* VBOaddress,std::vector<unsigned int> EBOdata,unsigned int* EBOaddress);
     void assignBufferData(unsigned int* VAOaddress, std::vector<float> VBOdata ,unsigned int* VBOaddress,std::vector<unsigned int> EBOdata,unsigned int* EBOaddress, unsigned int* TEXaddress);
 
-    void updateBufferData(unsigned int* VAOaddress, unsigned int* bufferAddress, std::vector<float> updatedData);
-//    void updateBufferData(unsigned int* bufferAddress, std::vector<unsigned int> updatedData);
-
-//    static void gridClickHandler(GLFWwindow *window, int button, int action, int mods);
+    static void updateBufferData(unsigned int* VAOaddress, unsigned int* bufferAddress, std::vector<float> updatedData);
 
     void handleGridClick(Grid grid, PlayerManager* playerManagerPtr);
     int  handleMenuClick();

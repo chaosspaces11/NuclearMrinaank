@@ -148,10 +148,9 @@ struct ChangeLogger
     //
     bool roundProgressed;
 
-    std::vector<std::vector<int>> coordLogs;
+    std::vector<std::vector<int>> explodeQueue;
 
-    // Detects if an explosion animation is supposed to be rendered.
-    bool explosionActive;
+    std::vector<std::vector<int>> coordLogs;
 
 
 
@@ -356,14 +355,19 @@ int main()
 
     clock_t roundClockInitial;
     clock_t roundClockFinal;
-    roundClockInitial = clock();
+//    roundClockInitial = clock();
 
     PlayerManager playerManager(2);
     GraphicsManager graphicsManager;
     Grid grid(gridWidth, gridHeight,graphicsManager);
     Shader ourShader( "../vertexShader.glsl", "../fragmentShader.glsl");
 
-    ChangeLogger dataLog = {.roundProgressed = false, .coordLogs = {}};
+    ChangeLogger dataLog = {.roundProgressed = false, .explodeQueue = {}, .coordLogs = {}};
+
+    GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+
+//    glm::mat4 transformMat = glm::mat4(1.0f);
+//    transformMat = glm::rotate(transformMat, 1, glm::vec3(1.0, 0.0, 0.0));
 
     graphicsManager.assignBufferData((grid).getVAOAddress(), *(grid).getVBOData(), (grid).getVBOAddress(), *(grid).getEBOData(), (grid).getEBOAddress());
 
@@ -374,10 +378,15 @@ int main()
         // Renders window
         graphicsManager.renderWindow();
 
+
+        // If server mode is not yet selected
         if (server == -1)
         {
+
+            // Renders graphics for main menu
             graphicsManager.renderMainMenu();
 
+            // Handles user input
             server = graphicsManager.handleMenuClick();
 
         }
@@ -400,46 +409,75 @@ int main()
             else
             {
                 roundClockFinal = clock();
+
                 // Renders client - Outer white boarder.
                 graphicsManager.renderClient();
 
-                // Renders grid
-
-                // If player changed
-                if ((float)(roundClockFinal - roundClockInitial)/CLOCKS_PER_SEC > 0.01)
+                // If there is no explosion queued.
+                if (dataLog.explodeQueue.size() == 0 && ((float)(roundClockFinal-roundClockInitial)/CLOCKS_PER_SEC) > 0.005)
                 {
-                    roundClockInitial = clock();
                     graphicsManager.handleGridClick((grid), &playerManager);
-
                 }
-
+                // Renders grid
                 (grid).renderGameGrid(graphicsManager);
 
+                // Checks if player has changed and updates grid colour accordingly
                 if (dataLog.roundProgressed)
                 {
                     graphicsManager.updateGridColour(playerManager.getCurrentPlayer(), &grid);
                     dataLog.roundProgressed = false;
-                    roundClockInitial = clock();
                 }
-                // Rotation Matrix
 
                 // Renders sinhas
                 for (int row = 0; row < grid.getHeight(); row++)
                 {
                     for (int column = 0; column < grid.getWidth(); column ++)
                     {
+
                         Cell* currentCell = Grid::getCellAt(column,row);
-                        glm::mat4 rotationAnimation = glm::mat4(1.0f);
-                        rotationAnimation = glm::rotate(rotationAnimation, (float)glfwGetTime()* 2 * (currentCell->getState()+1), glm::vec3(1.0, 0.0, 1.0));
-                        GLint transformLoc = glGetUniformLocation(ourShader.ID, "transform");
 
-                        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(rotationAnimation));
+                        if (currentCell->getExploding())
+                        {
 
-                        glm::mat4 explosionAnimation = glm::mat4(1.0f);
+                            for (int i = 0; i < (currentCell->getState()); i++)
+                            {
+                                std::cout << "Sinhas:" << i << std::endl;
+
+                                std::vector<float> data = *(currentCell->getVBOdata());
+
+                                glm::mat4 transformMat = glm::mat4(1.0f);
+                                transformMat = glm::mat4(1.0f);
+
+                                auto explosionTime = (float)((clock() - currentCell->getExplosionInitial())*10/(double)(CLOCKS_PER_SEC));
+
+                                std::cout << "Explosion Time: " << explosionTime << " seconds." << std::endl;
+//                                transformMat = glm::scale(transformMat, glm::vec3(data[i*44+8] * explosionTime * 25, data[i*44+9] * explosionTime * 25,0.0));
+//                                transformMat = glm::translate(transformMat, glm::vec3(0.0, 0.0 ,(data[i*44+8] * explosionTime * 200000)));
+
+//                                transformMat = glm::scale(transformMat, glm::vec3(data[i*44+8] * explosionTime * 25, data[i*44+9] * explosionTime * 25,0.0));
+//                                glUniformMatrix4fv(transformLoc, 4, GL_FALSE, glm::value_ptr(transformMat));
+                                currentCell->incrementExplosion();
+                                currentCell->updateGraphicsData();
+
+                                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transformMat[0][0]);
+                                if (explosionTime > 1)
+                                {
+                                    std::cout << explosionTime << std::endl;
+                                    currentCell->finishExploding();
+                                }
+                            };
+
+                        }
+                        else
+                        {
+                            glm::mat4 transformMat = glm::mat4(1.0f);
+                            transformMat = glm::rotate(transformMat, (float)glfwGetTime()* 2 * (currentCell->getState()+1), glm::vec3(1.0, 0.0, 1.0));
+                            glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transformMat));
+                        };
 
                         if (currentCell->getChanged())
                         {
-                            graphicsManager.updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
+                            GraphicsManager::updateBufferData(currentCell->getVAOaddress(), currentCell->getVBOaddress(), *(currentCell->getVBOdata()));
                             dataLog.coordLogs.push_back({column,row});
                             dataLog.roundProgressed = true;
                             currentCell->toggleChanged();
@@ -458,7 +496,6 @@ int main()
         else if (server == 1)
         {
             // Establish connection to server
-            // ...
             // ...
             // ...
             // ...

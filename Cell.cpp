@@ -7,8 +7,6 @@
 
 Cell::Cell(int x, int y)
 {
-
-
     // Test output statements
 //    std::cout << "Cell file linked successfully" << std::endl;
 //    std::cout << "X: " << x << " Y: " << y << std::endl;
@@ -27,6 +25,9 @@ Cell::Cell(int x, int y)
     Cell::minArg = 100;
 
     Cell::changed = false;
+
+    Cell::exploding = false;
+
 
     // Graphics related initialisation
     float size = 0.125;
@@ -117,7 +118,8 @@ Cell::Cell(int x, int y)
                 14,15,12
             };
 
-    getAnimationVectors();
+
+
 };
 
 void Cell::buildUp(int player)
@@ -173,7 +175,7 @@ void Cell::buildUp(int player)
     // Should never happen unless an error has occured
     else if (Cell::state > Cell::unstableState)
     {
-        std::cout << "ERROR: Cell exceeded maximum stack without exploding." << std::endl;
+        std::cout << "ERROR: Cell exceeded maximum stack without exploding. This occured at X: " << Cell::x << " Y: " << Cell::y  << std::endl;
     }
 }
 
@@ -181,8 +183,7 @@ void Cell::buildUp(int player)
 void Cell::explode()
 {
     // Setting the state to 0 as it has distributed all Sinhas
-    Cell::state = 0;
-
+//    Cell::state = 0;
 
     std::cout <<"Explosion at (" << x + 1<< "," << y + 1<< ")!" << std::endl;
     Cell::explodeAnimation();
@@ -196,6 +197,7 @@ void Cell::explode()
         // Runs buildUp function on the cell.
         adjacentCell->buildUp(Cell::player);
     }
+    Cell::explosionClockInitial = clock();
 }
 
 // Current 2D GUI
@@ -308,17 +310,41 @@ std::vector< std::vector <float> > Cell::getAnimationVectors()
 
 void Cell::explodeAnimation()
 {
+    std::cout << "Explosion animation here" << std::endl;
+    Cell::exploding = true;
     std::vector<std::vector<float>> animationVectors = Cell::getAnimationVectors();
-    std::vector<std::vector<float>> swappingBuffer = {};
-    for (int i = 0; i < animationVectors.size()*4; i++)
+    Cell::swappingBuffer = {};
+    for (int i = 0; i < animationVectors.size(); i++)
     {
-        swappingBuffer.push_back({Cell::sinhaVertices[i*11+8],Cell::sinhaVertices[i*11+9]});
+        Cell::swappingBuffer.push_back({Cell::sinhaVertices[i*11+8],Cell::sinhaVertices[i*11+9]});
+        for (int a = 0; a < 4; a++)
+        {
+
+            Cell::sinhaVertices[(i*4+a)*11+8] = animationVectors[i][0];
+            Cell::sinhaVertices[(i*4+a)*11+9] = animationVectors[i][1];
+        }
+
     }
+    updateGraphicsData();
+    GraphicsManager::renderExternalData(sinhaIndices);
+
+//    // Render explosion;
+//    for (int i = 0; i < 1000; i++){
+//
+//    }
+    std::cout << "Explosion animation here" << std::endl;
+
+//    for (int i = 0; i < animationVectors.size(); i++)
+//    {
+//
+//        Cell::sinhaVertices[i*11+8] = swappingBuffer[i][0];
+//        Cell::sinhaVertices[i*11+9] = swappingBuffer[i][1];
+//    }
 }
 
-void Cell::updateGraphicsData(GraphicsManager graphicsManager)
+void Cell::updateGraphicsData()
 {
-    graphicsManager.updateBufferData(&VAOaddress, &VBOaddress, sinhaVertices);
+    GraphicsManager::updateBufferData(&VAOaddress, &VBOaddress, sinhaVertices);
 }
 
 void Cell::toggleChanged()
@@ -334,4 +360,72 @@ bool Cell::getChanged()
 void Cell::resetOwner()
 {
     Cell::player = 0;
+}
+
+bool Cell::getExploding()
+{
+    return Cell::exploding;
+}
+
+void Cell::setExploding(bool value)
+{
+    Cell::exploding = value;
+}
+
+void Cell::finishExploding()
+{
+    Cell::exploding = false;
+    Cell::state = 0;
+    //TODO: Stick swap buffer data back into sinhaVertices;
+    for (int i = 0; i < Cell::swappingBuffer.size(); i++)
+    {
+        for (int a = 0; a < 4; a++)
+        {
+            Cell::sinhaVertices[i*a*11+8] = Cell::swappingBuffer[i][0];
+            Cell::sinhaVertices[i*a*11+9] = Cell::swappingBuffer[i][1];
+        }
+
+    }
+}
+
+float Cell::getExplosionInitial()
+{
+    return Cell::explosionClockInitial;
+}
+
+
+void Cell::incrementExplosion()
+{
+    for (int dataRow = 0; dataRow < Cell::state*4; dataRow ++)
+    {
+        if (Cell::sinhaVertices[dataRow*11 + 8] > 0.0)
+        {
+            Cell::sinhaVertices[dataRow*11 + 8] += 0.0015;
+        }
+        else if (Cell::sinhaVertices[dataRow*11 + 8] < 0.0)
+        {
+            Cell::sinhaVertices[dataRow*11 + 8] -= 0.0015;
+        }
+
+        if (Cell::sinhaVertices[dataRow*11 + 9] > 0.0)
+        {
+            Cell::sinhaVertices[dataRow*11 + 9] += 0.0015;
+        }
+        else if (Cell::sinhaVertices[dataRow*11 + 9] < 0.0)
+        {
+            Cell::sinhaVertices[dataRow*11 + 9] -= 0.0015;
+        }
+    }
+}
+
+void Cell::distributeSinhas()
+{
+    for (int i = 0; i < Cell::unstableState;i++)
+    {
+        // Takes cell pointer of the adjacent cells
+        Cell* adjacentCell = Grid::getCellAt(adjacentLocations[i][0],adjacentLocations[i][1]);
+
+        // Runs buildUp function on the cell.
+        adjacentCell->buildUp(Cell::player);
+    }
 }

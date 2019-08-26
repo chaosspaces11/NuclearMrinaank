@@ -42,11 +42,9 @@ public:
     std::vector<float>* getVBOdata();
     std::vector<unsigned int>* getEBOdata();
 
-    std::vector<float> getColour();
-
     int getState();
 
-    int* getAdjacentLocations();
+//    int* getAdjacentLocations();
 
     std::vector < std::vector <float> > getAnimationVectors();
 
@@ -64,13 +62,15 @@ public:
 
     void finishExploding();
 
-    float getExplosionInitial();
-
-    void setExploding(bool value);
-
-    void incrementExplosion();
-
     void distributeSinhas();
+
+    void incrementAnimation();
+
+    int getAnimationTick();
+
+    bool getQueued();
+
+    void beginExploding();
 
 //private:
 
@@ -87,9 +87,6 @@ protected:
 
     // Y coordinate
     int y;
-
-    // Distributes objects within current cell to adjacent cells
-    virtual void explode();
 
     //State where it explodes
     int unstableState;
@@ -117,10 +114,11 @@ protected:
     bool changed;
     bool exploding;
 
-    float explosionClockInitial;
-
     std::vector<std::vector<float>> swappingBuffer;
-//    float explosionClockFinal;
+
+    int animationTick;
+
+    bool queued;
 
 };
 

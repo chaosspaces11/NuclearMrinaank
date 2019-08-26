@@ -18,16 +18,20 @@ Cell::Cell(int x, int y)
     Cell::unstableState = 4;
     Cell::player = 0;
 
+    // Max and minimum modulus for vector
     Cell::maxMod = 25;
     Cell::minMod = 5;
 
+    // Max and minimum argument for vector
     Cell::maxArg = 360;
     Cell::minArg = 100;
 
+    // Conditions noting whether the cell has been changed or exploded
     Cell::changed = false;
-
     Cell::exploding = false;
 
+    // The stage of explosioin animation cycle
+    Cell::animationTick = 0;
 
     // Graphics related initialisation
     float size = 0.125;
@@ -58,9 +62,10 @@ Cell::Cell(int x, int y)
     // Colour for all sinhas within cell
     Cell::colour = {1.0f, 0.0f, 0.0f};
 
+    // Randomizes the modulus and arguments of the cell
     Cell::randomizeSinhas();
 
-//    std::cout << Cell::sinha1Mod << " " << Cell::sinha1Arg;
+    // Generates random x,y positions corresponting to the sinhas
     sinha1X = (float)(sinha1Mod * sin((double)sinha1Arg));
     sinha2X = (float)(sinha2Mod * sin((double)sinha2Arg));
     sinha3X = (float)(sinha3Mod * sin((double)sinha3Arg));
@@ -69,9 +74,6 @@ Cell::Cell(int x, int y)
     sinha2Y = (float)(sinha2Mod * sin((double)sinha2Arg));
     sinha3Y = (float)(sinha3Mod * sin((double)sinha3Arg));
     sinha4Y = (float)(sinha4Mod * sin((double)sinha4Arg));
-
-//    std::cout << "Sinha 1 Randomised Values X:" << sinha1X << " Y: " << sinha1Y << std::endl;
-
 
     // Data to be inputted into the VBO for rendering.
     Cell::sinhaVertices =
@@ -130,10 +132,13 @@ void Cell::buildUp(int player)
     // Changes ownership of the cell to current player
     if (player != Cell::player)
     {
+        // Changes colour of the cell according to its new owner using switch cases.
         Cell::player = player;
         switch (player)
         {
             default:
+                Cell::colour = {1.0f,1.0f,1.0f};
+                break;
             case 1:
                 Cell::colour = {1.0f, 0.0f, 0.0f};
                 break;
@@ -149,6 +154,7 @@ void Cell::buildUp(int player)
 
         }
 
+        // Updates cell data to correspond with colour change
         for (int vertice = 0; vertice < (sinhaVertices.size()/11); vertice++)
         {
             sinhaVertices[vertice*11 + 3] = colour[0];
@@ -160,51 +166,32 @@ void Cell::buildUp(int player)
     // Increases state
     Cell::state += 1;
 
+    // If cell has not been changed before, it is now flagged as changed
     if (!(Cell::changed))
     {
         Cell::toggleChanged();
     }
 
-    // Cell has exceeded maximum state
-    if (Cell::state == Cell::unstableState)
+    // Cell has exceeded maximum state then set exploding to true, note there is a case in which a cell can reach 5 sinhas
+    // hence the >=
+    if (Cell::state >= Cell::unstableState)
     {
-        Cell::explode();
-        Cell::randomizeSinhas();
-    }
-
-    // Should never happen unless an error has occured
-    else if (Cell::state > Cell::unstableState)
-    {
-        std::cout << "ERROR: Cell exceeded maximum stack without exploding. This occured at X: " << Cell::x << " Y: " << Cell::y  << std::endl;
+        Cell::exploding = true;
     }
 }
 
 // Explode function that is called to distribute Sinhas to nearby cells.
-void Cell::explode()
+void Cell::beginExploding()
 {
-    // Setting the state to 0 as it has distributed all Sinhas
-//    Cell::state = 0;
-
+    Cell::queued = true;
     std::cout <<"Explosion at (" << x + 1<< "," << y + 1<< ")!" << std::endl;
     Cell::explodeAnimation();
-
-    // For each Sinha within cell, distribute one to each neighbouring cell
-    for (int i = 0; i < Cell::unstableState;i++)
-    {
-        // Takes cell pointer of the adjacent cells
-        Cell* adjacentCell = Grid::getCellAt(adjacentLocations[i][0],adjacentLocations[i][1]);
-
-        // Runs buildUp function on the cell.
-        adjacentCell->buildUp(Cell::player);
-    }
-    Cell::explosionClockInitial = clock();
 }
 
 // Current 2D GUI
 void Cell::print()
 {
     std::cout << "\x1b[3" << Cell::player << "m " << Cell::state << " \x1b[0m";
-//    std::cout << "Cell: X: " << x << " Y: " << y << " State: " << Cell::state << std::endl;
 }
 
 // Returns the owner of the cell
@@ -223,58 +210,67 @@ int Cell::getY()
     return Cell::y;
 }
 
+// Getting address for the data buffer
 unsigned int* Cell::getVAOaddress()
 {
     return &(Cell::VAOaddress);
 }
 
+// Getting address for the sinhaVertices buffer
 unsigned int* Cell::getVBOaddress()
 {
     return &(Cell::VBOaddress);
 }
 
+// Getting address for the sinhaIndices buffer
 unsigned int* Cell::getEBOaddress()
 {
     return &(Cell::EBOaddress);
 }
 
+// Getting address for the texture buffer
 unsigned int* Cell::getTEXaddress()
 {
     return &(Cell::TEXaddress);
 }
 
+// Getting VBO data, sinhaVertices
 std::vector<float>* Cell::getVBOdata()
 {
     return &(Cell::sinhaVertices);
 }
 
+// Getting EBO data, sinhaIndices
 std::vector<unsigned int>* Cell::getEBOdata()
 {
     return &(Cell::sinhaIndices);
 }
 
-std::vector<float> Cell::getColour()
-{
-    return Cell::colour;
-}
-
+// Rendering the sinhas within the cell
 void Cell::renderSinhas(GraphicsManager graphicsManager)
 {
+    // Attaches data buffer
     graphicsManager.bindVertex(Cell::getVAOaddress());
 
+    // Attaches texture buffer
     graphicsManager.bindTexture(*(Cell::getTEXaddress()));
 
+    // Renders the data using the EBO data and the number of sinhas to render
     graphicsManager.renderExternalData(*(Cell::getEBOdata()), Cell::state);
 
+    // Unbinds the data buffer
     graphicsManager.unbindVertex();
 }
 
-
+// Randomizes rotation size
 void Cell::randomizeSinhas()
 {
+    // Creates a seed for randomisation
     std::random_device rd;
     std::mt19937 mt(rd());
     std::uniform_real_distribution<double> dist(1.0, 1000.0);
+
+    // Essentially generates a random modulus and argument for each sinha
     Cell::sinha1Mod = (float)(((int)(dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
     Cell::sinha2Mod = (float)((((int)dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
     Cell::sinha3Mod = (float)((((int)dist(mt)) % Cell::maxMod) + Cell::minMod)/1000;
@@ -291,16 +287,16 @@ int Cell::getState()
     return Cell::state;
 }
 
-int* Cell::getAdjacentLocations()
-{
-    return &(adjacentLocations[0][0]);
-}
-
+// Returns animation vector for each adjacent cell to render the explosion animation
 std::vector< std::vector <float> > Cell::getAnimationVectors()
 {
+    // Temporary storage for the animaiton vectors
     std::vector< std::vector<float>> sideVectors;
+
+    // For each sinha for distribution
     for (int i = 0; i < unstableState; i++)
     {
+        // Generates a side vector for each
         std::vector<float> appendingVector = {(float)(adjacentLocations[i][0] - x)/1000,(float)(adjacentLocations[i][1] - y)/1000, 0.0f};
         sideVectors.push_back(appendingVector);
     }
@@ -309,8 +305,7 @@ std::vector< std::vector <float> > Cell::getAnimationVectors()
 }
 
 void Cell::explodeAnimation()
-{
-    std::cout << "Explosion animation here" << std::endl;
+    {
     Cell::exploding = true;
     std::vector<std::vector<float>> animationVectors = Cell::getAnimationVectors();
     Cell::swappingBuffer = {};
@@ -323,23 +318,9 @@ void Cell::explodeAnimation()
             Cell::sinhaVertices[(i*4+a)*11+8] = animationVectors[i][0];
             Cell::sinhaVertices[(i*4+a)*11+9] = animationVectors[i][1];
         }
-
     }
     updateGraphicsData();
     GraphicsManager::renderExternalData(sinhaIndices);
-
-//    // Render explosion;
-//    for (int i = 0; i < 1000; i++){
-//
-//    }
-    std::cout << "Explosion animation here" << std::endl;
-
-//    for (int i = 0; i < animationVectors.size(); i++)
-//    {
-//
-//        Cell::sinhaVertices[i*11+8] = swappingBuffer[i][0];
-//        Cell::sinhaVertices[i*11+9] = swappingBuffer[i][1];
-//    }
 }
 
 void Cell::updateGraphicsData()
@@ -367,55 +348,40 @@ bool Cell::getExploding()
     return Cell::exploding;
 }
 
-void Cell::setExploding(bool value)
-{
-    Cell::exploding = value;
-}
-
 void Cell::finishExploding()
 {
+
+
     Cell::exploding = false;
-    Cell::state = 0;
+    Cell::queued = false;
+    Cell::distributeSinhas();
+    Cell::state -= Cell::unstableState;
+
     //TODO: Stick swap buffer data back into sinhaVertices;
+    Cell::randomizeSinhas();
+
+    float sinha1X = (float)(sinha1Mod * sin((double)sinha1Arg));
+    float sinha2X = (float)(sinha2Mod * sin((double)sinha2Arg));
+    float sinha3X = (float)(sinha3Mod * sin((double)sinha3Arg));
+    float sinha4X = (float)(sinha4Mod * sin((double)sinha4Arg));
+    float sinha1Y = (float)(sinha1Mod * sin((double)sinha1Arg));
+    float sinha2Y = (float)(sinha2Mod * sin((double)sinha2Arg));
+    float sinha3Y = (float)(sinha3Mod * sin((double)sinha3Arg));
+    float sinha4Y = (float)(sinha4Mod * sin((double)sinha4Arg));
+
+    Cell::swappingBuffer = {{sinha1X,sinha1Y},{sinha2X,sinha2Y},{sinha3X,sinha3Y},{sinha4X,sinha4Y}};
+
     for (int i = 0; i < Cell::swappingBuffer.size(); i++)
     {
         for (int a = 0; a < 4; a++)
         {
-            Cell::sinhaVertices[i*a*11+8] = Cell::swappingBuffer[i][0];
-            Cell::sinhaVertices[i*a*11+9] = Cell::swappingBuffer[i][1];
+            Cell::sinhaVertices[(i*4+a)*11+8] = Cell::swappingBuffer[i][0];
+            Cell::sinhaVertices[(i*4+a)*11+9] = Cell::swappingBuffer[i][1];
         }
 
     }
-}
+    Cell::animationTick = 0;
 
-float Cell::getExplosionInitial()
-{
-    return Cell::explosionClockInitial;
-}
-
-
-void Cell::incrementExplosion()
-{
-    for (int dataRow = 0; dataRow < Cell::state*4; dataRow ++)
-    {
-        if (Cell::sinhaVertices[dataRow*11 + 8] > 0.0)
-        {
-            Cell::sinhaVertices[dataRow*11 + 8] += 0.0015;
-        }
-        else if (Cell::sinhaVertices[dataRow*11 + 8] < 0.0)
-        {
-            Cell::sinhaVertices[dataRow*11 + 8] -= 0.0015;
-        }
-
-        if (Cell::sinhaVertices[dataRow*11 + 9] > 0.0)
-        {
-            Cell::sinhaVertices[dataRow*11 + 9] += 0.0015;
-        }
-        else if (Cell::sinhaVertices[dataRow*11 + 9] < 0.0)
-        {
-            Cell::sinhaVertices[dataRow*11 + 9] -= 0.0015;
-        }
-    }
 }
 
 void Cell::distributeSinhas()
@@ -428,4 +394,19 @@ void Cell::distributeSinhas()
         // Runs buildUp function on the cell.
         adjacentCell->buildUp(Cell::player);
     }
+}
+
+void Cell::incrementAnimation()
+{
+    Cell::animationTick ++;
+}
+
+int Cell::getAnimationTick()
+{
+    return Cell::animationTick;
+}
+
+bool Cell::getQueued()
+{
+    return Cell::queued;
 }

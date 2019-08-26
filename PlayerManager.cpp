@@ -30,6 +30,7 @@ PlayerManager::PlayerManager(int numPlayers): numPlayers(numPlayers), initialRou
 // Checks the positon given to ensure that it is within the grid.
 bool PlayerManager::checkPosition(int selectedX, int selectedY, Grid mainGrid)
 {
+    // Setting width and height of grid
     int gridWidth = mainGrid.getWidth();
     int gridHeight = mainGrid.getHeight();
 

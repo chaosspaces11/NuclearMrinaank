@@ -42,7 +42,5 @@ CornerCell::CornerCell(int x, int y, int location) : Cell(x,y)
             std::cout <<"ERROR initializing corner cell at (" << x << "," << y << ")!" << std::endl;
             break;
     }
-    Cell::getAnimationVectors();
-
 }
 

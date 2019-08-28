@@ -157,8 +157,6 @@ struct ChangeLogger
 
 };
 
-
-
 // no longer used but kept as documentation of previous code
 void *dataThread()
 {
@@ -476,11 +474,7 @@ int main()
                             // Current cell has been inspected and as such, no longer different from our latest inspection
                             currentCell->toggleChanged();
                         }
-                        // If the state is 0, anyone can later place sinhas within the cell
-                        if (currentCell->getState() == 0)
-                        {
-                            currentCell->resetOwner();
-                        }
+
                         else if (currentCell->getState() > 0)
                         {
                             // If current cell is exploding, hasnt been added to the explosion queue and hasnt been over
@@ -572,13 +566,16 @@ int main()
                     // If there are cells awaiting distribution, probably redundant
                     if (dataLog.explodeDistributionQueue.size() > 0)
                     {
-                        // For each cell that needs to be distributed
-                        for (int cell = 0; cell<dataLog.explodeDistributionQueue.size(); cell++)
+                        // For each cell that needs to be distributed, we constantly pop the queue
+                        // until the queue is empty
+                        for (int cell = 0; cell<dataLog.explodeDistributionQueue.size(); )
                         {
                             // Get current cell that we are operating on
                             Cell* currentCell = Grid::getCellAt(dataLog.explodeDistributionQueue[cell][0],dataLog.explodeDistributionQueue[cell][1]);
+
                             // Remove it from distibution queue
                             dataLog.explodeDistributionQueue.erase(dataLog.explodeDistributionQueue.begin());
+
                             // Set data within the currentCell such that the explosion has finished and adds a sinha
                             // to all surrounding cells.
                             currentCell->finishExploding();

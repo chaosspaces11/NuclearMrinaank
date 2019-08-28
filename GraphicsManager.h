@@ -29,6 +29,7 @@ public:
     void renderClient();
     void renderMainMenu();
     void renderPlayer();
+    void renderPlayerWin();
 
     void bindTexture(unsigned int TEXaddress);
 

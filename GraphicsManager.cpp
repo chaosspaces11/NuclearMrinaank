@@ -204,7 +204,6 @@ GraphicsManager::GraphicsManager()
     }
     stbi_image_free(data);
     glBindTexture(GL_TEXTURE_2D, playerTEX);
-
 }
 
 void GraphicsManager::framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -220,6 +219,11 @@ void GraphicsManager::processInput(GLFWwindow *window)
     }
 }
 
+void GraphicsManager::renderPlayerWin()
+{
+
+
+}
 
 void GraphicsManager::handleGridClick(Grid grid, PlayerManager* playerManagerPtr)
 {

@@ -137,7 +137,8 @@ void Cell::buildUp(int player)
         switch (player)
         {
             default:
-                Cell::colour = {1.0f,1.0f,1.0f};
+                std::cout << "DEBUG: This cell has a 0 player (" << Cell::x  << ","<< Cell::y << ")"<< std::endl;
+                Cell::colour = {1.0f, 1.0f, 1.0f};
                 break;
             case 1:
                 Cell::colour = {1.0f, 0.0f, 0.0f};
@@ -355,7 +356,12 @@ void Cell::finishExploding()
     Cell::exploding = false;
     Cell::queued = false;
     Cell::distributeSinhas();
+
     Cell::state -= Cell::unstableState;
+    if (Cell::state == 0)
+    {
+        Cell::resetOwner();
+    }
 
     //TODO: Stick swap buffer data back into sinhaVertices;
     Cell::randomizeSinhas();
@@ -391,6 +397,12 @@ void Cell::distributeSinhas()
         // Takes cell pointer of the adjacent cells
         Cell* adjacentCell = Grid::getCellAt(adjacentLocations[i][0],adjacentLocations[i][1]);
 
+        if (adjacentLocations[i][0] == 2 && adjacentLocations[i][1] == 5)
+        {
+
+            std::cout << "DEBUG: Player distributing to (3,6) is " << Cell::player << std::endl;
+            std::cout << "DEBUG: Cell is (" << (Cell::x + 1) << "," << (Cell::y + 1) << ")" << std::endl;
+        }
         // Runs buildUp function on the cell.
         adjacentCell->buildUp(Cell::player);
     }
